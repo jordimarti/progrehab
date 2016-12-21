@@ -38,7 +38,7 @@ gem 'gibbon', '~> 2.2', '>= 2.2.4'
 gem 'paperclip', '~> 5.0'
 gem 'aws-sdk', '~> 2.3', '>= 2.3.22'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
-gem 'sendgrid-ruby'
+gem 'sendgrid-ruby', '~> 4.0', '>= 4.0.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
