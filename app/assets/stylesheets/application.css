@@ -15,3 +15,43 @@
  *= require foundation_and_overrides
 
  */
+
+.top-bar {
+	background-color: #000000;
+	padding: 0.2rem;
+}
+
+.top-bar ul {
+	background-color: #000000;
+	margin-top: 2px;
+}
+
+.top-bar li:hover {
+	background-color: #333333;
+}
+
+.top-bar-title-container {
+	color: #ffffff;
+	padding-left: 12px;
+}
+
+.top-bar-title {
+	color: #ffffff;
+}
+
+.top-bar-title:hover {
+	color: #ffffff;
+}
+
+.sessionbar-link {
+	color: #ffffff;
+	font-size: 0.9em;
+}
+
+.sessionbar-link:hover {
+	color: #ffffff;
+}
+
+.is-submenu-item {
+	background-color: #666666;
+}

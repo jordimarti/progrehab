@@ -1,0 +1,40 @@
+<div class="top-bar">
+  <div class="top-bar-title-container">
+    <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <button class="menu-icon dark" type="button" data-toggle></button>
+    </span>
+    <strong><%= link_to t('.titol'), root_path, :class => 'top-bar-title' %></strong>
+  </div>
+  <div>
+    <div class="top-bar-right">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li><a href="#" class="sessionbar-link"><%= t('.projectes') %></a></li>
+        <li><a href="#" class="sessionbar-link"><%= t('.tutorials') %></a></li>
+        <li>
+          <a href="#" class="sessionbar-link">Idioma</a>
+          <ul class="menu vertical">
+            <li><%= link_to 'Català', {:locale => 'ca'}, :class => 'sessionbar-link' %></li>
+            <li><%= link_to 'Español', {:locale => 'es'}, :class => 'sessionbar-link' %></li>
+          </ul>
+        </li>
+      
+      <% if user_signed_in? %>
+        
+        <li>
+          <a href="#" class="sessionbar-link"><%= current_user.email %></a>
+          <ul class="menu vertical">
+            <li><%= link_to t('.account_configuration'), edit_user_registration_path, :class => 'sessionbar-link' %></li>
+            <li><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, :class => 'sessionbar-link' %></li>
+          </ul>
+        </li>
+        
+      <% else %>
+        <li><%= link_to t('.register'), new_user_registration_path, :class => 'sessionbar-link'  %></li>
+        
+        <li><%= link_to t('.sign_in'), new_user_session_path, :class => 'sessionbar-link'  %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+  

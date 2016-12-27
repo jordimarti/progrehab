@@ -1,0 +1,97 @@
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: "No coincide con la confirmación"
+            current_password:
+              blank: "No puede estar en blanco"
+              invalid: "La contraseña no es válida"
+            password:
+              too_short: "La contraseña debe tener como mínimo 8 carácteres"
+              blank: "No puede estar en blanco"
+            email:
+              taken: "Este correo electrónico ya está registrado"
+              invalid: "Esta dirección de correo electrónico no es válida"
+              blank: "Es necesario escribir el correo electrónico"
+            first_name:
+              blank: "Es necesario escribir el nombre"
+            last_name:
+              blank: "Es necesario escribir los apellidos"
+  simple_form:
+    labels:
+      user:
+        first_name: 'Nombre'
+        last_name: 'Apellidos'
+        nif: 'NIF'
+        email: 'Correo electrónico'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmación de contraseña'
+        current_password: 'Contraseña actual'
+        remember_me: "Recuérdame"
+  devise:
+    sessions:
+      new:
+        login: "Iniciar sesión"
+        forgot_password: "Has olvidado tu contraseña?"
+        if_not_registered: "Si aún no te has registrado, antes debes"
+        create_account: "crear una cuenta"
+    registrations:
+      new:
+        register_title: "Crear una cuenta de usuario"
+        register_button: "Regístrate"
+        registration_needed: "Es necesario registrarse para poder introducir productos, casos prácticos o acontecimientos."
+        if_registered: "Si ya te has registrado puedes"
+        login_here: "iniciar sesión aquí"
+      edit:
+        account_configuration: "Configuración de la cuenta"
+        personal_data: "Datos personales"
+        change_password: "Cambiar la contraseña"
+        change_password_text: "Si no quieres cambiar tu contraseña deja estos espacios en blanco."
+        save_changes: "Guardar los cambios"
+        save_changes_text: "Introduce tu contraseña actual para guardar los cambios."
+        cancel_account: "Cancelación de la cuenta"
+        cancel_account_text1: "Si no estás satisfecho/a con Libro del edificio puedes cancelar tu cuenta de usuario/a."
+        cancel_account_text2: "Recuerda que si cancelas la cuenta no podrás acceder a tus proyectos creados hasta ahora."
+        cancel_account_button: "Cancelar mi cuenta"
+        cancel_verification: "Estás seguro/a de que quieres cancelar tu cuenta?"
+    passwords:
+      new:
+        change_password_title: "Has olvidado tu contraseña?"
+        change_password_text1: "Indícanos tu dirección de correo electrónico y te enviaremos instrucciones para restablecer tu contraseña."
+        change_password_text2: "Si aún no te has registrado, puedes"
+        create_account: "crear una cuenta aquí"
+        send_instructions: "Enviar las instrucciones"
+      edit:
+        change_password_title: "Escribe la nueva contraseña"
+        nova_contrasenya: "Nueva contraseña"
+        confirma_nova_contrasenya: "Confirma la nueva contraseña"
+        change_password: "Cambiar la contraseña"
+    mailer:
+      reset_password_instructions:
+        titol: "Libro del edificio"
+        salutacio: "Hola, aquí puedes restablecer tu contraseña."
+        text1: "Hemos recibido una petición de restablecer la contraseña del aplicativo"
+        text2: "Si no has realizado esta petición puedes ignorar este correo."
+        text3: "Para restablecer la contraseña, por favor"
+        problemes: "Tienes problemas?"
+        text_problemes: "Si el enlace anterior no funciona correctamente intenta copiar y pegar el siguiente enlace en el navegador:"
+        preguntes: "Preguntas?"
+        text_preguntes: "Si necesitas ayuda puedes contestar este correo o enviar un correo a:"
+    shared:
+      links:
+        sign_up: "Registrarse"
+        forgot_password: "¿Has olvidado la contraseña?"
+  layouts:
+    application:
+      titol_pagina: "Programa de rehabilitación"
+    navigation:
+      titol: "Programa de rehabilitación"
+      register: "Registrarse"
+      sign_in: "Iniciar sesión"
+      account_configuration: "Configuración de la cuenta"
+      sign_out: "Cerrar sesión"
+      tutorials: "Tutoriales"
+      projectes: "Proyectos"
