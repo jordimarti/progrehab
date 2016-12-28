@@ -86,6 +86,7 @@ Rails.application.configure do
 
   # Configuració de Mailer
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'progrehab.herokuapp.com' }
   
   config.action_mailer.smtp_settings = {
    :address              => "smtp.sendgrid.net",
@@ -93,6 +94,7 @@ Rails.application.configure do
    :user_name            => ENV['sendgrid_username'],
    :password             => ENV['sendgrid_password'],
    :authentication       => "plain",
+   :domain               => "herokuapp.com"
    :enable_starttls_auto => true
   }
 end
