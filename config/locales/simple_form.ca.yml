@@ -1,0 +1,22 @@
+ca:
+  simple_form:
+    "yes": 'Sí'
+    "no": 'No'
+    required:
+      text: 'Requerit'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Si us plau revisa els problemes:"
+    labels:
+      user:
+        first_name: 'Nom'
+        last_name: 'Cognoms'
+        nif: 'NIF'
+        email: 'Correu electrònic'
+        password: 'Contrasenya'
+        password_confirmation: 'Confirmació de contrasenya'
+        current_password: 'Contrasenya actual'
+        remember_me: "Recorda'm"

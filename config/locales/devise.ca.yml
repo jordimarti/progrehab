@@ -1,0 +1,54 @@
+ca:
+  devise:
+    sessions:
+      new:
+        login: "Iniciar sessió"
+        forgot_password: "Has oblidat la teva contraseña?"
+        if_not_registered: "Si encara no t'has registrat, abans has de"
+        create_account: "crear un compte"
+    registrations:
+      new:
+        register_title: "Crear un compte d'usuari"
+        register_button: "Registra't"
+        registration_needed: "És necessari registrar-se per poder introduïr productes, casos pràctics o esdeveniments."
+        if_registered: "Si ja t'has registrat pots"
+        login_here: "iniciar sessió aquí"
+      edit:
+        account_configuration: "Configuració del compte"
+        personal_data: "Dades personals"
+        change_password: "Canviar la contrasenya"
+        change_password_text: "Si no vols canviar la teva contrasenya deixa aquests espais en blanc."
+        save_changes: "Guardar els canvis"
+        save_changes_text: "Introdueix la teva contrasenya actual per a guardar els canvis."
+        cancel_account: "Cancel·lació del compte"
+        cancel_account_text1: "Si no estàs satisfet/a amb Llibre de l'edifici pots cancel·lar el teu compte d'usuari/ària."
+        cancel_account_text2: "Recorda que si cancel·les el compte no podràs accedir als teus projectes creats fins ara."
+        cancel_account_button: "Cancel·lar el meu compte"
+        cancel_verification: "Estàs segur/a que vols cancel·lar el teu compte?"
+    passwords:
+      new:
+        change_password_title: "Has oblidat la teva contrasenya?"
+        change_password_text1: "Indica'ns la teva direcció de correu electrònic i t'enviarem instruccions per restablir la teva contrasenya."
+        change_password_text2: "Si encara no t'has registrat, pots"
+        create_account: "crear un compte aquí"
+        send_instructions: "Enviar les instruccions"
+      edit:
+        change_password_title: "Escriu la nova contrasenya"
+        nova_contrasenya: "Nova contrasenya"
+        confirma_nova_contrasenya: "Confirma la nova contrasenya"
+        change_password: "Canviar la contrasenya"
+    mailer:
+      reset_password_instructions:
+        titol: "Llibre de l'edifici"
+        salutacio: "Hola, aquí pots restablir la teva contrasenya."
+        text1: "Hem rebut una petició per restablir la contrasenya de l'aplicatiu"
+        text2: "Si no has fet aquesta petició pots ignorar aquest correu."
+        text3: "Per restablir la contrasenya, si us plau"
+        problemes: "Tens problemes?"
+        text_problemes: "Si l'enllaç anterior no funciona correctament intenta copiar i enganxar el següent enllaç al navegador:"
+        preguntes: "Preguntes?"
+        text_preguntes: "Si necessites ajuda pots contestar aquest correu o enviar un correu a:"
+    shared:
+      links:
+        sign_up: "Registrar-se"
+        forgot_password: "Has oblidat la contrasenya?"

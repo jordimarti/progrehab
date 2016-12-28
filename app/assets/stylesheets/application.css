@@ -16,6 +16,8 @@
 
  */
 
+/***** HEADER ******/
+
 .top-bar {
 	background-color: #000000;
 	padding: 0.2rem;
@@ -54,4 +56,71 @@
 
 .is-submenu-item {
 	background-color: #666666;
+}
+
+.sub-top-bar {
+	background-color: #7C477E;
+	height: 40px;
+}
+
+
+/***** FOOTER ******/
+
+.footer-container {
+	padding: 30px;
+	border-top: 1px solid #ccc;
+}
+
+.footer-text-container {
+	text-align: center;
+	font-size: 0.8em;
+}
+
+.logo-caateeb {
+	max-width: 250px;
+	margin-bottom: 30px;
+}
+
+
+/***** CONTENT ******/
+
+.dark-background-container {
+	background-color: #EFCFF0;
+	padding-top: 40px;
+	padding-bottom: 80px;
+}
+.heavy-container {
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+}
+
+.heavy-title-container {
+	background-color: #7C477E;
+	height: 50px;
+	padding: 12px 30px;
+}
+
+h2.heavy-title {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.heavy-container-form {
+	padding: 30px;
+}
+
+
+/***** FORMS ******/
+
+small.error {
+	color: red;
+}
+
+div.error > input {
+	margin: 0px;
+}
+
+.alert {
+	color: red;
 }

@@ -14,9 +14,13 @@
   <body>
     <header>
       <%= render 'layouts/navigation' %>
+      <%= render 'layouts/subnavigation' %>
     </header>
 
     <%= yield %>
 
+    <footer>
+    <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>
