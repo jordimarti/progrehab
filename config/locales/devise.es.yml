@@ -2,15 +2,17 @@ es:
   devise:
     sessions:
       new:
-        login: "Iniciar sesión"
+        login_title: "Iniciar sesión"
         forgot_password: "Has olvidado tu contraseña?"
         if_not_registered: "Si aún no te has registrado, antes debes"
         create_account: "crear una cuenta"
+        login_needed: "Es necesario iniciar sesión para ver tus proyectos."
+        login_button: "Inicia sesión"
     registrations:
       new:
         register_title: "Crear una cuenta de usuario"
         register_button: "Regístrate"
-        registration_needed: "Es necesario registrarse para poder introducir productos, casos prácticos o acontecimientos."
+        registration_needed: "Es necesario registrarse para poder crear un proyecto."
         if_registered: "Si ya te has registrado puedes"
         login_here: "iniciar sesión aquí"
       edit:
@@ -21,7 +23,7 @@ es:
         save_changes: "Guardar los cambios"
         save_changes_text: "Introduce tu contraseña actual para guardar los cambios."
         cancel_account: "Cancelación de la cuenta"
-        cancel_account_text1: "Si no estás satisfecho/a con Libro del edificio puedes cancelar tu cuenta de usuario/a."
+        cancel_account_text1: "Si no estás satisfecho/a con la aplicación puedes cancelar tu cuenta de usuario/a."
         cancel_account_text2: "Recuerda que si cancelas la cuenta no podrás acceder a tus proyectos creados hasta ahora."
         cancel_account_button: "Cancelar mi cuenta"
         cancel_verification: "Estás seguro/a de que quieres cancelar tu cuenta?"
@@ -52,3 +54,4 @@ es:
       links:
         sign_up: "Registrarse"
         forgot_password: "¿Has olvidado la contraseña?"
+        log_in: "Iniciar sesión"

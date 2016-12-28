@@ -2,15 +2,17 @@ ca:
   devise:
     sessions:
       new:
-        login: "Iniciar sessió"
+        login_title: "Iniciar sessió"
         forgot_password: "Has oblidat la teva contraseña?"
         if_not_registered: "Si encara no t'has registrat, abans has de"
         create_account: "crear un compte"
+        login_needed: "És necessari iniciar sessió per veure els teus projectes."
+        login_button: "Inicia sessió"
     registrations:
       new:
         register_title: "Crear un compte d'usuari"
         register_button: "Registra't"
-        registration_needed: "És necessari registrar-se per poder introduïr productes, casos pràctics o esdeveniments."
+        registration_needed: "És necessari registrar-se per poder crear un projecte."
         if_registered: "Si ja t'has registrat pots"
         login_here: "iniciar sessió aquí"
       edit:
@@ -21,7 +23,7 @@ ca:
         save_changes: "Guardar els canvis"
         save_changes_text: "Introdueix la teva contrasenya actual per a guardar els canvis."
         cancel_account: "Cancel·lació del compte"
-        cancel_account_text1: "Si no estàs satisfet/a amb Llibre de l'edifici pots cancel·lar el teu compte d'usuari/ària."
+        cancel_account_text1: "Si no estàs satisfet/a amb l'aplicatiu pots cancel·lar el teu compte d'usuari/ària."
         cancel_account_text2: "Recorda que si cancel·les el compte no podràs accedir als teus projectes creats fins ara."
         cancel_account_button: "Cancel·lar el meu compte"
         cancel_verification: "Estàs segur/a que vols cancel·lar el teu compte?"
@@ -52,3 +54,4 @@ ca:
       links:
         sign_up: "Registrar-se"
         forgot_password: "Has oblidat la contrasenya?"
+        log_in: "Iniciar sessió"

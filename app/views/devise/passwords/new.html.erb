@@ -1,15 +1,29 @@
-<h2>Forgot your password?</h2>
+<div class="dark-background-container">  
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+  <div class="row">
+    <div class="medium-6 columns">
+      <div class="heavy-container">
+        <div class="heavy-title-container">
+          <h2 class="heavy-title"><%= t('.change_password_title') %></h2>
+        </div>
+        <div class="heavy-container-form">
+          <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-  </div>
+				  <div class="form-inputs">
+				    <%= f.input :email, required: true, autofocus: true %>
+				  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
+				  <div class="form-actions clearfix">
+				    <%= f.button :submit, t('.send_instructions'), :class => 'button float-right' %>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="medium-4 medium-offset-1 columns end">
+			<%= render "devise/shared/links" %>
+		</div>
+	</div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+</div>

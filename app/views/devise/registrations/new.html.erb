@@ -10,7 +10,7 @@
             <%= f.error_notification %>
 
             <div class="form-inputs">
-              <%= f.input :first_name, required: true, autofocus: true, error_html: { class: 'error'} %>
+              <%= f.input :first_name, required: true, autofocus: true %>
               <%= f.input :last_name, required: true %>
               <%= f.input :email, required: true %>
               <%= f.input :password, required: true %>
@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <div class="medium-5 offset-2 columns">
+    <div class="medium-5 medium-offset-2 columns">
       <p><%= t('.registration_needed') %></p>
       <p><%= t('.if_registered') %> <%= link_to( t('.login_here'), new_user_session_path) %>.</p>
     </div>
