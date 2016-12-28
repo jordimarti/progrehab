@@ -41,11 +41,12 @@ es:
         change_password: "Cambiar la contraseña"
     mailer:
       reset_password_instructions:
-        titol: "Libro del edificio"
+        titol: "Programa de rehabilitación"
         salutacio: "Hola, aquí puedes restablecer tu contraseña."
-        text1: "Hemos recibido una petición de restablecer la contraseña del aplicativo"
+        text1: "Hemos recibido una petición de restablecer la contraseña de la aplicación."
         text2: "Si no has realizado esta petición puedes ignorar este correo."
-        text3: "Para restablecer la contraseña, por favor"
+        text3: "Para restablecer la contraseña clica en el siguiente enlace:"
+        canviar_contrasenya: "Cambiar contraseña"
         problemes: "Tienes problemas?"
         text_problemes: "Si el enlace anterior no funciona correctamente intenta copiar y pegar el siguiente enlace en el navegador:"
         preguntes: "Preguntas?"

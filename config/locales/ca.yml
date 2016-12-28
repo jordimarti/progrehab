@@ -20,6 +20,8 @@ ca:
               blank: "Cal escriure el nom"
             last_name:
               blank: "Cal escriure els cognoms"
+            reset_password_token:
+              invalid: "No coincideix amb la confirmació"
   layouts:
     application:
       titol_pagina: "Programa de rehabilitació"

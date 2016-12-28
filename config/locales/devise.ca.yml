@@ -41,11 +41,12 @@ ca:
         change_password: "Canviar la contrasenya"
     mailer:
       reset_password_instructions:
-        titol: "Llibre de l'edifici"
+        titol: "Programa de rehabilitació"
         salutacio: "Hola, aquí pots restablir la teva contrasenya."
-        text1: "Hem rebut una petició per restablir la contrasenya de l'aplicatiu"
+        text1: "Hem rebut una petició per restablir la contrasenya de l'aplicatiu."
         text2: "Si no has fet aquesta petició pots ignorar aquest correu."
-        text3: "Per restablir la contrasenya, si us plau"
+        text3: "Per restablir la contrasenya clica el següent enllaç:"
+        canviar_contrasenya: "Canviar contrasenya"
         problemes: "Tens problemes?"
         text_problemes: "Si l'enllaç anterior no funciona correctament intenta copiar i enganxar el següent enllaç al navegador:"
         preguntes: "Preguntes?"
