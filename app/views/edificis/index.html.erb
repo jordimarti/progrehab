@@ -1,0 +1,34 @@
+<div class="dark-background-container">
+  <div class="row">
+    <div class="medium-12 columns">
+      <div class="heavy-container">
+        <div class="heavy-title-container">
+          <h2 class="heavy-title"><%= t('.titol') %></h2>
+        </div>
+        <div class="heavy-container-form">
+          <div class="button-right-container">
+            <%= link_to new_edifici_path, :class => "button button-right" do %>
+              <%= t('.nou_edifici') %>
+            <% end %>
+          </div>
+          
+          <div class="projectes-existents-container">
+            <% if @edificis.count == 0 %>
+              <p><%= t('.no_projectes') %></p>
+            <% else %>
+              <div class="llistat-edificis">
+                <% @edificis.each do |edifici| %>
+                  <div class="edifici-item-container">
+                    <%= link_to(edifici.nom_edifici, edit_identificacio_path(edifici.identificacio.id), :class => 'link-item-edifici') %> 
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>    
+
+      </div>
+    </div>
+  </div>
+
+</div>

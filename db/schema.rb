@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223102742) do
+ActiveRecord::Schema.define(version: 20170210053821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "edificis", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "nom_edifici"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "identificacions", force: :cascade do |t|
+    t.integer  "edifici_id"
+    t.string   "tipus_via"
+    t.string   "nom_via"
+    t.string   "numero_via"
+    t.string   "bloc"
+    t.integer  "codi_postal"
+    t.string   "poblacio"
+    t.string   "provincia"
+    t.string   "regim_juridic"
+    t.string   "nom_titular"
+    t.string   "nif_titular"
+    t.string   "nom_representant"
+    t.string   "nif_representant"
+    t.string   "nom_tecnic"
+    t.string   "nif_tecnic"
+    t.string   "titulacio_tecnic"
+    t.string   "colegi_tecnic"
+    t.string   "num_colegiat_tecnic"
+    t.string   "codi_ite"
+    t.string   "data_emissio_ite"
+    t.string   "nom_redactor_ite"
+    t.string   "nif_redactor_ite"
+    t.string   "titulacio_redactor_ite"
+    t.string   "colegi_redactor_ite"
+    t.string   "num_colegiat_redactor_ite"
+    t.string   "num_expedient"
+    t.string   "vigencia_limit_certificat"
+    t.string   "qualificacio_certificat"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",     null: false

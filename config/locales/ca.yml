@@ -33,3 +33,17 @@ ca:
       sign_out: "Tancar sessió"
       tutorials: "Tutorials"
       projectes: "Projectes"
+  home:
+    permisos:
+      titol: "Accés denegat"
+      text_permisos: "No teniu els permisos necessaris per accedir a aquesta pàgina."
+  edificis:
+    index:
+      titol: "Projectes"
+      nou_edifici: "Crear un nou edifici"
+      no_projectes: "Encara no has creat cap projecte."
+    new:
+      titol: "Crear un nou projecte"
+      tornar_projectes: "Tornar al llistat de projectes"
+    form:
+      guardar: "Guardar"

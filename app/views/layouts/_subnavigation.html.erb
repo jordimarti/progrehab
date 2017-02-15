@@ -1,5 +1,13 @@
 <% if @subnavigation == true %>
 	<div class="sub-top-bar">
-		Primer edifici
+		<div class="submenu">
+	  	<ul class="submenu-list">
+	      <li class="submenu-item nom-edifici"><%= @edifici.nom_edifici %></li>
+	  		<li class="submenu-item <% if @submenu_actiu == 'identificacio' %>
+	            submenu-actiu
+	            <% end %>"><%= link_to(t('.identificacio'), edit_identificacio_path(@identificacio.id), :class => 'submenu-link') %></li>
+	      
+	  	</ul>
+    </div>
 	</div>
 <% end %>

@@ -8,13 +8,13 @@
   <div>
     <div class="top-bar-right">
       <ul class="dropdown menu" data-dropdown-menu>
-        <li><a href="#" class="sessionbar-link"><%= t('.projectes') %></a></li>
+        <li><%= link_to t('.projectes'), edificis_path, class: 'sessionbar-link' %></li>
         <li><a href="#" class="sessionbar-link"><%= t('.tutorials') %></a></li>
         <li>
           <a href="#" class="sessionbar-link">Idioma</a>
           <ul class="menu vertical">
-            <li><%= link_to 'Català', {:locale => 'ca'}, :class => 'sessionbar-link' %></li>
-            <li><%= link_to 'Español', {:locale => 'es'}, :class => 'sessionbar-link' %></li>
+            <li><%= link_to 'Català', {locale: 'ca'}, class: 'sessionbar-link' %></li>
+            <li><%= link_to 'Español', {locale: 'es'}, class: 'sessionbar-link' %></li>
           </ul>
         </li>
       

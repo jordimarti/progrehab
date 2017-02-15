@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Identificacions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Edifici</th>
+      <th>Tipus via</th>
+      <th>Nom via</th>
+      <th>Numero via</th>
+      <th>Bloc</th>
+      <th>Codi postal</th>
+      <th>Poblacio</th>
+      <th>Provincia</th>
+      <th>Regim juridic</th>
+      <th>Nom titular</th>
+      <th>Nif titular</th>
+      <th>Nom representant</th>
+      <th>Nif representant</th>
+      <th>Nom tecnic</th>
+      <th>Nif tecnic</th>
+      <th>Titulacio tecnic</th>
+      <th>Colegi tecnic</th>
+      <th>Num colegiat tecnic</th>
+      <th>Codi ite</th>
+      <th>Data emissio ite</th>
+      <th>Nom redactor ite</th>
+      <th>Nif redactor ite</th>
+      <th>Titulacio redactor ite</th>
+      <th>Colegi redactor ite</th>
+      <th>Num colegiat redactor ite</th>
+      <th>Num expedient</th>
+      <th>Vigencia limit certificat</th>
+      <th>Qualificacio certificat</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @identificacions.each do |identificacio| %>
+      <tr>
+        <td><%= identificacio.edifici_id %></td>
+        <td><%= identificacio.tipus_via %></td>
+        <td><%= identificacio.nom_via %></td>
+        <td><%= identificacio.numero_via %></td>
+        <td><%= identificacio.bloc %></td>
+        <td><%= identificacio.codi_postal %></td>
+        <td><%= identificacio.poblacio %></td>
+        <td><%= identificacio.provincia %></td>
+        <td><%= identificacio.regim_juridic %></td>
+        <td><%= identificacio.nom_titular %></td>
+        <td><%= identificacio.nif_titular %></td>
+        <td><%= identificacio.nom_representant %></td>
+        <td><%= identificacio.nif_representant %></td>
+        <td><%= identificacio.nom_tecnic %></td>
+        <td><%= identificacio.nif_tecnic %></td>
+        <td><%= identificacio.titulacio_tecnic %></td>
+        <td><%= identificacio.colegi_tecnic %></td>
+        <td><%= identificacio.num_colegiat_tecnic %></td>
+        <td><%= identificacio.codi_ite %></td>
+        <td><%= identificacio.data_emissio_ite %></td>
+        <td><%= identificacio.nom_redactor_ite %></td>
+        <td><%= identificacio.nif_redactor_ite %></td>
+        <td><%= identificacio.titulacio_redactor_ite %></td>
+        <td><%= identificacio.colegi_redactor_ite %></td>
+        <td><%= identificacio.num_colegiat_redactor_ite %></td>
+        <td><%= identificacio.num_expedient %></td>
+        <td><%= identificacio.vigencia_limit_certificat %></td>
+        <td><%= identificacio.qualificacio_certificat %></td>
+        <td><%= link_to 'Show', identificacio %></td>
+        <td><%= link_to 'Edit', edit_identificacio_path(identificacio) %></td>
+        <td><%= link_to 'Destroy', identificacio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Identificacio', new_identificacio_path %>

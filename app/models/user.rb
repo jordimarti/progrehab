@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  after_create :subscribe
+  #after_create :subscribe
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
@@ -18,4 +18,6 @@ class User < ApplicationRecord
 		list_id = ENV['mailchimp_list_id']
 		gibbon.lists(list_id).members.create(body: {email_address: self.email, status: "subscribed", merge_fields: {FNAME: self.first_name, LNAME: self.last_name}})
 	end
+
+  has_many :edificis
 end

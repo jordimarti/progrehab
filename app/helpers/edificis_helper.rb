@@ -1,0 +1,2 @@
+module EdificisHelper
+end

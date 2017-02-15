@@ -33,3 +33,17 @@ es:
       sign_out: "Cerrar sesión"
       tutorials: "Tutoriales"
       projectes: "Proyectos"
+  home:
+    permisos:
+      titol: "Acceso denegado"
+      text_permisos: "No tenéis los permisos necesarios para acceder a esta página."
+  edificis:
+    index:
+      titol: "Proyectos"
+      nou_edifici: "Crear un nuevo edificio"
+      no_projectes: "Aún no has creado ningún proyecto."
+    new:
+      titol: "Crear un nuevo proyecto"
+      tornar_projectes: "Volver al listado de proyectos"
+    form:
+      guardar: "Guardar"

@@ -1,0 +1,38 @@
+<%= simple_form_for @identificacio do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :edifici_id %>
+    <%= f.input :tipus_via %>
+    <%= f.input :nom_via %>
+    <%= f.input :numero_via %>
+    <%= f.input :bloc %>
+    <%= f.input :codi_postal %>
+    <%= f.input :poblacio %>
+    <%= f.input :provincia %>
+    <%= f.input :regim_juridic %>
+    <%= f.input :nom_titular %>
+    <%= f.input :nif_titular %>
+    <%= f.input :nom_representant %>
+    <%= f.input :nif_representant %>
+    <%= f.input :nom_tecnic %>
+    <%= f.input :nif_tecnic %>
+    <%= f.input :titulacio_tecnic %>
+    <%= f.input :colegi_tecnic %>
+    <%= f.input :num_colegiat_tecnic %>
+    <%= f.input :codi_ite %>
+    <%= f.input :data_emissio_ite %>
+    <%= f.input :nom_redactor_ite %>
+    <%= f.input :nif_redactor_ite %>
+    <%= f.input :titulacio_redactor_ite %>
+    <%= f.input :colegi_redactor_ite %>
+    <%= f.input :num_colegiat_redactor_ite %>
+    <%= f.input :num_expedient %>
+    <%= f.input :vigencia_limit_certificat %>
+    <%= f.input :qualificacio_certificat %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -63,6 +63,51 @@
 	height: 40px;
 }
 
+/***** SUBMENU *****/
+.submenu {
+	padding: 6px 14px;
+}
+
+ul.submenu-list {
+	list-style-type: none;
+	margin: 0px;
+}
+
+li.submenu-item {
+	display: inline;
+	padding: 5px 10px;
+	font-size: 0.8em;
+}
+
+li.submenu-item:first-child {
+	padding-left: 0px;
+	border-right: 1px solid #333333;
+	margin-right: 6px;
+}
+
+li.nom-edifici {
+	font-size: 0.9em;
+	font-weight: bold;
+	color: white;
+}
+
+.submenu-actiu {
+	background-color: #f6f6f6;
+	border-radius: 3px;
+}
+
+.submenu-link {
+	color: #333333;
+}
+
+.submenu-actiu > .submenu-link {
+	
+}
+
+.submenu-link:hover {
+	color: #999999;
+}
+
 
 /***** FOOTER ******/
 
@@ -127,4 +172,17 @@ div.error > input {
 
 .alert {
 	color: red;
+}
+
+.button-right {
+	float: right;
+}
+
+.button-right-container {
+	float: clear;
+	height: 60px;
+}
+
+.alternatives-container-under {
+	margin-top: 20px;
 }
