@@ -1,5 +1,6 @@
 class QualificacionsController < ApplicationController
   before_action :set_qualificacio, only: [:show, :edit, :update, :destroy]
+  before_action :set_edifici
 
   # GET /qualificacions
   # GET /qualificacions.json
@@ -65,6 +66,10 @@ class QualificacionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_qualificacio
       @qualificacio = Qualificacio.find(params[:id])
+    end
+
+    def set_edifici
+      @edifici = Edifici.find(@qualificacio.edifici_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

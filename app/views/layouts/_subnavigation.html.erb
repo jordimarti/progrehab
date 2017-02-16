@@ -1,14 +1,14 @@
 <% if @subnavigation == true %>
 	<div class="sub-top-bar">
-		<div class="submenu">
-	  	<ul class="submenu-list">
-	      <li class="submenu-item nom-edifici"><%= @edifici.nom_edifici %></li>
-	  		<li class="submenu-item <% if @submenu_actiu == 'identificacio' %>
-	            submenu-actiu
-	            <% end %>"><%= link_to(t('.identificacio'), edit_identificacio_path(@identificacio.id), :class => 'submenu-link') %></li>
-	      <li class="submenu-item <% if @submenu_actiu == 'deficiencies' %>
-	            submenu-actiu
-	            <% end %>"><%= link_to(t('.deficiencies'), edit_qualificacio_path(@qualificacio.id), :class => 'submenu-link') %></li>
+		<div class="header-submenu">
+	  	<ul class="header-submenu-list">
+	      <li class="header-submenu-item header-nom-edifici"><%= @edifici.nom_edifici %></li>
+	  		<li class="header-submenu-item <% if @submenu_actiu == 'identificacio' %>
+	            header-submenu-actiu
+	            <% end %>"><%= link_to(t('.identificacio'), edit_identificacio_path(@edifici.identificacio.id), :class => 'header-submenu-link') %></li>
+	      <li class="header-submenu-item <% if @submenu_actiu == 'deficiencies' %>
+	            header-submenu-actiu
+	            <% end %>"><%= link_to(t('.deficiencies'), edit_qualificacio_path(@edifici.qualificacio.id), :class => 'header-submenu-link') %></li>
 	  	</ul>
     </div>
 	</div>

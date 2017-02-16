@@ -1,6 +1,6 @@
 class IdentificacionsController < ApplicationController
   include CheckUser
-  before_action :set_identificacio, only: [:show, :edit, :update, :destroy]
+  before_action :set_identificacio, only: [:edit, :update]
   before_action :set_edifici
   
   def edit
