@@ -1,4 +1,35 @@
-<h1>Editing Identificacio</h1>
+<div class="light-background-container">
+	
+	<div class="row">
+		<div class="medium-12 columns">
+			<div class="titol-seccio">
+				<%= t('.titol_identificacio') %>
+			</div>
+		</div>
+	</div>
 
-<%= render 'form', identificacio: @identificacio %>
+	<% flash.each do |key, value| %>
+    <div class="row">
+    	<div class="medium-6 columns end">
+		    <div data-alert class="alert-box success radius">
+				  <%= value %>
+				  <a href="#" class="close">&times;</a>
+				</div>
+			</div>
+		</div>
+  <% end %>
 
+	<div class="row">
+		<div class="medium-12 columns">
+			<div class="light-container">
+				<div class="row">
+					<div class="medium-12 columns">
+						<div class="identificacio-item">
+							<%= render 'form', identificacio: @identificacio %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Edifici:</strong>
+  <%= @deficiencia.edifici_id %>
+</p>
+
+<p>
+  <strong>Descripcio:</strong>
+  <%= @deficiencia.descripcio %>
+</p>
+
+<p>
+  <strong>Observacions:</strong>
+  <%= @deficiencia.observacions %>
+</p>
+
+<p>
+  <strong>Sistema:</strong>
+  <%= @deficiencia.sistema %>
+</p>
+
+<p>
+  <strong>Qualificacio:</strong>
+  <%= @deficiencia.qualificacio %>
+</p>
+
+<%= link_to 'Edit', edit_deficiencia_path(@deficiencia) %> |
+<%= link_to 'Back', deficiencies_path %>

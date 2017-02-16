@@ -1,0 +1,1 @@
+json.partial! "qualificacions/qualificacio", qualificacio: @qualificacio

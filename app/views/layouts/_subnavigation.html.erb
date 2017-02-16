@@ -6,7 +6,9 @@
 	  		<li class="submenu-item <% if @submenu_actiu == 'identificacio' %>
 	            submenu-actiu
 	            <% end %>"><%= link_to(t('.identificacio'), edit_identificacio_path(@identificacio.id), :class => 'submenu-link') %></li>
-	      
+	      <li class="submenu-item <% if @submenu_actiu == 'deficiencies' %>
+	            submenu-actiu
+	            <% end %>"><%= link_to(t('.deficiencies'), edit_qualificacio_path(@qualificacio.id), :class => 'submenu-link') %></li>
 	  	</ul>
     </div>
 	</div>

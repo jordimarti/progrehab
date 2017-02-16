@@ -33,6 +33,9 @@ es:
       sign_out: "Cerrar sesión"
       tutorials: "Tutoriales"
       projectes: "Proyectos"
+    subnavigation:
+      identificacio: "Identificación"
+      deficiencies: "Deficiencias"
   home:
     permisos:
       titol: "Acceso denegado"
@@ -47,3 +50,52 @@ es:
       tornar_projectes: "Volver al listado de proyectos"
     form:
       guardar: "Guardar"
+  identificacions:
+    edit:
+      titol_identificacio: "Identificación"
+    form:
+      dades_edifici: "DATOS DEL EDIFICIO"
+      dades_tecnic: "DATOS DEL TÉCNICO QUE SUPERVISA EL PROGRAMA"
+      resum_iite: "RESÚMEN DEL IITE"
+      resum_certificat: "RESÚMEN DEL CERTIFICADO DE APTITUD"
+      propietat_horitzontal: "Propiedad horizontal"
+      propietat_vertical: "Propiedad vertical"
+      apte_cautelarment: "Apto cautelarmente"
+      apte_provisionalment: "Apto provisionalmente"
+      apte: "Apto"
+      guardar: "Guardar"
+    update:
+      guardat_ok: "Los datos se han guardado correctamente"
+  simple_form:
+    labels:
+      identificacio:
+        tipus_via: "Tipo de via"
+        nom_via: "Nombre de la via"
+        numero_via: "Número"
+        bloc: "Bloque"
+        codi_postal: "Código postal"
+        poblacio: "Población"
+        provincia: "Provincia"
+        regim_juridic: "Régim jurídico"
+        nom_titular: "Nombre del titular"
+        nif_titular: "NIF del titular"
+        nom_representant: "Nombre del representante"
+        nif_representant: "NIF del representante"
+        nom_tecnic: "Nombre"
+        nif_tecnic: "NIF"
+        titulacio_tecnic: "Titulación"
+        colegi_tecnic: "Colegio profesional"
+        num_colegiat_tecnic: "Número de colegiado"
+        codi_ite: "Código del informe ITE"
+        data_emissio_ite: "Fecha de emisión del informe ITE"
+        nom_redactor_ite: "Técnico redactor"
+        nif_redactor_ite: "NIF"
+        titulacio_redactor_ite: "Titulación"
+        colegi_redactor_ite: "Colegio profesional"
+        num_colegiat_redactor_ite: "Número de colegiado"
+        num_expedient: "Número de expediente"
+        vigencia_limit_certificat: "Vigencia límite del certificado"
+        qualificacio_certificat: "Cualificación del certificado de aptitud"
+        data_primera_verificacio: "Fecha de la primera verificación técnica obligatoria que se debe realizar"
+        data_recepcio_informe: "Fecha de recepción del informe ITE por parte de la Propiedad"
+        termini_aprovacio_programa: "Plazo máximo para aprobar el Programa de Rehabilitación"

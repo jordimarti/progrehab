@@ -16,4 +16,6 @@
 # end
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'identificacio', 'identificacions'
+  inflect.irregular 'deficiencia', 'deficiencies'
+  inflect.irregular 'qualificacio', 'qualificacions'
 end

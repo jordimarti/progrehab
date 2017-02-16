@@ -1,0 +1,1 @@
+json.partial! "deficiencies/deficiencia", deficiencia: @deficiencia

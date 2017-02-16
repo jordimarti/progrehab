@@ -1,0 +1,2 @@
+module QualificacionsHelper
+end

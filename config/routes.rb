@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :deficiencies
+  resources :qualificacions
   resources :edificis
   resources :identificacions
   

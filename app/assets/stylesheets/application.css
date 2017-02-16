@@ -134,9 +134,22 @@ li.nom-edifici {
 	padding-top: 40px;
 	padding-bottom: 80px;
 }
+
+.light-background-container {
+	background-color: #EAEAEA;
+	padding-top: 40px;
+	padding-bottom: 80px;
+}
+
 .heavy-container {
 	border: 1px solid #cccccc;
 	background-color: #ffffff;
+}
+
+.light-container {
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	padding: 20px;
 }
 
 .heavy-title-container {
@@ -158,6 +171,13 @@ h2.heavy-title {
 .spacer {
 	margin-bottom: 40px;
 }
+
+.titol-seccio {
+	font-size: 1.2em;
+	font-weight: bold;
+	padding-bottom: 20px;
+}
+
 
 
 /***** FORMS ******/
@@ -185,4 +205,8 @@ div.error > input {
 
 .alternatives-container-under {
 	margin-top: 20px;
+}
+
+.spacer {
+	margin-bottom: 30px;
 }

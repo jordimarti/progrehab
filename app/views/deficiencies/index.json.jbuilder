@@ -1,0 +1,1 @@
+json.array! @deficiencies, partial: 'deficiencies/deficiencia', as: :deficiencia

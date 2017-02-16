@@ -2,37 +2,172 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :edifici_id %>
-    <%= f.input :tipus_via %>
-    <%= f.input :nom_via %>
-    <%= f.input :numero_via %>
-    <%= f.input :bloc %>
-    <%= f.input :codi_postal %>
-    <%= f.input :poblacio %>
-    <%= f.input :provincia %>
-    <%= f.input :regim_juridic %>
-    <%= f.input :nom_titular %>
-    <%= f.input :nif_titular %>
-    <%= f.input :nom_representant %>
-    <%= f.input :nif_representant %>
-    <%= f.input :nom_tecnic %>
-    <%= f.input :nif_tecnic %>
-    <%= f.input :titulacio_tecnic %>
-    <%= f.input :colegi_tecnic %>
-    <%= f.input :num_colegiat_tecnic %>
-    <%= f.input :codi_ite %>
-    <%= f.input :data_emissio_ite %>
-    <%= f.input :nom_redactor_ite %>
-    <%= f.input :nif_redactor_ite %>
-    <%= f.input :titulacio_redactor_ite %>
-    <%= f.input :colegi_redactor_ite %>
-    <%= f.input :num_colegiat_redactor_ite %>
-    <%= f.input :num_expedient %>
-    <%= f.input :vigencia_limit_certificat %>
-    <%= f.input :qualificacio_certificat %>
+    <div class="identificacio-title">
+      <span class="title"><%= t('.dades_edifici') %></span>
+    </div>
+    <div class="row">
+      <div class="medium-2 columns">
+        <%= f.input :tipus_via, collection: ['Avinguda', 'Carrer', 'Carretera', 'Passeig', 'Passatge', 'Plaça', 'Rambla', 'Ronda'] %>
+      </div>
+      <div class="medium-6 columns">
+        <%= f.input :nom_via %>
+      </div>
+      <div class="medium-2 columns">
+        <%= f.input :numero_via %>
+      </div>
+      <div class="medium-2 columns">
+        <%= f.input :bloc %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="medium-2 columns">
+        <%= f.input :codi_postal %>
+      </div>
+      <div class="medium-6 columns">
+        <%= f.input :poblacio %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :provincia %>
+      </div>
+    </div>
+
+    <div class="row">
+      <fieldset class="medium-6 columns">
+        <%= f.input :regim_juridic, 
+          :collection => [[t('.propietat_horitzontal'), 'Propietat horitzontal'], [t('.propietat_vertical'), 'Propietat vertical']], 
+          :as => :radio_buttons %>
+      </fieldset>
+    </div>
+
+    <div class="row">
+      <fieldset class="medium-6 columns">
+        <legend>Choose Your Favorite</legend>
+        <input type="radio" name="pokemon" value="Red" id="pokemonRed" required><label for="pokemonRed">Red</label>
+        <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
+        <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"><label for="pokemonYellow">Yellow</label>
+      </fieldset>
+    </div>
+
+    <div class="row">
+      <div class="medium-8 columns">
+        <%= f.input :nom_titular %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :nif_titular %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="medium-8 columns">
+        <%= f.input :nom_representant %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :nif_representant %>
+      </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="identificacio-title">
+      <span class="title"><%= t('.dades_tecnic') %></span>
+    </div>
+    
+    <div class="row">
+      <div class="medium-8 columns">
+        <%= f.input :nom_tecnic %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :nif_tecnic %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="medium-4 columns">
+        <%= f.input :titulacio_tecnic %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :colegi_tecnic %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :num_colegiat_tecnic %>
+      </div>
+    </div>
+    
+    <div class="spacer"></div>
+
+    <div class="identificacio-title">
+      <span class="title"><%= t('.resum_iite') %></span>
+    </div>
+    
+    <div class="row">
+      <div class="medium-8 columns">
+        <%= f.input :codi_ite %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :data_emissio_ite %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="medium-8 columns">
+        <%= f.input :nom_redactor_ite %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :nif_redactor_ite %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="medium-4 columns">
+        <%= f.input :titulacio_redactor_ite %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :colegi_redactor_ite %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :num_colegiat_redactor_ite %>
+      </div>
+    </div>
+    
+    <div class="spacer"></div>
+
+    <div class="identificacio-title">
+      <span class="title"><%= t('.resum_certificat') %></span>
+    </div>
+    
+    <div class="row">
+      <div class="medium-8 columns">
+        <%= f.input :num_expedient %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :vigencia_limit_certificat %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <fieldset class="medium-9 columns">
+        <%= f.input :qualificacio_certificat, 
+          :collection => [[t('.apte_cautelarment'), 'Apte cautelarment'], [t('.apte_provisionalment'), 'Apte provisionalment'], [t('.apte'), 'Apte']], 
+          :as => :radio_buttons %>
+      </fieldset>
+    </div>
+
+    <div class="row">
+      <div class="medium-4 columns">
+        <%= f.input :data_primera_verificacio %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :data_recepcio_informe %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :termini_aprovacio_programa %>
+      </div>
+    </div>
+    
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, t('.guardar'), :class => 'button button-right' %>
   </div>
 <% end %>

@@ -1,0 +1,1 @@
+json.array! @qualificacions, partial: 'qualificacions/qualificacio', as: :qualificacio

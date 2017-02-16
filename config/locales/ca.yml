@@ -33,6 +33,9 @@ ca:
       sign_out: "Tancar sessió"
       tutorials: "Tutorials"
       projectes: "Projectes"
+    subnavigation:
+      identificacio: "Identificació"
+      deficiencies: "Deficiències"
   home:
     permisos:
       titol: "Accés denegat"
@@ -47,3 +50,52 @@ ca:
       tornar_projectes: "Tornar al llistat de projectes"
     form:
       guardar: "Guardar"
+  identificacions:
+    edit:
+      titol_identificacio: "Identificació"
+    form:
+      dades_edifici: "DADES DE L'EDIFICI"
+      dades_tecnic: "DADES DEL TÈCNIC QUE SUPERVISA EL PROGRAMA"
+      resum_iite: "RESUM DE L'IITE"
+      resum_certificat: "RESUM DEL CERTIFICAT D'APTITUD"
+      propietat_horitzontal: "Propietat horitzontal"
+      propietat_vertical: "Propietat vertical"
+      apte_cautelarment: "Apte cautelarment"
+      apte_provisionalment: "Apte provisionalment"
+      apte: "Apte"
+      guardar: "Guardar"
+    update:
+      guardat_ok: "Les dades s'han guardat correctament"
+  simple_form:
+    labels:
+      identificacio:
+        tipus_via: "Tipus de via"
+        nom_via: "Nom de la via"
+        numero_via: "Número"
+        bloc: "Bloc"
+        codi_postal: "Codi postal"
+        poblacio: "Població"
+        provincia: "Província"
+        regim_juridic: "Règim jurídic"
+        nom_titular: "Nom del titular"
+        nif_titular: "NIF del titular"
+        nom_representant: "Nom del representant"
+        nif_representant: "NIF del representant"
+        nom_tecnic: "Nom"
+        nif_tecnic: "NIF"
+        titulacio_tecnic: "Titulació"
+        colegi_tecnic: "Col·legi professional"
+        num_colegiat_tecnic: "Número de col·legiat"
+        codi_ite: "Codi informe ITE"
+        data_emissio_ite: "Data emissió informe ITE"
+        nom_redactor_ite: "Tècnic redactor"
+        nif_redactor_ite: "NIF"
+        titulacio_redactor_ite: "Titulació"
+        colegi_redactor_ite: "Col·legi professional"
+        num_colegiat_redactor_ite: "Número de col·legiat"
+        num_expedient: "Número d'expedient"
+        vigencia_limit_certificat: "Vigència límit del certificat"
+        qualificacio_certificat: "Qualificació del certificat d'aptitud"
+        data_primera_verificacio: "Data de la primera verificació tècnica obligatòria que cal realitzar"
+        data_recepcio_informe: "Data de recepció de l’informe ITE per part de la Propietat"
+        termini_aprovacio_programa: "Termini màxim per aprovar el Programa de Rehabilitació"

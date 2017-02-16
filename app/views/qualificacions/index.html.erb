@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Qualificacions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Edifici</th>
+      <th>Xml</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @qualificacions.each do |qualificacio| %>
+      <tr>
+        <td><%= qualificacio.edifici_id %></td>
+        <td><%= qualificacio.xml %></td>
+        <td><%= link_to 'Show', qualificacio %></td>
+        <td><%= link_to 'Edit', edit_qualificacio_path(qualificacio) %></td>
+        <td><%= link_to 'Destroy', qualificacio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Qualificacio', new_qualificacio_path %>
