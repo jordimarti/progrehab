@@ -5,6 +5,7 @@ class CreateQualificacions < ActiveRecord::Migration[5.0]
       t.string :xml
 
       t.timestamps
+      
     end
   end
 end

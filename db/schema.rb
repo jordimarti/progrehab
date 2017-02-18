@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216001850) do
+ActiveRecord::Schema.define(version: 20170216033618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,8 +71,12 @@ ActiveRecord::Schema.define(version: 20170216001850) do
   create_table "qualificacions", force: :cascade do |t|
     t.integer  "edifici_id"
     t.string   "xml"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "xml_file_file_name"
+    t.string   "xml_file_content_type"
+    t.integer  "xml_file_file_size"
+    t.datetime "xml_file_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
