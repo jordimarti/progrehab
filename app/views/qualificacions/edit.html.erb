@@ -2,5 +2,11 @@
 
 <%= render 'form', qualificacio: @qualificacio %>
 
+<% if @file_uploaded == true %>
+	<p>Ja has pujat l'arxiu</p>
+<% else %>
+	<p>No hi ha arxiu</p>
+<% end %> 
+
 <%= link_to 'Show', @qualificacio %> |
 <%= link_to 'Back', qualificacions_path %>

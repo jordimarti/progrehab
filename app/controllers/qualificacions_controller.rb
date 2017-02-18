@@ -20,6 +20,11 @@ class QualificacionsController < ApplicationController
 
   # GET /qualificacions/1/edit
   def edit
+    if @qualificacio.xml_file.exists?
+      @file_uploaded = true
+    else
+      @file_uploaded = false
+    end
   end
 
   # POST /qualificacions

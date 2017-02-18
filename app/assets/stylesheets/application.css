@@ -206,3 +206,8 @@ div.error > input {
 .spacer {
 	margin-bottom: 30px;
 }
+
+div.radio {
+	float: left;
+	margin-right: 40px;
+}

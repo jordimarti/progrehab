@@ -41,15 +41,6 @@
     </div>
 
     <div class="row">
-      <fieldset class="medium-6 columns">
-        <legend>Choose Your Favorite</legend>
-        <input type="radio" name="pokemon" value="Red" id="pokemonRed" required><label for="pokemonRed">Red</label>
-        <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
-        <input type="radio" name="pokemon" value="Yellow" id="pokemonYellow"><label for="pokemonYellow">Yellow</label>
-      </fieldset>
-    </div>
-
-    <div class="row">
       <div class="medium-8 columns">
         <%= f.input :nom_titular %>
       </div>
@@ -146,21 +137,14 @@
     </div>
     
     <div class="row">
-      <fieldset class="medium-9 columns">
+      <fieldset class="medium-6 columns">
         <%= f.input :qualificacio_certificat, 
           :collection => [[t('.apte_cautelarment'), 'Apte cautelarment'], [t('.apte_provisionalment'), 'Apte provisionalment'], [t('.apte'), 'Apte']], 
           :as => :radio_buttons %>
       </fieldset>
-    </div>
-
-    <div class="row">
-      <div class="medium-4 columns">
+      <div class="medium-6 columns">
         <%= f.input :data_primera_verificacio %>
-      </div>
-      <div class="medium-4 columns">
         <%= f.input :data_recepcio_informe %>
-      </div>
-      <div class="medium-4 columns">
         <%= f.input :termini_aprovacio_programa %>
       </div>
     </div>
