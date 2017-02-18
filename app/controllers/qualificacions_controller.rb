@@ -79,6 +79,6 @@ class QualificacionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def qualificacio_params
-      params.require(:qualificacio).permit(:edifici_id, :xml, :xml_file)
+      params.require(:qualificacio).permit(:edifici_id, :xml_file)
     end
 end

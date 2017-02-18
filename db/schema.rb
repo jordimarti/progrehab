@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 20170216033618) do
 
   create_table "qualificacions", force: :cascade do |t|
     t.integer  "edifici_id"
-    t.string   "xml"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.string   "xml_file_file_name"
