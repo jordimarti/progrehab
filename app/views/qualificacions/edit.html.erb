@@ -1,6 +1,40 @@
-<h1>Editing Qualificacio</h1>
+<div class="light-background-container">
+	
+	<div class="row">
+		<div class="medium-12 columns">
+			<div class="titol-seccio">
+				<%= t('.titol_qualificacio') %>
+			</div>
+		</div>
+	</div>
 
-<%= render 'form', qualificacio: @qualificacio %>
+	<% flash.each do |key, value| %>
+    <div class="row">
+    	<div class="medium-6 columns end">
+		    <div data-alert class="alert-box success radius">
+				  <%= value %>
+				  <a href="#" class="close">&times;</a>
+				</div>
+			</div>
+		</div>
+  <% end %>
+
+	<div class="row">
+		<div class="medium-12 columns">
+			<div class="light-container">
+				<div class="row">
+					<div class="medium-12 columns">
+						<div class="identificacio-item">
+							<%= render 'form', qualificacio: @qualificacio %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 
 <% if @file_uploaded == true %>
 	<p>Ja has pujat l'arxiu</p>
@@ -8,5 +42,3 @@
 	<p>No hi ha arxiu</p>
 <% end %> 
 
-<%= link_to 'Show', @qualificacio %> |
-<%= link_to 'Back', qualificacions_path %>

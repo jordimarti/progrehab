@@ -66,6 +66,9 @@ es:
       guardar: "Guardar"
     update:
       guardat_ok: "Los datos se han guardado correctamente"
+  qualificacions:
+    edit:
+      titol_qualificacio: "Deficiencias"
   simple_form:
     labels:
       identificacio:

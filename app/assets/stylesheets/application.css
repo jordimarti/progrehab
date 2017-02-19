@@ -96,8 +96,12 @@ li.header-nom-edifici {
 	border-radius: 3px;
 }
 
-.header-submenu-link {
+.header-submenu-actiu > .header-submenu-link {
 	color: #333333;
+}
+
+.header-submenu-link {
+	color: white;
 }
 
 .header-submenu-link:hover {
