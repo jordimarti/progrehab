@@ -1,3 +1,26 @@
 // Place all the styles related to the Deficiencies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.deficiencies-item {
+	border-bottom: 1px solid #cccccc;
+	border-left:  1px solid #cccccc;
+	border-right:  1px solid #cccccc;
+	padding: 10px 15px;
+	background-color: #ffffff;
+}
+
+
+.deficiencies-footer {
+	height: 35px;
+}
+
+.deficiencies-footer-link {
+	padding: 0px 10px 5px 10px;
+	margin-top: -1px;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	font-size: 0.8em;
+}

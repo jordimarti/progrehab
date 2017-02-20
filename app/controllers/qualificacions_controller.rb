@@ -12,6 +12,7 @@ class QualificacionsController < ApplicationController
     else
       @file_uploaded = false
     end
+    @deficiencies = Deficiencia.where(:edifici_id => @edifici.id).order(:created_at)
   end
 
   def update

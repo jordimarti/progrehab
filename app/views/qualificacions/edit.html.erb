@@ -32,7 +32,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+
 
 
 
@@ -41,4 +41,38 @@
 <% else %>
 	<p>No hi ha arxiu</p>
 <% end %> 
+
+
+<div class="reveal" id="modal-deficiencia" data-reveal>
+  <h3 id="modalTitle"><%= t('.deficiencia') %></h3>
+  <div id="formulari-deficiencia" class="formulari-deficiencia">
+  </div>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+<div class="row">
+	<div class="medium-12 columns">
+		<div class="deficiencies-container">
+			<div class="deficiencies-title">
+				<%= t('.titol_deficiencia') %>
+			</div>
+			<div id="deficiencies">
+				<%= render  :partial => '/deficiencies/llistat_deficiencies' %>
+			</div>
+			<div class="deficiencies-footer">
+				<div class="deficiencies-footer-link right">
+					<%= link_to (new_deficiencia_path(edifici_id: @qualificacio.edifici_id)), remote: true do %>
+						<span class="suma">+</span> <%= t('.afegir_deficiencia') %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
 
