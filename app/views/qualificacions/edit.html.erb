@@ -19,29 +19,34 @@
 		</div>
   <% end %>
 
-	<div class="row">
-		<div class="medium-12 columns">
-			<div class="light-container">
-				<div class="row">
-					<div class="medium-12 columns">
-						<div class="identificacio-item">
-							<%= render 'form', qualificacio: @qualificacio %>
-						</div>
-					</div>
-				</div>
+	
+	<div class="row" data-equalizer>
+		<div class="medium-6 columns">
+			<div class="light-container" data-equalizer-watch>
+				
+					<h3 class="titol-deficiencies"><%= t('.opcio_xml') %></h3>
+					<p><%= t('.explicacio_xml') %>
+					<%= render 'form', qualificacio: @qualificacio %>
+				
+			</div>
+		</div>
+		<div class="medium-6 columns">
+			<div class="light-container" data-equalizer-watch>
+				
+				<h3 class="titol-deficiencies"><%= t('.opcio_manual') %></h3>
+				<p><%= t('.explicacio_manual') %>
+				<p>
+					<%= link_to (new_deficiencia_path(edifici_id: @qualificacio.edifici_id)), remote: true, class: 'button' do %>
+						<span class="suma">+</span> <%= t('.afegir_deficiencia') %>
+					<% end %>
+				</p>
+				
 			</div>
 		</div>
 	</div>
 
-
-
-
-<% if @file_uploaded == true %>
-	<p>Ja has pujat l'arxiu</p>
-<% else %>
-	<p>No hi ha arxiu</p>
-<% end %> 
-
+	
+<div class="spacer"></div>
 
 <div class="reveal" id="modal-deficiencia" data-reveal>
   <h3 id="modalTitle"><%= t('.deficiencia') %></h3>
@@ -55,20 +60,18 @@
 
 <div class="row">
 	<div class="medium-12 columns">
-		<div class="deficiencies-container">
+		<div class="light-container deficiencies-container">
 			<div class="deficiencies-title">
-				<%= t('.titol_deficiencia') %>
+				<h3 class="titol-deficiencies"><%= t('.titol_llistat_deficiencies') %></h3>
 			</div>
 			<div id="deficiencies">
 				<%= render  :partial => '/deficiencies/llistat_deficiencies' %>
 			</div>
-			<div class="deficiencies-footer">
-				<div class="deficiencies-footer-link right">
-					<%= link_to (new_deficiencia_path(edifici_id: @qualificacio.edifici_id)), remote: true do %>
-						<span class="suma">+</span> <%= t('.afegir_deficiencia') %>
-					<% end %>
-				</div>
-			</div>
+			
+			<%= link_to (new_deficiencia_path(edifici_id: @qualificacio.edifici_id)), remote: true do %>
+				<span class="suma">+</span> <%= t('.afegir_deficiencia') %>
+			<% end %>
+
 		</div>
 	</div>
 </div>

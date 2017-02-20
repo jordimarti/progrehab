@@ -69,6 +69,23 @@ es:
   qualificacions:
     edit:
       titol_qualificacio: "Deficiencias"
+      titol_introduccio_deficiencies: "Introducción de deficiencias"
+      opcio_xml: "Opción 1: Introducir fichero XML"
+      explicacio_xml: "Consultad las instrucciones para la introducción de archivos XML provenientes de la herramienta de la Generalitat."
+      opcio_manual: "Opción 2: Introducir deficiencias manualmente"
+      explicacio_manual: "Si no disponéis del archivo XML podéis introducir deficiencias manualmente."
+      titol_llistat_deficiencies: "Listado de deficiencias"
+      afegir_deficiencia: "Añadir deficiencia"
+    form:
+      guardar: "Guardar"
+  deficiencies:
+    llistat_deficiencies:
+      descripcio: "Descripción"
+      observacions: "Observaciones"
+      gravetat: "Gravedad"
+      sistema: "Sistema"
+    form:
+      guardar: "Guardar"
   simple_form:
     labels:
       identificacio:
@@ -102,3 +119,5 @@ es:
         data_primera_verificacio: "Fecha de la primera verificación técnica obligatoria que se debe realizar"
         data_recepcio_informe: "Fecha de recepción del informe ITE por parte de la Propiedad"
         termini_aprovacio_programa: "Plazo máximo para aprobar el Programa de Rehabilitación"
+      qualificacio:
+        xml_file: "Fichero XML"
