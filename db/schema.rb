@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216033618) do
+ActiveRecord::Schema.define(version: 20170223072210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20170216033618) do
     t.string   "nom_edifici"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "fases", force: :cascade do |t|
+    t.integer  "edifici_id"
+    t.string   "nom_string"
+    t.string   "posicio_integer"
+    t.text     "observacions"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "identificacions", force: :cascade do |t|
@@ -66,6 +75,18 @@ ActiveRecord::Schema.define(version: 20170216033618) do
     t.string   "termini_aprovacio_programa"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "intervencions", force: :cascade do |t|
+    t.integer  "edifici_id"
+    t.integer  "fase_id"
+    t.text     "descripcio"
+    t.integer  "import_obres"
+    t.integer  "import_honoraris"
+    t.integer  "import_taxes"
+    t.integer  "import_altres"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "qualificacions", force: :cascade do |t|

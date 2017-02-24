@@ -9,6 +9,9 @@
 	      <li class="header-submenu-item <% if @submenu_actiu == 'deficiencies' %>
 	            header-submenu-actiu
 	            <% end %>"><%= link_to(t('.deficiencies'), edit_qualificacio_path(@edifici.qualificacio.id), :class => 'header-submenu-link') %></li>
+	      <li class="header-submenu-item <% if @submenu_actiu == 'intervencions' %>
+	            header-submenu-actiu
+	            <% end %>"><%= link_to(t('.intervencions'), intervencions_path(edifici_id: @edifici.id), :class => 'header-submenu-link') %></li>
 	  	</ul>
     </div>
 	</div>

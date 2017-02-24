@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :fases
+  resources :intervencions
   resources :deficiencies
   resources :qualificacions
   resources :edificis

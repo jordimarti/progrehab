@@ -1,0 +1,17 @@
+<%= simple_form_for(@intervencio, remote: true) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :edifici_id, :as => :hidden %>
+    <%= f.input :fase_id, :as => :hidden %>
+    <%= f.input :descripcio %>
+    <%= f.input :import_obres %>
+    <%= f.input :import_honoraris %>
+    <%= f.input :import_taxes %>
+    <%= f.input :import_altres %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

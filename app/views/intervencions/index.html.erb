@@ -1,0 +1,49 @@
+<div class="light-background-container">
+  
+  <div class="row">
+    <div class="medium-12 columns">
+      <div class="titol-seccio">
+        <%= t('.titol_intervencions') %>
+      </div>
+    </div>
+  </div>
+
+  <% flash.each do |key, value| %>
+    <div class="row">
+      <div class="medium-6 columns end">
+        <div data-alert class="alert-box success radius">
+          <%= value %>
+          <a href="#" class="close">&times;</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+<div class="reveal" id="modal-intervencio" data-reveal>
+  <h3 id="modalTitle"><%= t('.intervencio') %></h3>
+  <div id="formulari-intervencio" class="formulari-intervencio">
+  </div>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <div class="light-container deficiencies-container">
+        <div class="deficiencies-title">
+          <h3 class="titol-deficiencies"><%= t('.titol_llistat_intervencions') %></h3>
+        </div>
+        <div id="intervencions">
+          <%= render  :partial => '/intervencions/llistat_intervencions' %>
+        </div>
+        <div class="spacer"></div>
+        <%= link_to (new_intervencio_path(edifici_id: params[:edifici_id])), remote: true do %>
+          <span class="suma">+</span> <%= t('.afegir_intervencio') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -36,6 +36,7 @@ ca:
     subnavigation:
       identificacio: "Identificació"
       deficiencies: "Deficiències"
+      intervencions: "Intervencions"
   home:
     permisos:
       titol: "Accés denegat"
@@ -84,6 +85,21 @@ ca:
       observacions: "Observacions"
       gravetat: "Gravetat"
       sistema: "Sistema"
+    form:
+      guardar: "Guardar"
+  intervencions:
+    index:
+      titol_intervencions: "Intervencions"
+      intervencio: "Intervenció"
+      titol_llistat_intervencions: "Llistat d'intervencions"
+      afegir_intervencio: "Afegir intervenció"
+    llistat_intervencions:
+      descripcio: "Descripció"
+      import_obres: "Import obres (€)"
+      import_honoraris: "Honoraris professionals (€)"
+      import_taxes: "Taxes (€)"
+      import_altres: "Altres (€)"
+      import_total: "Total (€)"
     form:
       guardar: "Guardar"
   simple_form:

@@ -67,7 +67,7 @@
 			<div id="deficiencies">
 				<%= render  :partial => '/deficiencies/llistat_deficiencies' %>
 			</div>
-			
+			<div class="spacer"></div>
 			<%= link_to (new_deficiencia_path(edifici_id: @qualificacio.edifici_id)), remote: true do %>
 				<span class="suma">+</span> <%= t('.afegir_deficiencia') %>
 			<% end %>
