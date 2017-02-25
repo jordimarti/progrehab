@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  get 'intervencions/assignacions', to: 'intervencions#assignacions', :as => :assignacions
   resources :fases
-  resources :intervencions
+  resources :intervencions do
+    collection do
+      put :assigna
+    end
+  end
   resources :deficiencies
   resources :qualificacions
   resources :edificis
@@ -10,6 +15,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/contacta'
   get 'home/permisos'
+
   
   root :to => "home#index"
 end

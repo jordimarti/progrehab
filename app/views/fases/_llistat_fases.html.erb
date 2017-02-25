@@ -1,0 +1,10 @@
+<% @fases.each do |fase| %>
+	<h3>FASE <%= fase.posicio %></h3>
+	<h4><%= fase.nom %>: <%= link_to t('.assignar_intervencions'), assignacions_path(edifici_id: @edifici.id, fase_id: fase.id) %></h4>
+	<div class="light-container">
+		<div id="fases">
+      <%= render :partial => '/fases/llistat_intervencions', locals: {fase_id: fase.id} %>
+    </div>
+	</div>
+
+<% end %>

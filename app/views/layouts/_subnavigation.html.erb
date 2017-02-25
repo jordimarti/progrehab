@@ -12,6 +12,9 @@
 	      <li class="header-submenu-item <% if @submenu_actiu == 'intervencions' %>
 	            header-submenu-actiu
 	            <% end %>"><%= link_to(t('.intervencions'), intervencions_path(edifici_id: @edifici.id), :class => 'header-submenu-link') %></li>
+	      <li class="header-submenu-item <% if @submenu_actiu == 'fases' %>
+	            header-submenu-actiu
+	            <% end %>"><%= link_to(t('.fases'), fases_path(edifici_id: @edifici.id), :class => 'header-submenu-link') %></li>
 	  	</ul>
     </div>
 	</div>

@@ -34,6 +34,15 @@ class IntervencionsController < ApplicationController
     @intervencio.destroy
   end
 
+  def assignacions
+    @intervencions = Intervencio.all
+  end
+
+  def assigna
+    Intervencio.where(id: params[:intervencio_ids]).update_all({fase_id: params[:fase_id]})
+    redirect_to fases_path(edifici_id: params[:edifici_id])
+  end
+
   private
     def set_intervencio
       @intervencio = Intervencio.find(params[:id])
@@ -44,6 +53,6 @@ class IntervencionsController < ApplicationController
     end
 
     def intervencio_params
-      params.require(:intervencio).permit(:edifici_id, :fase_id, :descripcio, :import_obres, :import_honoraris, :import_taxes, :import_altres)
+      params.require(:intervencio).permit(:edifici_id, :fase_id, :descripcio, :import_obres, :import_honoraris, :import_taxes, :import_altres, :intervencio_ids)
     end
 end

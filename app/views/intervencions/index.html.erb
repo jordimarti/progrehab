@@ -8,18 +8,6 @@
     </div>
   </div>
 
-  <% flash.each do |key, value| %>
-    <div class="row">
-      <div class="medium-6 columns end">
-        <div data-alert class="alert-box success radius">
-          <%= value %>
-          <a href="#" class="close">&times;</a>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-
 <div class="reveal" id="modal-intervencio" data-reveal>
   <h3 id="modalTitle"><%= t('.intervencio') %></h3>
   <div id="formulari-intervencio" class="formulari-intervencio">

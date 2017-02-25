@@ -1,33 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="light-background-container">
+  
+  <div class="row">
+    <div class="medium-12 columns">
+      <div class="titol-seccio">
+        <%= t('.titol_fases') %>
+      </div>
+    </div>
+  </div>
 
-<h1>Fases</h1>
+  <div class="reveal" id="modal-fase" data-reveal>
+    <h3 id="modalTitle"><%= t('.fase') %></h3>
+    <div id="formulari-fase" class="formulari-fase">
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Edifici</th>
-      <th>Nom string</th>
-      <th>Posicio integer</th>
-      <th>Observacions</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="row">
+    <div class="medium-12 columns">
+      <div class="fases-container">
+        <div id="fases">
+          <%= render  :partial => '/fases/llistat_fases' %>
+        </div>
+        <div class="spacer"></div>
+        <%= link_to (new_fase_path(edifici_id: params[:edifici_id])), remote: true do %>
+          <span class="suma">+</span> <%= t('.afegir_fase') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-  <tbody>
-    <% @fases.each do |fase| %>
-      <tr>
-        <td><%= fase.edifici_id %></td>
-        <td><%= fase.nom_string %></td>
-        <td><%= fase.posicio_integer %></td>
-        <td><%= fase.observacions %></td>
-        <td><%= link_to 'Show', fase %></td>
-        <td><%= link_to 'Edit', edit_fase_path(fase) %></td>
-        <td><%= link_to 'Destroy', fase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Fase', new_fase_path %>
+</div>

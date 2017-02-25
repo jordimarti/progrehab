@@ -1,12 +1,23 @@
-<%= simple_form_for(@fase) do |f| %>
+<%= simple_form_for(@fase, remote: true) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :edifici_id %>
-    <%= f.input :nom_string %>
-    <%= f.input :posicio_integer %>
+    <%= f.input :edifici_id, :as => :hidden %>
+    <%= f.input :nom %>
+    <%= f.input :posicio %>
     <%= f.input :observacions %>
   </div>
+
+  <ul>
+    <%= f.fields_for :intervencions do |i| %>
+      <% @intervencions.each do |intervencio| %>
+        <li>
+          <%= intervencio.descripcio %>:
+          <%= i.input :fase_id %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
 
   <div class="form-actions">
     <%= f.button :submit %>
