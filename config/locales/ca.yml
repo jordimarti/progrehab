@@ -37,6 +37,8 @@ ca:
       identificacio: "Identificació"
       deficiencies: "Deficiències"
       intervencions: "Intervencions"
+      fases: "Fases"
+      planificacio: "Planificació financera"
   home:
     permisos:
       titol: "Accés denegat"

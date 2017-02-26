@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  get 'intervencions/assignacions', to: 'intervencions#assignacions', :as => :assignacions
+  resources :ingressos
+  resources :derrames
+  get 'planificacions/fases', to: 'planificacions#fases', :as => :fases_planificacio
+  get 'planificacions/calendari', to: 'planificacions#calendari', :as => :calendari
+  resources :planificacions
   resources :fases
+  #get 'intervencions/assignacions', to: 'intervencions#assignacions', :as => :assignacions
   resources :intervencions do
     collection do
+      get :assignacions
       put :assigna
     end
   end

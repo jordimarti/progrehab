@@ -28,17 +28,20 @@ class FasesController < ApplicationController
     @fase = Fase.create(fase_params)
     @fases = Fase.where(edifici_id: @fase.edifici_id).order(:posicio)
     @intervencions = Intervencio.where(edifici_id: @fase.edifici_id)
+    @edifici = Edifici.find(@fase.edifici_id)
   end
 
   def update
     @fase.update_attributes(fase_params)
     @fases = Fase.where(edifici_id: @fase.edifici_id).order(:posicio)
     @intervencions = Intervencio.where(edifici_id: @fase.edifici_id)
+    @edifici = Edifici.find(@fase.edifici_id)
   end
 
   def destroy
     @fases = Fase.where(edifici_id: @fase.edifici_id).order(:posicio)
     @intervencions = Intervencio.where(edifici_id: @fase.edifici_id)
+    @edifici = Edifici.find(@fase.edifici_id)
     @fase.destroy
   end
 

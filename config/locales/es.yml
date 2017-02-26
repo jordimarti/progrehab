@@ -37,6 +37,8 @@ es:
       identificacio: "Identificación"
       deficiencies: "Deficiencias"
       intervencions: "Intervenciones"
+      fases: "Fases"
+      planificacio: "Planificación financiera"
   home:
     permisos:
       titol: "Acceso denegado"

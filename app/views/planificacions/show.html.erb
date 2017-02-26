@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Edifici:</strong>
+  <%= @planificacio.edifici_id %>
+</p>
+
+<p>
+  <strong>Fons propis:</strong>
+  <%= @planificacio.fons_propis %>
+</p>
+
+<p>
+  <strong>Subvencions solicitades:</strong>
+  <%= @planificacio.subvencions_solicitades %>
+</p>
+
+<p>
+  <strong>Subvencions atorgades:</strong>
+  <%= @planificacio.subvencions_atorgades %>
+</p>
+
+<p>
+  <strong>Import financar:</strong>
+  <%= @planificacio.import_financar %>
+</p>
+
+<p>
+  <strong>Forma financar:</strong>
+  <%= @planificacio.forma_financar %>
+</p>
+
+<%= link_to 'Edit', edit_planificacio_path(@planificacio) %> |
+<%= link_to 'Back', planificacions_path %>

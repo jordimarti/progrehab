@@ -1,0 +1,31 @@
+<%= simple_form_for(@planificacio) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="medium-4 columns">
+        <%= f.input :fons_propis %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-4 columns">
+        <%= f.input :subvencions_solicitades %>
+      </div>
+      <div class="medium-4 columns end">
+        <%= f.input :subvencions_atorgades %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-4 columns">
+        <%= f.input :import_financar %>
+      </div>
+      <div class="medium-4 columns end">
+        <%= f.input :forma_financar %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

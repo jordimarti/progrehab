@@ -72,6 +72,10 @@ class EdificisController < ApplicationController
     @qualificacio = Qualificacio.new
     @qualificacio.edifici_id = edifici_id
     @qualificacio.save
+    #Planificacio
+    @planificacio = Planificacio.new
+    @planificacio.edifici_id = edifici_id
+    @planificacio.save
   end
 
   private

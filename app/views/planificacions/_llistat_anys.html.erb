@@ -1,0 +1,66 @@
+<% mes_actual = Date.today.month %>
+<% tresoreria = @planificacio.fons_propis %>
+<% 
+	for i in @primer_any..@ultim_any %>
+	<table>
+	  <thead>
+	    <tr>
+	      <th><%= i %></th>
+	      <th><%= t('.gener') %></th>
+	      <th><%= t('.febrer') %></th>
+	      <th><%= t('.març') %></th>
+	      <th><%= t('.abril') %></th>
+	      <th><%= t('.maig') %></th>
+	      <th><%= t('.juny') %></th>
+	      <th><%= t('.juliol') %></th>
+	      <th><%= t('.agost') %></th>
+	      <th><%= t('.setembre') %></th>
+	      <th><%= t('.octubre') %></th>
+	      <th><%= t('.novembre') %></th>
+	      <th><%= t('.desembre') %></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <td><%= t('.ingressos') %></td>
+		    <% for j in 0..11 %>
+		    	<% if i == @primer_any && j < mes_actual - 1 %>
+		    		<td></td>
+		    	<% elsif %>
+		    		<td>0</td>
+		    	<% end %>
+		    <% end %>
+    	</tr>
+    	<tr>
+    		<td><%= t('.despeses') %></td>
+    		<% for j in 0..11 %>
+		      <% if i == @primer_any && j < mes_actual - 1 %>
+		    		<td></td>
+		    	<% elsif 
+			      mes_derrama = @derrames.where(edifici_id: @edifici.id, data_mes: j+1, data_any: i)
+			      if mes_derrama.exists? %>
+			        <td><%= mes_derrama.last.import %></td>
+			      <% else %>
+			        <td>0</td>
+			      <% end %>
+			    <% end %>
+		    <% end %>
+    	</tr>
+    	<tr>
+    		<td><%= t('.tresoreria') %></td>
+    		<% for j in 0..11 %>
+		    	<% if i == @primer_any && j < mes_actual - 1 %>
+		    		<td></td>
+		    	<% else 
+		    		despesa = @derrames.where(edifici_id: @edifici.id, data_mes: j+1, data_any: i)
+		    		if despesa.exists?
+		    			tresoreria -= despesa.last.import
+		    		end
+		    	%>
+		    		<td><%= tresoreria %></td>
+		    	<% end %>
+		    <% end %>
+    	</tr>
+    </tbody>
+  </table>
+ <% end %>

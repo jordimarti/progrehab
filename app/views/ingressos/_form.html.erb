@@ -1,0 +1,15 @@
+<%= simple_form_for(@ingres) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :edifici_id %>
+    <%= f.input :fase_id %>
+    <%= f.input :valor %>
+    <%= f.input :data_mes %>
+    <%= f.input :data_any %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

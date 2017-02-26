@@ -1,0 +1,28 @@
+<% @fases.each do |fase| %>
+	<% 
+		intervencions = Intervencio.where(fase_id: fase.id)
+		import_fase = 0
+		intervencions.each do |intervencio|
+			import_total_intervencio = intervencio.import_obres.to_i + intervencio.import_honoraris.to_i + intervencio.import_taxes.to_i + intervencio.import_altres.to_i
+			import_fase += import_total_intervencio
+		end
+	%>
+	<h3>FASE <%= fase.posicio %> | Import: <%= import_fase %></h3>
+	<div class="light-container">
+		<div id="derrames">
+      <%= render :partial => '/planificacions/llistat_derrames', locals: {fase_id: fase.id} %>
+      <% import_derrames = 0 %>
+      <% @derrames.where(fase_id: fase.id).each do |derrama| %>
+      	<% import_derrames += derrama.import %>
+      <% end %>
+      <p>Total: <%= import_derrames %> €</p>
+    </div>
+    <div class="spacer"></div>
+
+
+    <%= link_to (new_derrama_path(edifici_id: fase.edifici_id, fase_id: fase.id)), remote: true do %>
+      <span class="suma">+</span> <%= t('.afegir_derrama') %>
+    <% end %>
+	</div>
+
+<% end %>

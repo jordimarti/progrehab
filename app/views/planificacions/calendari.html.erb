@@ -1,0 +1,32 @@
+<div class="light-background-container">
+  
+  <div class="row">
+    <div class="medium-12 columns">
+      <div class="titol-seccio">
+        <%= t('.titol_calendari') %>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'menu_planificacio' %>
+
+  <div class="reveal" id="modal-ingres" data-reveal>
+    <h3 id="modalTitle"><%= t('.ingres') %></h3>
+    <div id="formulari-ingres" class="formulari-ingres">
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="row">
+    <div class="medium-12 columns">
+      <div class="fases-container">
+        <div id="fases">
+          <%= render  :partial => '/planificacions/llistat_anys' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

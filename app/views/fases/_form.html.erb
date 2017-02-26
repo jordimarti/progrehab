@@ -8,17 +8,6 @@
     <%= f.input :observacions %>
   </div>
 
-  <ul>
-    <%= f.fields_for :intervencions do |i| %>
-      <% @intervencions.each do |intervencio| %>
-        <li>
-          <%= intervencio.descripcio %>:
-          <%= i.input :fase_id %>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
-
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223072210) do
+ActiveRecord::Schema.define(version: 20170225094720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "courses", force: :cascade do |t|
-    t.string   "name_ca"
-    t.string   "name_es"
-    t.string   "name_en"
-    t.string   "image"
-    t.integer  "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "deficiencies", force: :cascade do |t|
     t.integer  "edifici_id"
@@ -33,6 +23,17 @@ ActiveRecord::Schema.define(version: 20170223072210) do
     t.string   "qualificacio"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "derrames", force: :cascade do |t|
+    t.integer  "edifici_id"
+    t.integer  "fase_id"
+    t.string   "concepte"
+    t.integer  "import"
+    t.integer  "data_mes"
+    t.integer  "data_any"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "edificis", force: :cascade do |t|
@@ -87,6 +88,16 @@ ActiveRecord::Schema.define(version: 20170223072210) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "ingressos", force: :cascade do |t|
+    t.integer  "edifici_id"
+    t.integer  "fase_id"
+    t.integer  "valor"
+    t.integer  "data_mes"
+    t.integer  "data_any"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "intervencions", force: :cascade do |t|
     t.integer  "edifici_id"
     t.integer  "fase_id"
@@ -99,38 +110,15 @@ ActiveRecord::Schema.define(version: 20170223072210) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "lessons", force: :cascade do |t|
-    t.integer  "subcourse_id"
-    t.integer  "section_id"
-    t.integer  "position"
-    t.string   "title"
-    t.text     "content"
-    t.string   "image"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "promotions", force: :cascade do |t|
-    t.integer  "course_id"
-    t.string   "code"
-    t.integer  "price"
-    t.boolean  "single_use"
-    t.boolean  "used"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "purchases", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "course_id"
-    t.boolean  "terms_of_service"
-    t.boolean  "paid"
-    t.boolean  "refund"
-    t.integer  "price"
-    t.string   "promotion_code"
-    t.integer  "bill_number"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+  create_table "planificacions", force: :cascade do |t|
+    t.integer  "edifici_id"
+    t.integer  "fons_propis"
+    t.integer  "subvencions_solicitades"
+    t.integer  "subvencions_atorgades"
+    t.integer  "import_financar"
+    t.string   "forma_financar"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "qualificacions", force: :cascade do |t|
@@ -141,31 +129,6 @@ ActiveRecord::Schema.define(version: 20170223072210) do
     t.string   "xml_file_content_type"
     t.integer  "xml_file_file_size"
     t.datetime "xml_file_updated_at"
-  end
-
-  create_table "sections", force: :cascade do |t|
-    t.integer  "subcourse_id"
-    t.integer  "position"
-    t.string   "title"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "subcourses", force: :cascade do |t|
-    t.integer  "course_id"
-    t.string   "name"
-    t.string   "link"
-    t.decimal  "duration"
-    t.decimal  "videos_duration"
-    t.string   "library_image"
-    t.string   "intro_video_hd"
-    t.string   "intro_video_sd"
-    t.string   "intro_video_image"
-    t.string   "locale"
-    t.string   "region"
-    t.boolean  "visible"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|

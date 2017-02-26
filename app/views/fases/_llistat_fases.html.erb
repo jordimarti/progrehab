@@ -1,6 +1,11 @@
 <% @fases.each do |fase| %>
 	<h3>FASE <%= fase.posicio %></h3>
-	<h4><%= fase.nom %>: <%= link_to t('.assignar_intervencions'), assignacions_path(edifici_id: @edifici.id, fase_id: fase.id) %></h4>
+	<h4><%= fase.nom %>: <%= link_to t('.assignar_intervencions'), assignacions_intervencions_path(edifici_id: @edifici.id, fase_id: fase.id) %></h4>
+	<%= link_to fase_path(fase, edifici_id: @edifici.id), remote: true, method: :delete,  data: { confirm: 'Segur que vols eliminar?' } do %>
+				  <div class="fase-eliminar button-right">
+				  	<span class="icon-cancel">x</span>
+				  </div>
+				<% end %>
 	<div class="light-container">
 		<div id="fases">
       <%= render :partial => '/fases/llistat_intervencions', locals: {fase_id: fase.id} %>

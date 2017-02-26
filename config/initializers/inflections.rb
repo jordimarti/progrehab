@@ -19,4 +19,7 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'deficiencia', 'deficiencies'
   inflect.irregular 'qualificacio', 'qualificacions'
   inflect.irregular 'intervencio', 'intervencions'
+  inflect.irregular 'planificacio', 'planificacions'
+  inflect.irregular 'derrama', 'derrames'
+  inflect.irregular 'ingres', 'ingressos'
 end

@@ -1,0 +1,32 @@
+<table>
+  <thead>
+    <tr>
+      <th><%= t('.concepte') %></th>
+      <th><%= t('.import') %></th>
+      <th><%= t('.data') %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @derrames.where(fase_id: fase_id).each do |derrama| %>
+    <tr>
+      <td>
+        <%= link_to edit_derrama_path(derrama, edifici_id: derrama.edifici_id, fase_id: derrama.fase_id), remote: true do %>
+          <div class="derrama-editar">
+            <%= derrama.concepte %>
+          </div>
+        <% end %>
+      </td>
+      <td><%= derrama.import %></td>
+      <td><%= derrama.data_mes %> <%= derrama.data_any %></td>
+      <td>
+      	<%= link_to derrama_path(derrama), remote: true, method: :delete,  data: { confirm: 'Segur que vols eliminar?' } do %>
+				  <div class="deficiencia-eliminar button-right">
+				  	<span class="icon-cancel">x</span>
+				  </div>
+				<% end %>
+			</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

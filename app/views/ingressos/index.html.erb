@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ingressos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Edifici</th>
+      <th>Fase</th>
+      <th>Valor</th>
+      <th>Data mes</th>
+      <th>Data any</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ingressos.each do |ingres| %>
+      <tr>
+        <td><%= ingres.edifici_id %></td>
+        <td><%= ingres.fase_id %></td>
+        <td><%= ingres.valor %></td>
+        <td><%= ingres.data_mes %></td>
+        <td><%= ingres.data_any %></td>
+        <td><%= link_to 'Show', ingres %></td>
+        <td><%= link_to 'Edit', edit_ingres_path(ingres) %></td>
+        <td><%= link_to 'Destroy', ingres, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ingres', new_ingres_path %>

@@ -1,0 +1,16 @@
+<%= simple_form_for(@derrama, remote: true) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :edifici_id, :as => :hidden, :input_html => { :value => params[:edifici_id] } %>
+    <%= f.input :fase_id, :as => :hidden, :input_html => { :value => params[:fase_id] } %>
+    <%= f.input :concepte %>
+    <%= f.input :import %>
+    <%= f.input :data_mes %>
+    <%= f.input :data_any %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
