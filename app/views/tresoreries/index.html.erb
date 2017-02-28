@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tresoreries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Edifici</th>
+      <th>Import</th>
+      <th>Data mes</th>
+      <th>Data any</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tresoreries.each do |tresoreria| %>
+      <tr>
+        <td><%= tresoreria.edifici_id %></td>
+        <td><%= tresoreria.import %></td>
+        <td><%= tresoreria.data_mes %></td>
+        <td><%= tresoreria.data_any %></td>
+        <td><%= link_to 'Show', tresoreria %></td>
+        <td><%= link_to 'Edit', edit_tresoreria_path(tresoreria) %></td>
+        <td><%= link_to 'Destroy', tresoreria, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tresoreria', new_tresoreria_path %>

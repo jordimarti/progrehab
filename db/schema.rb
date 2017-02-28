@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225094720) do
+ActiveRecord::Schema.define(version: 20170227092515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,8 +90,7 @@ ActiveRecord::Schema.define(version: 20170225094720) do
 
   create_table "ingressos", force: :cascade do |t|
     t.integer  "edifici_id"
-    t.integer  "fase_id"
-    t.integer  "valor"
+    t.integer  "import"
     t.integer  "data_mes"
     t.integer  "data_any"
     t.datetime "created_at", null: false
@@ -129,6 +128,15 @@ ActiveRecord::Schema.define(version: 20170225094720) do
     t.string   "xml_file_content_type"
     t.integer  "xml_file_file_size"
     t.datetime "xml_file_updated_at"
+  end
+
+  create_table "tresoreries", force: :cascade do |t|
+    t.integer  "edifici_id"
+    t.integer  "import"
+    t.integer  "data_mes"
+    t.integer  "data_any"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

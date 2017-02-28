@@ -24,10 +24,11 @@
 	    <tr>
 	      <td><%= t('.ingressos') %></td>
 		    <% for j in 0..11 %>
-		    	<% if i == @primer_any && j < mes_actual - 1 %>
+		    	<% ingres = @ingressos.where(data_mes: j+1, data_any: i) %>
+		    	<% if ingres.exists? %>
+		    		<td><%= ingres.last.import %></td>
+		    	<% else %>
 		    		<td></td>
-		    	<% elsif %>
-		    		<td>0</td>
 		    	<% end %>
 		    <% end %>
     	</tr>
@@ -37,11 +38,11 @@
 		      <% if i == @primer_any && j < mes_actual - 1 %>
 		    		<td></td>
 		    	<% elsif 
-			      mes_derrama = @derrames.where(edifici_id: @edifici.id, data_mes: j+1, data_any: i)
+			      mes_derrama = @derrames.where(data_mes: j+1, data_any: i)
 			      if mes_derrama.exists? %>
 			        <td><%= mes_derrama.last.import %></td>
 			      <% else %>
-			        <td>0</td>
+			        <td></td>
 			      <% end %>
 			    <% end %>
 		    <% end %>
@@ -49,18 +50,14 @@
     	<tr>
     		<td><%= t('.tresoreria') %></td>
     		<% for j in 0..11 %>
-		    	<% if i == @primer_any && j < mes_actual - 1 %>
-		    		<td></td>
-		    	<% else 
-		    		despesa = @derrames.where(edifici_id: @edifici.id, data_mes: j+1, data_any: i)
-		    		if despesa.exists?
-		    			tresoreria -= despesa.last.import
-		    		end
-		    	%>
-		    		<td><%= tresoreria %></td>
-		    	<% end %>
+	    		<% tresoreria = @tresoreries.where(data_mes: j+1, data_any: i).last
+	    		if tresoreria != nil %>
+	    			<td><%= tresoreria.import %></td>
+	    		<% else %>
+	    			<td></td>
+	    		<% end %>
 		    <% end %>
     	</tr>
     </tbody>
   </table>
- <% end %>
+<% end %>

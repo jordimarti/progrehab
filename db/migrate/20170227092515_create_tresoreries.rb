@@ -1,6 +1,6 @@
-class CreateIngressos < ActiveRecord::Migration[5.0]
+class CreateTresoreries < ActiveRecord::Migration[5.0]
   def change
-    create_table :ingressos do |t|
+    create_table :tresoreries do |t|
       t.integer :edifici_id
       t.integer :import
       t.integer :data_mes

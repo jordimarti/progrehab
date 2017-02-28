@@ -69,6 +69,6 @@ class IngressosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ingres_params
-      params.require(:ingres).permit(:edifici_id, :fase_id, :valor, :data_mes, :data_any)
+      params.require(:ingres).permit(:edifici_id, :import, :data_mes, :data_any)
     end
 end

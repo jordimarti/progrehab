@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Edifici:</strong>
+  <%= @tresoreria.edifici_id %>
+</p>
+
+<p>
+  <strong>Import:</strong>
+  <%= @tresoreria.import %>
+</p>
+
+<p>
+  <strong>Data mes:</strong>
+  <%= @tresoreria.data_mes %>
+</p>
+
+<p>
+  <strong>Data any:</strong>
+  <%= @tresoreria.data_any %>
+</p>
+
+<%= link_to 'Edit', edit_tresoreria_path(@tresoreria) %> |
+<%= link_to 'Back', tresoreries_path %>

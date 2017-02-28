@@ -40,6 +40,7 @@ gem 'aws-sdk', '~> 2.3', '>= 2.3.22'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'sendgrid-ruby', '~> 4.0', '>= 4.0.6'
 gem 'cancancan', '~> 1.13', '>= 1.13.1'
+gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

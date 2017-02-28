@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tresoreries
   resources :ingressos
   resources :derrames
   get 'planificacions/fases', to: 'planificacions#fases', :as => :fases_planificacio

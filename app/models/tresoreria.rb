@@ -1,0 +1,2 @@
+class Tresoreria < ApplicationRecord
+end
