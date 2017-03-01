@@ -73,9 +73,11 @@ es:
     edit:
       titol_qualificacio: "Deficiencias"
       titol_introduccio_deficiencies: "Introducción de deficiencias"
-      opcio_xml: "Opción 1: Introducir fichero XML"
+      opcio_xml: "Opción 1:"
+      text_opcio_xml: "Introducir fichero XML"
       explicacio_xml: "Consultad las instrucciones para la introducción de archivos XML provenientes de la herramienta de la Generalitat."
-      opcio_manual: "Opción 2: Introducir deficiencias manualmente"
+      opcio_manual: "Opción 2:"
+      text_opcio_manual: "Introducir deficiencias manualmente"
       explicacio_manual: "Si no disponéis del archivo XML podéis introducir deficiencias manualmente."
       titol_llistat_deficiencies: "Listado de deficiencias"
       afegir_deficiencia: "Añadir deficiencia"
@@ -89,6 +91,25 @@ es:
       sistema: "Sistema"
     form:
       guardar: "Guardar"
+      fonamentacio: "Cimentación"
+      estructura_vertical: "Estructura vertical"
+      estructura_horitzontal: "Estructura horizontal"
+      estructura_coberta: "Estructura de cubierta"
+      estructura_escales: "Estructura de escaleras"
+      tancaments_verticals: "Cerramientos verticales: fachadas, medianeras y huecos"
+      acabats_facana: "Acabados de fachada"
+      fusteria_exterior: "Carpintería exterior y acristalamiento"
+      elements_adossats: "Elementos adosados a la fachada"
+      altres_facana: "Otros elementos de fachada"
+      terrats: "Azoteas y cubiertas planas"
+      coberta_inclinada: "Cubiertas inclinadas"
+      aigua: "Instalación de agua"
+      electricitat: "Instalación de electricidad"
+      sanejament: "Instalacioón de saneamiento"
+      gas: "Instalación de gas"
+      ascensor: "Instalación de ascensor"
+      altres_instalacions: "Otras instalaciones"
+      altres_subsistemes: "Otros subsistemas"
   intervencions:
     index:
       titol_intervencions: "Intervenciones"
@@ -102,8 +123,51 @@ es:
       import_taxes: "Tasas (€)"
       import_altres: "Otros (€)"
       import_total: "Total (€)"
+    assignacions:
+      titol_fases: "Asigna intervenciones a la fase"
+      descripcio: "Descripción"
+      import_total: "Importe (€)"
     form:
       guardar: "Guardar"
+  fases:
+    index:
+      titol_fases: "Fases de intervención"
+      fase: "Fase"
+      crear_fases: "Debes crear como mínimo una fase en la cual asignar las intervenciones a realizar."
+    llistat_intervencions:
+      descripcio: "Descripción"
+      import_total: "Importe"
+    form:
+      guardar: "Guardar"
+  planificacions:
+    menu_planificacio:
+      titol_planificacio: "Planificación financiera"
+      info_previa: "Información previa"
+      planificacio_fases: "Derramas"
+      calendari: "Calendario"
+    llistat_fases:
+      import: "Import total"
+      afegir_derrama: "Añadir derrama"
+    llistat_derrames:
+      concepte: "Concepto"
+      import: "Importe"
+      data: "Fecha"
+    form:
+      guardar: "Guardar"
+  derrames:
+    form:
+      guardar: "Guardar"
+      gener: "Enero"
+      febrer: "Febrero"
+      marc: "Marzo"
+      abril: "Abril"
+      maig: "Mayo"
+      juny: "Junio"
+      agost: "Agosto"
+      setembre: "Septiembre"
+      octubre: "Octubre"
+      novembre: "Noviembre"
+      desembre: "Diciembre"
   simple_form:
     labels:
       identificacio:
@@ -139,3 +203,24 @@ es:
         termini_aprovacio_programa: "Plazo máximo para aprobar el Programa de Rehabilitación"
       qualificacio:
         xml_file: "Fichero XML"
+      intervencio:
+        descripcio: "Descripción"
+        import_obres: "Importe de las obras"
+        import_honoraris: "Importe de los honorarios profesionales"
+        import_taxes: "Importe de las tasas"
+        import_altres: "Otros"
+      fase:
+        nom: "Nombre"
+        posicio: "Posición"
+        observacions: "Observaciones"
+      planificacio:
+        fons_propis: "Fondos propios"
+        subvencions_solicitades: "Subvenciones solicitadas"
+        subvencions_atorgades: "Subvenciones otorgadas"
+        import_financar: "Importe a financiar"
+        forma_financar: "Forma de financiación"
+      derrama:
+        concepte: "Concepto"
+        import: "Importe"
+        data_mes: "Mes"
+        data_any: "Año"

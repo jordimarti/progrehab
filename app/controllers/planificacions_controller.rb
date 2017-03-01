@@ -6,6 +6,7 @@ class PlanificacionsController < ApplicationController
   def edit
     @subnavigation = true
     @submenu_actiu = 'planificacio'
+    @planificacio_menu_actiu = 'info_previa'
     check_user_edifici(@edifici.id)
   end
 
@@ -24,6 +25,7 @@ class PlanificacionsController < ApplicationController
   def fases
     @subnavigation = true
     @submenu_actiu = 'planificacio'
+    @planificacio_menu_actiu = 'planificacio_fases'
     check_user_edifici(@edifici.id)
     @fases = Fase.where(edifici_id: @edifici.id)
     @derrames = Derrama.where(edifici_id: @edifici.id)
@@ -32,6 +34,7 @@ class PlanificacionsController < ApplicationController
   def calendari
     @subnavigation = true
     @submenu_actiu = 'planificacio'
+    @planificacio_menu_actiu = 'calendari'
     check_user_edifici(@edifici.id)
     @derrames = Derrama.where(edifici_id: @edifici.id).order(:data_any)
     @ingressos = Ingres.where(edifici_id: @edifici.id).order(:data_any)

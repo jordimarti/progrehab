@@ -2,7 +2,7 @@
 <% tresoreria = @planificacio.fons_propis %>
 <% 
 	for i in @primer_any..@ultim_any %>
-	<table>
+	<table class="calendari">
 	  <thead>
 	    <tr>
 	      <th><%= i %></th>
@@ -22,7 +22,7 @@
 	  </thead>
 	  <tbody>
 	    <tr>
-	      <td><%= t('.ingressos') %></td>
+	      <th><%= t('.ingressos') %></th>
 		    <% for j in 0..11 %>
 		    	<% ingres = @ingressos.where(data_mes: j+1, data_any: i) %>
 		    	<% if ingres.exists? %>
@@ -33,7 +33,7 @@
 		    <% end %>
     	</tr>
     	<tr>
-    		<td><%= t('.despeses') %></td>
+    		<th><%= t('.despeses') %></th>
     		<% for j in 0..11 %>
 		      <% if i == @primer_any && j < mes_actual - 1 %>
 		    		<td></td>
@@ -48,7 +48,7 @@
 		    <% end %>
     	</tr>
     	<tr>
-    		<td><%= t('.tresoreria') %></td>
+    		<th><%= t('.tresoreria') %></th>
     		<% for j in 0..11 %>
 	    		<% tresoreria = @tresoreries.where(data_mes: j+1, data_any: i).last
 	    		if tresoreria != nil %>

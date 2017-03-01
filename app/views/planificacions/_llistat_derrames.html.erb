@@ -1,10 +1,12 @@
+
+
 <table>
   <thead>
     <tr>
       <th><%= t('.concepte') %></th>
       <th><%= t('.import') %></th>
       <th><%= t('.data') %></th>
-      <th></th>
+      <th width="30"></th>
     </tr>
   </thead>
   <tbody>
@@ -18,7 +20,7 @@
         <% end %>
       </td>
       <td><%= derrama.import %></td>
-      <td><%= derrama.data_mes %> <%= derrama.data_any %></td>
+      <td><%= derrama.data_mes %>/<%= derrama.data_any %></td>
       <td>
       	<%= link_to derrama_path(derrama), remote: true, method: :delete,  data: { confirm: 'Segur que vols eliminar?' } do %>
 				  <div class="deficiencia-eliminar button-right">

@@ -7,15 +7,26 @@
 			import_fase += import_total_intervencio
 		end
 	%>
-	<h3>FASE <%= fase.posicio %> | Import: <%= import_fase %></h3>
-	<div class="light-container">
+	<h3 class="titol-fase">FASE <%= fase.posicio %></h3>
+	<p class="opcions-fase"><%= t('.import') %>: <%= import_fase %> €</p>
+	<div class="light-container container-derrames-fase">
 		<div id="derrames">
       <%= render :partial => '/planificacions/llistat_derrames', locals: {fase_id: fase.id} %>
       <% import_derrames = 0 %>
       <% @derrames.where(fase_id: fase.id).each do |derrama| %>
       	<% import_derrames += derrama.import %>
       <% end %>
-      <p>Total: <%= import_derrames %> €</p>
+      <p>
+      	Total: <%= import_derrames %> €.
+      	<% 
+      	diferencia_derrama_fase = import_fase - import_derrames
+      	if diferencia_derrama_fase > 0 %>
+      		Falten <%= diferencia_derrama_fase %> € per cobrir el cost de la fase. 
+      	<% elsif diferencia_derrama_fase < 0
+      		diners_sobrants = diferencia_derrama_fase * (-1) %>
+      		Sobren <%= diners_sobrants %> €.
+      	<% end %>
+      </p>
     </div>
     <div class="spacer"></div>
 

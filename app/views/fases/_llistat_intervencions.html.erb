@@ -3,7 +3,6 @@
     <tr>
       <th><%= t('.descripcio') %></th>
       <th><%= t('.import_total') %></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -12,13 +11,6 @@
       <td><%= intervencio.descripcio %></td>
       <% import_total = intervencio.import_obres.to_i + intervencio.import_honoraris.to_i + intervencio.import_taxes.to_i + intervencio.import_altres.to_i %> 
       <td><%= import_total %></td>
-      <td>
-      	<%= link_to intervencio_path(intervencio), remote: true, method: :delete,  data: { confirm: 'Segur que vols eliminar?' } do %>
-				  <div class="deficiencia-eliminar button-right">
-				  	<i class="fa fa-trash" aria-hidden="true"></i>
-				  </div>
-				<% end %>
-			</td>
     </tr>
     <% end %>
   </tbody>

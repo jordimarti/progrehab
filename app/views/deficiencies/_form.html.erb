@@ -3,10 +3,23 @@
 
   <div class="form-inputs">
     <%= f.input :edifici_id, :as => :hidden %>
-    <%= f.input :descripcio %>
-    <%= f.input :observacions %>
-    <%= f.input :sistema %>
-    <%= f.input :qualificacio %>
+    <div class="row">
+      <div class="medium-12 columns">
+        <%= f.input :descripcio %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-12 columns">
+        <%= f.input :observacions %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-6 columns">
+        <%= f.input :sistema, collection: [[t('.fonamentacio'), 'fonamentacio'], [t('.estructura_vertical'), 'estructura_vertical'], [t('.estructura_horitzontal'), 'estructura_horitzontal'], [t('.estructura_coberta'), 'estructura_coberta'], [t('.estructura_escales'), 'estructura_escales'], [t('.tancaments_verticals'), 'tancaments_verticals'], [t('.acabats_facana'), 'acabats_facana'], [t('.fusteria_exterior'), 'fusteria_exterior'], [t('.elements_adossats'), 'elements_adossats'], [t('.altres_facana'), 'altres_facana'], [t('.terrats'), 'terrats'], [t('.coberta_inclinada'), 'coberta_inclinada'], [t('.aigua'), 'aigua'], [t('.electricitat'), 'electricitat'], [t('.sanejament'), 'sanejament'], [t('.gas'), 'gas'], [t('.ascensor'), 'ascensor'], [t('.altres_instalacions'), 'altres_instalacions'], [t('.altres_subsistemes'), 'altres_subsistemes']] %>
+      </div>
+      <div class="medium-6 columns">
+        <%= f.input :qualificacio, collection: [[t('.lleu'), 'LL'], [t('.important'), 'I']] %>
+      </div>
     </div>
   </div>
 

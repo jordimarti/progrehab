@@ -73,9 +73,11 @@ ca:
     edit:
       titol_qualificacio: "Deficiències"
       titol_introduccio_deficiencies: "Introducció de deficiències"
-      opcio_xml: "Opció 1: Introduïr fitxer XML"
+      opcio_xml: "Opció 1:"
+      text_opcio_xml: "Introduïr fitxer XML"
       explicacio_xml: "Consulteu les instruccions per a la introducció d'arxius XML provinents de l'eina de la Generalitat."
-      opcio_manual: "Opció 2: Introduïr deficiències manualment"
+      opcio_manual: "Opció 2:"
+      text_opcio_manual: "Introduïr deficiències manualment"
       explicacio_manual: "Si no disposeu de l'arxiu XML podeu introduïr deficiències manualment."
       titol_llistat_deficiencies: "Llistat de deficiències"
       afegir_deficiencia: "Afegir deficiència"
@@ -89,6 +91,25 @@ ca:
       sistema: "Sistema"
     form:
       guardar: "Guardar"
+      fonamentacio: "Fonamentació"
+      estructura_vertical: "Estructura vertical"
+      estructura_horitzontal: "Estructura horitzontal"
+      estructura_coberta: "Estructura de coberta"
+      estructura_escales: "Estructura d'escales"
+      tancaments_verticals: "Tancaments verticals: façanes, mitgeres i forats"
+      acabats_facana: "Acabats de façana"
+      fusteria_exterior: "Fusteria exterior i envidrament"
+      elements_adossats: "Elements adossats a façana"
+      altres_facana: "Altres elements de façana"
+      terrats: "Terrats i cobertes planes"
+      coberta_inclinada: "Cobertes inclinades"
+      aigua: "Instal·lació d'aigua"
+      electricitat: "Instal·lació d'electricitat"
+      sanejament: "Instal·lació de sanejament"
+      gas: "Instal·lació de gas"
+      ascensor: "Instal·lació d'ascensor"
+      altres_instalacions: "Altres instal·lacions"
+      altres_subsistemes: "Altres subsistemes"
   intervencions:
     index:
       titol_intervencions: "Intervencions"
@@ -102,8 +123,51 @@ ca:
       import_taxes: "Taxes (€)"
       import_altres: "Altres (€)"
       import_total: "Total (€)"
+    assignacions:
+      titol_fases: "Assigna intervencions a la fase"
+      descripcio: "Descripció"
+      import_total: "Import (€)"
     form:
       guardar: "Guardar"
+  fases:
+    index:
+      titol_fases: "Fases d'intervenció"
+      fase: "Fase"
+      crear_fases: "Has de crear com a mínim una fase en la qual assignar les intervencions a realitzar."
+    llistat_intervencions:
+      descripcio: "Descripció"
+      import_total: "Import"
+    form:
+      guardar: "Guardar"
+  planificacions:  
+    menu_planificacio:
+      titol_planificacio: "Planificació financera"
+      info_previa: "Informació prèvia"
+      planificacio_fases: "Derrames"
+      calendari: "Calendari"
+    llistat_fases:
+      import: "Import total"
+      afegir_derrama: "Afegir derrama"
+    llistat_derrames:
+      concepte: "Concepte"
+      import: "Import"
+      data: "Data"
+    form:
+      guardar: "Guardar"
+  derrames:
+    form:
+      guardar: "Guardar"
+      gener: "Gener"
+      febrer: "Febrer"
+      marc: "Març"
+      abril: "Abril"
+      maig: "Maig"
+      juny: "Juny"
+      agost: "Agost"
+      setembre: "Setembre"
+      octubre: "Octubre"
+      novembre: "Novembre"
+      desembre: "Desembre"
   simple_form:
     labels:
       identificacio:
@@ -139,3 +203,24 @@ ca:
         termini_aprovacio_programa: "Termini màxim per aprovar el Programa de Rehabilitació"
       qualificacio:
         xml_file: "Fitxer XML"
+      intervencio:
+        descripcio: "Descripció"
+        import_obres: "Import de les obres"
+        import_honoraris: "Import dels honoraris professionals"
+        import_taxes: "Import de les taxes"
+        import_altres: "Altres"
+      fase:
+        nom: "Nom"
+        posicio: "Posició"
+        observacions: "Observacions"
+      planificacio:
+        fons_propis: "Fons propis"
+        subvencions_solicitades: "Subvencions sol·licitades"
+        subvencions_atorgades: "Subvencions atorgades"
+        import_financar: "Import a finançar"
+        forma_financar: "Forma de financiació"
+      derrama:
+        concepte: "Concepte"
+        import: "Import"
+        data_mes: "Mes"
+        data_any: "Any"

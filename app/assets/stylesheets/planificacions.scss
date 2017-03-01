@@ -1,3 +1,53 @@
 // Place all the styles related to the Planificacions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul.planificacions-menu-list {
+	list-style-type: none;
+	margin: 0px;
+	margin-bottom: 30px;
+}
+
+li.planificacions-menu-item {
+	display: inline;
+	margin-right: 20px;
+	font-size: 1em;
+	padding-bottom: 6px;
+}
+
+li.planificacions-menu-item > a {
+	color: #333333;
+}
+
+li.item-actiu {
+	border-bottom: 2px solid #333333;
+}
+
+.container-derrames-fase {
+	margin-bottom: 40px;
+}
+
+table.calendari {
+	border: 1px solid #cccccc;
+	margin-bottom: 30px;
+}
+
+table.calendari > thead > tr > th {
+	padding: 0px 5px;
+	text-align: center;
+}
+
+table.calendari > tbody > tr > th {
+	padding: 5px;
+	text-align: center;
+}
+
+table.calendari > tbody > tr > td {
+	padding: 5px;
+	text-align: right;
+}
+
+p.consell {
+	font-size: 0.9em;
+	color: #999999;
+}

@@ -1,7 +1,7 @@
 class IntervencionsController < ApplicationController
   include CheckUser
   before_action :set_intervencio, only: [:show, :edit, :update, :destroy]
-  before_action :set_edifici, only: [:index]
+  before_action :set_edifici, only: [:index, :assignacions]
   respond_to :html, :js
 
   def index
@@ -35,7 +35,11 @@ class IntervencionsController < ApplicationController
   end
 
   def assignacions
+    @subnavigation = true
+    @submenu_actiu = 'fases'
     @intervencions = Intervencio.all
+    fase = Fase.find(params[:fase_id])
+    @nom_fase = fase.nom
   end
 
   def assigna

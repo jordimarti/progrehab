@@ -1,10 +1,18 @@
 	<div class="row">
 		<div class="medium-12 columns">
+			<div class="titol-seccio">
+				<%= t('.titol_planificacio') %>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="medium-12 columns">
 			<div class="menu-seccio">
-				<ul>
-					<li><%= link_to(t('.info_previa'), edit_planificacio_path(@edifici.id), :class => 'seccio-submenu-link') %></li>
-					<li><%= link_to(t('.planificacio_fases'), fases_planificacio_path(id: @edifici.planificacio.id, edifici_id: @edifici.id), :class => 'seccio-submenu-link') %></li>
-					<li><%= link_to(t('.calendari'), calendari_path(id: @edifici.planificacio.id, edifici_id: @edifici.id), :class => 'seccio-submenu-link') %></li>
+				<ul class="planificacions-menu-list">
+					<li class="planificacions-menu-item <% if @planificacio_menu_actiu == 'info_previa' %>item-actiu<% end %>"><%= link_to(t('.info_previa'), edit_planificacio_path(@edifici.id), :class => 'seccio-submenu-link') %></li>
+					<li class="planificacions-menu-item <% if @planificacio_menu_actiu == 'planificacio_fases' %>item-actiu<% end %>"><%= link_to(t('.planificacio_fases'), fases_planificacio_path(id: @edifici.planificacio.id, edifici_id: @edifici.id), :class => 'seccio-submenu-link') %></li>
+					<li class="planificacions-menu-item <% if @planificacio_menu_actiu == 'calendari' %>item-actiu<% end %>"><%= link_to(t('.calendari'), calendari_path(id: @edifici.planificacio.id, edifici_id: @edifici.id), :class => 'seccio-submenu-link') %></li>
 				</ul>
 			</div>
 		</div>

@@ -21,7 +21,11 @@
     <div class="medium-12 columns">
       <div class="fases-container">
         <div id="fases">
-          <%= render  :partial => '/fases/llistat_fases' %>
+          <% if @fases.exists? %>
+            <%= render  :partial => '/fases/llistat_fases' %>
+          <% else %>
+            <p><%= t('.crear_fases') %></p>
+          <% end %>
         </div>
         <div class="spacer"></div>
         <%= link_to (new_fase_path(edifici_id: params[:edifici_id])), remote: true do %>

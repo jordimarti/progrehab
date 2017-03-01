@@ -16,15 +16,8 @@ class QualificacionsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @qualificacio.update(qualificacio_params)
-        format.html { redirect_to edit_qualificacio_path, notice: 'Qualificacio was successfully updated.' }
-        format.json { render :show, status: :ok, location: @qualificacio }
-      else
-        format.html { render :edit }
-        format.json { render json: @qualificacio.errors, status: :unprocessable_entity }
-      end
-    end
+    @qualificacio.update(qualificacio_params)
+    redirect_to edit_qualificacio_path
   end
 
   private

@@ -7,7 +7,7 @@
       <th><%= t('.observacions') %></th>
       <th width="150"><%= t('.gravetat') %></th>
       <th width="150"><%= t('.sistema') %></th>
-      <th></th>
+      <th width="30"></th>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +21,12 @@
 			  <% end %>
 			</td>
       <td><%= deficiencia.observacions %></td>
-      <td><%= deficiencia.qualificacio %></td>
+      <% case deficiencia.qualificacio %>
+      <% when 'I' %>
+        <td>Important</td>
+      <% else %>
+        <td>Lleu</td>
+      <% end %>
       <td><%= deficiencia.sistema %></td>
       <td>
       	<%= link_to deficiencia_path(deficiencia), remote: true, method: :delete,  data: { confirm: 'Segur que vols eliminar?' } do %>

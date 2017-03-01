@@ -4,13 +4,26 @@
   <div class="form-inputs">
     <%= f.input :edifici_id, :as => :hidden, :input_html => { :value => params[:edifici_id] } %>
     <%= f.input :fase_id, :as => :hidden, :input_html => { :value => params[:fase_id] } %>
-    <%= f.input :concepte %>
-    <%= f.input :import %>
-    <%= f.input :data_mes %>
-    <%= f.input :data_any %>
+    <div class="row">
+      <div class="medium-12 columns">
+        <%= f.input :concepte %>
+        <p class="consell">El concepte del pagament pot ser el pagament integral de la fase, l’estudi previ o diagnosi, el projecte, la llicència d’obres, l’execució material de les partides, etc.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-4 columns">
+        <%= f.input :import %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :data_mes, collection: [[t('.gener'), 1], [t('.febrer'), 2], [t('.marc'), 3], [t('.abril'), 4], [t('.maig'), 5], [t('.juny'), 6], [t('.juliol'), 7], [t('.agost'), 8], [t('.setembre'), 9], [t('.octubre'), 10], [t('.novembre'), 11], [t('.desembre'), 12]] %>
+      </div>
+      <div class="medium-4 columns">
+        <%= f.input :data_any, collection: [Date.today.year, Date.today.year+1, Date.today.year+2, Date.today.year+3, Date.today.year+4, Date.today.year+5, Date.today.year+6, Date.today.year+7, Date.today.year+8, Date.today.year+9] %>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, t('.guardar'), :class => 'button button-right' %>
   </div>
 <% end %>
