@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   include CheckUser
-  before_action :set_edifici
+  before_action :set_edifici, only: [:document]
 
   def index
   end
