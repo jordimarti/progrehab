@@ -31,6 +31,11 @@
         <%= link_to (new_intervencio_path(edifici_id: params[:edifici_id])), remote: true do %>
           <span class="suma">+</span> <%= t('.afegir_intervencio') %>
         <% end %>
+
+        <%= link_to 'Exporta XML', exporta_xml_intervencions_path  %>
+        <p><a href="intervencions/exporta_xml.xml" class="button small radius">EXPORTA</a></p>
+        <p><%= link_to "XML", exporta_xml_intervencions_path(:id => 1, :format => :xml)  %></p>
+
       </div>
     </div>
   </div>

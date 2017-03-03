@@ -17,7 +17,37 @@ class QualificacionsController < ApplicationController
 
   def update
     @qualificacio.update(qualificacio_params)
+    parse_file
     redirect_to edit_qualificacio_path
+  end
+
+  def parse_file
+    tempfile = Paperclip.io_adapters.for(@qualificacio.xml_file)
+    doc = Nokogiri::XML(tempfile)
+    parse_xml(doc)
+  end
+
+  def parse_xml(doc)
+    doc.root.elements.each do |node|
+      parse_deficiencies(node)
+    end
+  end
+
+  def parse_deficiencies(node)
+    if node.node_name.eql? 'deficiencies'
+      deficiencia = Deficiencia.new
+      deficiencia.edifici_id = @qualificacio.edifici_id
+      node.elements.each do |node|
+        deficiencia.descripcio = node.text.to_s if node.name.eql? 'deficienciaDescripcio'
+        deficiencia.observacions = node.text.to_s if node.name.eql? 'deficienciaObservacions'
+        if node.name.eql? 'gravetat'
+          node.elements.each do |node|
+            deficiencia.qualificacio = node.text.to_s if node.name.eql? 'valor'
+          end
+        end
+      end
+      deficiencia.save
+    end
   end
 
   private

@@ -47,6 +47,36 @@ class IntervencionsController < ApplicationController
     redirect_to fases_path(edifici_id: params[:edifici_id])
   end
 
+  def exporta_xml
+    @edifici = Edifici.find(params[:id])
+    respond_to do |format|
+      format.xml do
+        builder = Nokogiri::XML::Builder.new do |xml|
+          xml.edifici_id @edifici.id
+          referencies = @edifici.referencies
+          referencies.each do |ref|
+            operacio = Operacio.find(ref.operacio_id)
+            xml.operacio {
+              xml.descripcio_ca operacio.descripcio_ca
+            }
+          end
+        end
+        send_data builder.to_xml, filename: "#{@edifici.nom_edifici}.xml"
+
+        #File.open("out.xml", "w") do |f|     
+        #  f.write(export_xml)   
+        #end
+
+        #file_to_save = File.new("tmp/export.xml", 'w+')
+        #file_to_save.puts(export_xml)
+        #file_to_save.close
+        #file = export_xml.to_file(Rails.root + 'tmp/' + 'export.xml')
+        #send_file out_file, filename: "#{@edifici.nom_edifici}.xml", disposition: 'attachment'
+        #send_file file_to_save, filename: "prova.xml", disposition: 'attachment'
+      end
+    end
+  end
+
   private
     def set_intervencio
       @intervencio = Intervencio.find(params[:id])

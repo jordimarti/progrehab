@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       get :assignacions
       put :assigna
+      get :exporta_xml
     end
   end
   resources :deficiencies
