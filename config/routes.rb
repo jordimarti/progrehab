@@ -7,13 +7,14 @@ Rails.application.routes.draw do
   resources :planificacions
   resources :fases
   #get 'intervencions/assignacions', to: 'intervencions#assignacions', :as => :assignacions
+  get 'intervencions/exporta_xml', to: 'intervencions#exporta_xml', :as => :exporta_xml
   resources :intervencions do
     collection do
       get :assignacions
       put :assigna
-      get :exporta_xml
     end
   end
+
   resources :deficiencies
   resources :qualificacions
   resources :edificis

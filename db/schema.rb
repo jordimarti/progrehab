@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20170227092515) do
     t.integer  "edifici_id"
     t.integer  "fase_id"
     t.text     "descripcio"
+    t.string   "sistema"
     t.integer  "import_obres"
     t.integer  "import_honoraris"
     t.integer  "import_taxes"

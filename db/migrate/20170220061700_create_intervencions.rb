@@ -4,6 +4,7 @@ class CreateIntervencions < ActiveRecord::Migration[5.0]
       t.integer :edifici_id
       t.integer :fase_id
       t.text :descripcio
+      t.string :sistema
       t.integer :import_obres
       t.integer :import_honoraris
       t.integer :import_taxes

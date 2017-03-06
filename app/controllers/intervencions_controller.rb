@@ -2,7 +2,7 @@ class IntervencionsController < ApplicationController
   include CheckUser
   before_action :set_intervencio, only: [:show, :edit, :update, :destroy]
   before_action :set_edifici, only: [:index, :assignacions]
-  respond_to :html, :js
+  respond_to :html, :js, :xml
 
   def index
     @subnavigation = true
@@ -48,31 +48,28 @@ class IntervencionsController < ApplicationController
   end
 
   def exporta_xml
-    @edifici = Edifici.find(params[:id])
+    @edifici = Edifici.find(params[:edifici_id])
+    @intervencions = Intervencio.where(edifici_id: params[:edifici_id])
     respond_to do |format|
       format.xml do
-        builder = Nokogiri::XML::Builder.new do |xml|
-          xml.edifici_id @edifici.id
-          referencies = @edifici.referencies
-          referencies.each do |ref|
-            operacio = Operacio.find(ref.operacio_id)
-            xml.operacio {
-              xml.descripcio_ca operacio.descripcio_ca
-            }
-          end
+        builder = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
+          xml.edifici {
+            xml.app "Programa manteniment"
+            xml.edifici_id @edifici.id
+            @intervencions.each do |intervencio|
+              xml.intervencio {
+                xml.descripcio intervencio.descripcio
+                xml.sistema intervencio.sistema
+                xml.import_obres intervencio.import_obres
+                xml.import_honoraris intervencio.import_honoraris
+                xml.import_taxes intervencio.import_taxes
+                xml.import_altres intervencio.import_altres
+              }
+            end
+          }
         end
         send_data builder.to_xml, filename: "#{@edifici.nom_edifici}.xml"
-
-        #File.open("out.xml", "w") do |f|     
-        #  f.write(export_xml)   
-        #end
-
-        #file_to_save = File.new("tmp/export.xml", 'w+')
-        #file_to_save.puts(export_xml)
-        #file_to_save.close
-        #file = export_xml.to_file(Rails.root + 'tmp/' + 'export.xml')
-        #send_file out_file, filename: "#{@edifici.nom_edifici}.xml", disposition: 'attachment'
-        #send_file file_to_save, filename: "prova.xml", disposition: 'attachment'
+        puts "Ha arribat"
       end
     end
   end
@@ -87,6 +84,6 @@ class IntervencionsController < ApplicationController
     end
 
     def intervencio_params
-      params.require(:intervencio).permit(:edifici_id, :fase_id, :descripcio, :import_obres, :import_honoraris, :import_taxes, :import_altres, :intervencio_ids)
+      params.require(:intervencio).permit(:edifici_id, :fase_id, :descripcio, :sistema, :import_obres, :import_honoraris, :import_taxes, :import_altres, :intervencio_ids)
     end
 end
