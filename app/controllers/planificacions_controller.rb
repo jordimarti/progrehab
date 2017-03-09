@@ -13,7 +13,7 @@ class PlanificacionsController < ApplicationController
   def update
     respond_to do |format|
       if @planificacio.update(planificacio_params)
-        format.html { redirect_to edit_planificacio_path, notice: 'Planificacio was successfully updated.' }
+        format.html { redirect_to edit_planificacio_path, notice: t('.guardat_ok') }
         format.json { render :show, status: :ok, location: @planificacio }
       else
         format.html { render :edit }
