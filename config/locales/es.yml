@@ -39,7 +39,7 @@ es:
       intervencions: "Intervenciones"
       fases: "Fases"
       planificacio: "Planificación financiera"
-      document: "Documento"
+      documents: "Documentos"
   home:
     permisos:
       titol: "Acceso denegado"
@@ -54,6 +54,12 @@ es:
       tornar_projectes: "Volver al listado de proyectos"
     form:
       guardar: "Guardar"
+    create:
+      edifici_creat: "El edificio se ha creado correctamente"
+    update:
+      edifici_actualitzat: "El edificio se ha actualizado correctamente"
+    delete:
+      edifici_eliminat: "El edificio se ha eliminado correctamente"
   identificacions:
     edit:
       titol_identificacio: "Identificación"

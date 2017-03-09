@@ -37,7 +37,7 @@ class IntervencionsController < ApplicationController
   def assignacions
     @subnavigation = true
     @submenu_actiu = 'fases'
-    @intervencions = Intervencio.all
+    @intervencions = Intervencio.where(edifici_id: params[:edifici_id])
     fase = Fase.find(params[:fase_id])
     @nom_fase = fase.nom
   end
