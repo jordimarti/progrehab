@@ -39,6 +39,7 @@ es:
       intervencions: "Intervenciones"
       fases: "Fases"
       planificacio: "Planificación financiera"
+      document: "Documento"
   home:
     permisos:
       titol: "Acceso denegado"
@@ -187,6 +188,9 @@ es:
       octubre: "Octubre"
       novembre: "Noviembre"
       desembre: "Diciembre"
+  documents:
+    index:
+      titol_document: "Documentos"
   simple_form:
     labels:
       identificacio:

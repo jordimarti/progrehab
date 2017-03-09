@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'documents/index'
+
   resources :tresoreries
   resources :ingressos
   resources :derrames
@@ -24,7 +26,6 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/contacta'
   get 'home/permisos'
-  get 'home/document', to: 'home#document', :as => :document
 
   
   root :to => "home#index"
