@@ -199,6 +199,8 @@ ca:
   documents:
     index:
       titol_document: "Documents"
+      exportar_intervencions: "Exportar intervencions"
+      text_generar_xml: "Exporteu les propostes d'intervenció en format XML."
   simple_form:
     labels:
       identificacio:

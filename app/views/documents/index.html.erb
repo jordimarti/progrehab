@@ -4,9 +4,23 @@
 		<div class="medium-12 columns">
 			<div class="titol-seccio">
 				<%= t('.titol_document') %>
-				<p><%= link_to "Exporta XML", exporta_xml_path(:edifici_id => @edifici.id, :format => :xml) %></p>
+				
 			</div>
 		</div>
 	</div>
 
+	<div class="row">
+		<div class="medium-12 columns">
+			<div class="light-container">
+				
+					<%= image_tag('document_xml.png', :alt => t('.exportar_intervencions'), :class => 'imatge-document') %>
+					<%= link_to t('.exportar_intervencions'), exporta_xml_path(:edifici_id => @edifici.id, :format => :xml), :class => 'button'  %>
+					<p><%= t('.text_generar_xml') %></p>	
+				
+			</div>
+		</div>
+	</div>
 </div>
+
+
+
