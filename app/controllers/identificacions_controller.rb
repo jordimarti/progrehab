@@ -31,6 +31,6 @@ class IdentificacionsController < ApplicationController
     end
 
     def identificacio_params
-      params.require(:identificacio).permit(:edifici_id, :tipus_via, :nom_via, :numero_via, :bloc, :codi_postal, :poblacio, :provincia, :regim_juridic, :nom_titular, :nif_titular, :nom_representant, :nif_representant, :nom_tecnic, :nif_tecnic, :titulacio_tecnic, :colegi_tecnic, :num_colegiat_tecnic, :codi_ite, :data_emissio_ite, :nom_redactor_ite, :nif_redactor_ite, :titulacio_redactor_ite, :colegi_redactor_ite, :num_colegiat_redactor_ite, :num_expedient, :vigencia_limit_certificat, :qualificacio_certificat, :data_primera_verificacio, :data_recepcio_informe, :termini_aprovacio_programa)
+      params.require(:identificacio).permit(:edifici_id, :tipus_via, :nom_via, :numero_via, :bloc, :codi_postal, :poblacio, :provincia, :regim_juridic, :nom_titular, :nif_titular, :nom_representant, :nif_representant, :nom_tecnic, :nif_tecnic, :titulacio_tecnic, :colegi_tecnic, :num_colegiat_tecnic, :codi_ite, :data_emissio_ite, :nom_redactor_ite, :nif_redactor_ite, :titulacio_redactor_ite, :colegi_redactor_ite, :num_colegiat_redactor_ite, :num_expedient, :vigencia_limit_certificat, :qualificacio_certificat, :data_primera_verificacio, :data_recepcio_informe, :termini_aprovacio_programa, :foto_facana)
     end
 end

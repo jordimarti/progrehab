@@ -49,8 +49,12 @@ ca:
       titol: "Projectes"
       nou_edifici: "Crear un nou edifici"
       no_projectes: "Encara no has creat cap projecte."
+      eliminar: "Segur que vols eliminar el projecte?"
     new:
       titol: "Crear un nou projecte"
+      tornar_projectes: "Tornar al llistat de projectes"
+    edit:
+      titol: "Canviar el nom del projecte"
       tornar_projectes: "Tornar al llistat de projectes"
     form:
       guardar: "Guardar"
@@ -58,7 +62,7 @@ ca:
       edifici_creat: "L'edifici s'ha creat correctament"
     update:
       edifici_actualitzat: "Les dades s'han actualitzat correctament"
-    delete:
+    destroy:
       edifici_eliminat: "L'edifici s'ha eliminat correctament"
   identificacions:
     edit:

@@ -1,4 +1,4 @@
-<%= simple_form_for @identificacio do |f| %>
+<%= simple_form_for @identificacio, :html => { :multipart => true } do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -146,6 +146,13 @@
         <%= f.input :data_primera_verificacio %>
         <%= f.input :data_recepcio_informe %>
         <%= f.input :termini_aprovacio_programa %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="medium-6 columns">
+        <%= f.input :foto_facana, as: :file %>
+        <%= image_tag @edifici.identificacio.foto_facana.url(:medium) %>
       </div>
     </div>
     
