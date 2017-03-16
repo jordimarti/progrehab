@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   get 'documents/index'
+  get 'documents/vista_pdf_header'
+  get 'documents/vista_pdf_footer'
+  get 'documents/vista_pdf_ca'
+  get 'documents/progrehab_pdf_ca'
 
   resources :tresoreries
   resources :ingressos

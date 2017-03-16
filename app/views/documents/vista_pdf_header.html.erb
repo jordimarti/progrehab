@@ -1,0 +1,11 @@
+<div style="height: 40px;">
+	<div class="via-edifici" style="float:right; color:#999999; font-size: 10px; margin-top: 6px;">
+		<% if @edifici.identificacio.bloc_edifici.blank?
+    adreca = @edifici.identificacio.tipus_via_edifici.to_s + ' ' + @edifici.identificacio.via_edifici.to_s + ' ' + @edifici.identificacio.numero_edifici.to_s + ', ' + @edifici.identificacio.poblacio_edifici
+  else
+    adreca = @edifici.identificacio.tipus_via_edifici.to_s + ' ' + @edifici.identificacio.via_edifici.to_s + ' ' + @edifici.identificacio.numero_edifici.to_s + ', bloc ' + @edifici.identificacio.bloc_edifici.to_s + ', ' + @edifici.identificacio.poblacio_edifici
+  end
+  %>
+		<%= adreca %>
+	</div>
+</div>

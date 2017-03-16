@@ -41,6 +41,8 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'sendgrid-ruby', '~> 4.0', '>= 4.0.6'
 gem 'cancancan', '~> 1.13', '>= 1.13.1'
 gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
+gem 'wkhtmltopdf-binary', '~> 0.9.9.3'
+gem 'pdfkit', '~> 0.8.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

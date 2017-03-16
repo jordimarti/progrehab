@@ -6,3 +6,65 @@
 	max-width: 100px;
 	margin-bottom: 20px;
 }
+
+// Vista impressió PDF
+
+.pdf-container {
+	font-family: "Calibri", Helvetica, Roboto, Arial, sans-serif;
+	padding: 20px;
+}
+
+.salt-pagina {
+	page-break-after: always;
+}
+
+.indivisible {
+	page-break-inside: avoid;
+}
+
+h1.titol-document {
+	font-family: "Calibri", Helvetica, Roboto, Arial, sans-serif;
+	font-size: 44px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 300px;
+}
+
+h2.subtitol-document {
+	font-family: "Calibri", Helvetica, Roboto, Arial, sans-serif;
+	font-size: 33px;
+	text-align: center;
+}
+
+.separacio-gran {
+	height: 300px;
+}
+
+.dades-portada {
+	text-align: right;
+}
+
+.titol-seccio-document {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.subtitol-seccio-document {
+	font-size: 1.6em;
+	font-weight: bold;
+}
+
+.titol-apartat-document {
+	font-size: 1.3em;
+}
+
+.taula-container {
+	page-break-inside: avoid;
+}
+
+.taula-dades {
+	border: none;
+	border-bottom: 1px solid #CCCCCC;
+	width: 100%;
+	margin-bottom: 0px;
+}
