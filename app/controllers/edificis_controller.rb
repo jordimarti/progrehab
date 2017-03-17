@@ -63,6 +63,14 @@ class EdificisController < ApplicationController
     end
   end
 
+  def pdf_header
+    render :layout => 'pdf'
+  end
+
+  def pdf_footer
+    render :layout => 'pdf'
+  end
+
   def create_complements(edifici_id)
     #Identificacio
     @identificacio = Identificacio.new
