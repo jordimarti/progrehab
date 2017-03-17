@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   get 'documents/index'
-  get 'documents/vista_pdf_header'
-  get 'documents/vista_pdf_footer'
-  get 'documents/vista_pdf_ca'
-  get 'documents/progrehab_pdf_ca'
+  get 'edificis/pdf_header'
 
   resources :tresoreries
   resources :ingressos
@@ -23,7 +20,9 @@ Rails.application.routes.draw do
 
   resources :deficiencies
   resources :qualificacions
-  resources :edificis
+  resources :edificis do
+    resource :download, only: [:show]
+  end
   resources :identificacions
   
   devise_for :users

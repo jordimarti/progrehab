@@ -1,0 +1,13 @@
+<h1 class="titol-document">PROGRAMA DE REHABILITACIÓ</h1>
+<div class="separacio-gran"></div>
+<% if edifici.identificacio.bloc.blank?
+    adreca = edifici.identificacio.tipus_via.to_s + ' ' + edifici.identificacio.nom_via.to_s + ' ' + edifici.identificacio.numero_via.to_s
+  else
+    adreca = edifici.identificacio.tipus_via.to_s + ' ' + edifici.identificacio.nom_via.to_s + ' ' + edifici.identificacio.numero_via.to_s + ', bloc ' + edifici.identificacio.bloc.to_s
+  end
+  %>
+<p class="dades-portada"><%= adreca %><br/><%= edifici.identificacio.codi_postal %>, <%= edifici.identificacio.poblacio %><br/><%= edifici.identificacio.provincia %></p>
+<div class="salt-pagina"></div>
+
+<p class="titol-seccio-document">Introducció</p>
+<p>El programa de rehabilitació...</p>

@@ -17,9 +17,10 @@
 					<%= link_to t('.exportar_intervencions'), exporta_xml_path(:edifici_id => @edifici.id, :format => :xml), :class => 'button'  %>
 					<p><%= t('.text_generar_xml') %></p>	
 
-					<%= link_to t('.exportar_pdf'), documents_progrehab_pdf_ca_path(:edifici_id => @edifici.id), :class => 'button'  %>
-
-					<a href="progrehab_pdf_ca?edifici_id=3?locale=ca" class="button small radius"><%= t('.generar_pdf') %></a>
+					<%= link_to "Download PDF",
+					  edifici_download_path(@edifici, format: "pdf"),
+					  target: "_blank",
+					  class: "download" %>
 				
 			</div>
 		</div>
