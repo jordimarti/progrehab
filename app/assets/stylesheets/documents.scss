@@ -11,7 +11,7 @@
 
 .pdf-container {
 	font-family: "Calibri", Helvetica, Roboto, Arial, sans-serif;
-	padding: 20px;
+	font-size: 11px;
 }
 
 .salt-pagina {
@@ -24,16 +24,15 @@
 
 h1.titol-document {
 	font-family: "Calibri", Helvetica, Roboto, Arial, sans-serif;
-	font-size: 44px;
+	font-size: 20px;
 	font-weight: bold;
-	text-align: center;
-	margin-top: 300px;
 }
 
 h2.subtitol-document {
 	font-family: "Calibri", Helvetica, Roboto, Arial, sans-serif;
-	font-size: 33px;
-	text-align: center;
+	font-size: 19px;
+	font-weight: bold;
+	color: #760A09;
 }
 
 .separacio-gran {
@@ -58,13 +57,16 @@ h2.subtitol-document {
 	font-size: 1.3em;
 }
 
+.separador {
+	margin-bottom: 40px;
+}
+
 .taula-container {
 	page-break-inside: avoid;
 }
 
 .taula-dades {
-	border: none;
-	border-bottom: 1px solid #CCCCCC;
+	border: 1px solid #CCCCCC;
 	width: 100%;
 	margin-bottom: 0px;
 }

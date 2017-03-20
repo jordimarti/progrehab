@@ -1,13 +1,228 @@
-<h1 class="titol-document">PROGRAMA DE REHABILITACIÓ</h1>
-<div class="separacio-gran"></div>
-<% if edifici.identificacio.bloc.blank?
-    adreca = edifici.identificacio.tipus_via.to_s + ' ' + edifici.identificacio.nom_via.to_s + ' ' + edifici.identificacio.numero_via.to_s
-  else
-    adreca = edifici.identificacio.tipus_via.to_s + ' ' + edifici.identificacio.nom_via.to_s + ' ' + edifici.identificacio.numero_via.to_s + ', bloc ' + edifici.identificacio.bloc.to_s
-  end
-  %>
-<p class="dades-portada"><%= adreca %><br/><%= edifici.identificacio.codi_postal %>, <%= edifici.identificacio.poblacio %><br/><%= edifici.identificacio.provincia %></p>
-<div class="salt-pagina"></div>
+<div class="row">
+	<div class="medium-12 columns">
+		<h1 class="titol-document">PROGRAMA DE REHABILITACIÓ</h1>
+		<h2 class="subtitol-document">1. IDENTIFICACIÓ I DADES PRÈVIES</h2>
+		<p>Identificació de l'edifici, del tècnic competent que supervisa el Programa, dades resum de l'IITE i del Certificat d'Aptitud</p>
+	</div>
+</div>
 
-<p class="titol-seccio-document">Introducció</p>
-<p>El programa de rehabilitació...</p>
+<div class="row">
+	<div class="medium-12 columns">
+		<ul><li>EDIFICI</li></ul>
+	</div>
+</div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		
+		<% if edifici.identificacio.bloc.blank?
+		    adreca = edifici.identificacio.tipus_via.to_s + ' ' + edifici.identificacio.nom_via.to_s + ' ' + edifici.identificacio.numero_via.to_s
+		  else
+		    adreca = edifici.identificacio.tipus_via.to_s + ' ' + edifici.identificacio.nom_via.to_s + ' ' + edifici.identificacio.numero_via.to_s + ', bloc ' + edifici.identificacio.bloc.to_s
+		  end
+		%>
+
+		Situació: <%= adreca %>
+
+		<br/>
+		Règim jurídic de la propietat: <%= edifici.identificacio.regim_juridic %>
+
+
+		<div class="row">
+			<div class="medium-8 columns">
+				Titular: <%= edifici.identificacio.nom_titular %>
+			</div>
+			<div class="medium-4 columns">
+				NIF: <%= edifici.identificacio.nif_titular %>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="medium-8 columns">
+				Representant: <%= edifici.identificacio.nom_representant %>
+			</div>
+			<div class="medium-4 columns">
+				NIF: <%= edifici.identificacio.nif_representant %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="medium-12 columns">
+		<ul><li>PROGRAMA DE REHABILITACIÓ: Tècnic que supervisa el Programa</li></ul>
+	</div>
+</div>
+<div class="dades-identificacio">
+	<div class="row">
+		<div class="medium-8 columns">
+			Nom: <%= edifici.identificacio.nom_tecnic %>
+		</div>
+		<div class="medium-4 columns">
+			NIF: <%= edifici.identificacio.nif_tecnic %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="medium-4 columns">
+			Titulació: <%= edifici.identificacio.titulacio_tecnic %>
+		</div>
+		<div class="medium-4 columns">
+			Col·legi Professional: <%= edifici.identificacio.colegi_tecnic %>
+		</div>
+		<div class="medium-4 columns">
+			núm. col·legiat: <%= edifici.identificacio.num_colegiat_tecnic %>
+		</div>
+	</div>
+</div>
+
+<table class="taula-dades">
+  <tr>
+    <th class="tg-yw4l" colspan="2" rowspan="2">Localització</th>
+    <th class="tg-yw4l" colspan="4">Qualificació deficiències</th>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Molt greus</td>
+    <td class="tg-yw4l">Greus</td>
+    <td class="tg-yw4l">Importants</td>
+    <td class="tg-yw4l">Lleus</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l" rowspan="5">Estructura</td>
+    <td class="tg-yw4l">Fonamentació</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Estructura vertical</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Estructura horitzontal</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Estructura de coberta</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Estructura d'escales</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l" rowspan="7">Envolupant</td>
+    <td class="tg-yw4l">Tancaments verticals: façanes, mitgeres i forats</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Acabats de façana</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Fusteria exterior i envidrament</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Elements adossats a façana</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Altres elements de façana</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Terrats i cobertes planes</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Cobertes inclinades</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l" rowspan="6">Instal·lacions</td>
+    <td class="tg-yw4l">Instal·lació d'aigua</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Instal·lació d'electricitat</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Instal·lació de sanejament</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Instal·lació de gas</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Instal·lació d'ascensor</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Altres instal·lacions</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">Altres</td>
+    <td class="tg-yw4l">Altres subsistemes constructius</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+</table>
