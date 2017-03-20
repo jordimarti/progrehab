@@ -1,6 +1,4 @@
 class DownloadsController < ApplicationController
-  # Utilitzem helper_method per tenir-lo accessible des de la vista
-  helper_method :comprova_qualificacions
 
   def show 
     respond_to do |format|
@@ -11,22 +9,6 @@ class DownloadsController < ApplicationController
       end
     end
   end
-
-  def comprova_qualificacions(sistema, qualificacio)
-    deficiencies = Deficiencia.where(edifici_id: 2, sistema: sistema)
-    if deficiencies.exists?
-      deficiencies.each do |deficiencia|
-        if deficiencia.qualificacio == qualificacio
-          return 'X'
-        else
-          return nil
-        end
-      end
-    else
-      return nil
-    end
-  end
-
 
   private
  

@@ -1,6 +1,7 @@
 require "render_anywhere"
  
 class DocumentPdf
+
   include RenderAnywhere
  
   def initialize(edifici)
@@ -24,4 +25,6 @@ class DocumentPdf
     def as_html
       render template: "edificis/pdf", layout: "pdf", locals: { edifici: edifici }
     end
+
+
 end
