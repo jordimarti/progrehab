@@ -1,6 +1,6 @@
-class CreateDerrames < ActiveRecord::Migration[5.0]
+class CreateDespeses < ActiveRecord::Migration[5.0]
   def change
-    create_table :derrames do |t|
+    create_table :despeses do |t|
       t.integer :edifici_id
       t.integer :fase_id
       t.string  :concepte

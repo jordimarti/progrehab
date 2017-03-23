@@ -173,12 +173,12 @@ ca:
     menu_planificacio:
       titol_planificacio: "Planificació financera"
       info_previa: "Informació prèvia"
-      planificacio_fases: "Derrames"
+      planificacio_fases: "Despeses"
       calendari: "Calendari"
     llistat_fases:
       import: "Import total"
-      afegir_derrama: "Afegir derrama"
-    llistat_derrames:
+      afegir_despesa: "Afegir despesa"
+    llistat_despeses:
       concepte: "Concepte"
       import: "Import"
       data: "Data"
@@ -186,7 +186,7 @@ ca:
       guardar: "Guardar"
     update:
       guardat_ok: "Les dades s'han guardat correctament"
-  derrames:
+  despeses:
     form:
       guardar: "Guardar"
       gener: "Gener"
@@ -259,7 +259,7 @@ ca:
         subvencions_atorgades: "Subvencions atorgades"
         import_financar: "Import a finançar"
         forma_financar: "Forma de financiació"
-      derrama:
+      despesa:
         concepte: "Concepte"
         import: "Import"
         data_mes: "Mes"

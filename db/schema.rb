@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170313212018) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "derrames", force: :cascade do |t|
+  create_table "despeses", force: :cascade do |t|
     t.integer  "edifici_id"
     t.integer  "fase_id"
     t.string   "concepte"

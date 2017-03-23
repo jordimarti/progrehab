@@ -173,12 +173,12 @@ es:
     menu_planificacio:
       titol_planificacio: "Planificación financiera"
       info_previa: "Información previa"
-      planificacio_fases: "Derramas"
+      planificacio_fases: "Gastos"
       calendari: "Calendario"
     llistat_fases:
       import: "Import total"
-      afegir_derrama: "Añadir derrama"
-    llistat_derrames:
+      afegir_despesa: "Añadir gasto"
+    llistat_despeses:
       concepte: "Concepto"
       import: "Importe"
       data: "Fecha"
@@ -186,7 +186,7 @@ es:
       guardar: "Guardar"
     update:
       guardat_ok: "Los datos se han guardado correctamente"
-  derrames:
+  despeses:
     form:
       guardar: "Guardar"
       gener: "Enero"
@@ -257,7 +257,7 @@ es:
         subvencions_atorgades: "Subvenciones otorgadas"
         import_financar: "Importe a financiar"
         forma_financar: "Forma de financiación"
-      derrama:
+      despesa:
         concepte: "Concepto"
         import: "Importe"
         data_mes: "Mes"

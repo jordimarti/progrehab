@@ -28,7 +28,7 @@ class PlanificacionsController < ApplicationController
     @planificacio_menu_actiu = 'planificacio_fases'
     check_user_edifici(@edifici.id)
     @fases = Fase.where(edifici_id: @edifici.id)
-    @derrames = Derrama.where(edifici_id: @edifici.id)
+    @despeses = Despesa.where(edifici_id: @edifici.id)
   end
 
   def calendari
@@ -36,11 +36,11 @@ class PlanificacionsController < ApplicationController
     @submenu_actiu = 'planificacio'
     @planificacio_menu_actiu = 'calendari'
     check_user_edifici(@edifici.id)
-    @derrames = Derrama.where(edifici_id: @edifici.id).order(:data_any)
+    @despeses = Despesa.where(edifici_id: @edifici.id).order(:data_any)
     @ingressos = Ingres.where(edifici_id: @edifici.id).order(:data_any)
     @tresoreries = Tresoreria.where(edifici_id: @edifici.id).order(:data_any)
     @primer_any = Date.today.year
-    @ultim_any = @derrames.last.data_any
+    @ultim_any = @despeses.last.data_any
     # Cada vegada que s'entri al calendari s'actualitzaran els valors
     Ingres.where(edifici_id: @edifici.id).destroy_all
     Tresoreria.where(edifici_id: @edifici.id).destroy_all
@@ -50,14 +50,14 @@ class PlanificacionsController < ApplicationController
 
   def crea_despeses
     despeses = Array.new{Array.new}
-    derrama = Derrama.where(edifici_id: @edifici.id).order(:data_any)
+    despesa = Despesa.where(edifici_id: @edifici.id).order(:data_any)
     primer_any = Date.today.year
-    ultim_any = derrama.last.data_any
+    ultim_any = despesa.last.data_any
     for i in primer_any..ultim_any
       for j in 0..11
-        mes_derrama = derrama.where(edifici_id: @edifici.id, data_mes: j+1, data_any: i)
-        if mes_derrama.exists?
-          despeses[i][j] = mes_derrama.import
+        mes_despesa = despesa.where(edifici_id: @edifici.id, data_mes: j+1, data_any: i)
+        if mes_despesa.exists?
+          despeses[i][j] = mes_despesa.import
         else
           despeses[i][j] = 0
         end
@@ -66,11 +66,11 @@ class PlanificacionsController < ApplicationController
   end
 
   def crea_ingressos
-    derrama = Derrama.where(edifici_id: @edifici.id).order(:data_any)
+    despesa = Despesa.where(edifici_id: @edifici.id).order(:data_any)
     primer_any = Date.today.year
-    ultim_any = derrama.last.data_any
+    ultim_any = despesa.last.data_any
     primer_mes = Date.today.month
-    ultim_mes = derrama.last.data_mes
+    ultim_mes = despesa.last.data_mes
     for i in primer_any..ultim_any
       for j in 0..11
         if i == primer_any && j <= primer_mes - 1
@@ -106,23 +106,23 @@ class PlanificacionsController < ApplicationController
 
   def actualitza_ingressos
     tresoreries = Tresoreria.where(edifici_id: @edifici.id).order(:data_any, :data_mes)
-    derrames = Derrama.where(edifici_id: @edifici.id).order(:data_any, :data_mes)
+    despeses = Despesa.where(edifici_id: @edifici.id).order(:data_any, :data_mes)
     ingressos = Ingres.where(edifici_id: @edifici.id).order(:data_any, :data_mes)
     data_inici_any = Date.today.year
     data_inici_mes = Date.today.month
     import_ultima_tresoreria = @planificacio.fons_propis
-    derrames.each do |derrama|
+    despeses.each do |despesa|
       mesos_repartir = 0
       tresoreria = tresoreries.where(data_any: data_inici_any, data_mes: data_inici_mes).last
-      import_repartir = import_ultima_tresoreria - derrama.import
+      import_repartir = import_ultima_tresoreria - despesa.import
       # Si no hi ha prous diners a tresoreria cal fer ingressos
       if import_repartir < 0
         ingressos.each do |ingres|
           if ingres.data_any >= data_inici_any 
             if ingres.data_any == data_inici_any && ingres.data_mes < data_inici_mes
             else
-              if ingres.data_any <= derrama.data_any
-                if ingres.data_any == derrama.data_any && ingres.data_mes > derrama.data_mes
+              if ingres.data_any <= despesa.data_any
+                if ingres.data_any == despesa.data_any && ingres.data_mes > despesa.data_mes
                 else
                   mesos_repartir += 1
                 end
@@ -137,8 +137,8 @@ class PlanificacionsController < ApplicationController
           if ingres.data_any >= data_inici_any 
             if ingres.data_any == data_inici_any && ingres.data_mes < data_inici_mes
             else
-              if ingres.data_any <= derrama.data_any
-                if ingres.data_any == derrama.data_any && ingres.data_mes > derrama.data_mes
+              if ingres.data_any <= despesa.data_any
+                if ingres.data_any == despesa.data_any && ingres.data_mes > despesa.data_mes
                 else
                   ingres.import = import_mensual
                   puts "Ingres import mensual: #{ingres.import}"
@@ -149,9 +149,9 @@ class PlanificacionsController < ApplicationController
                     tresoreria_anterior = tresoreries.where(data_any: ingres.data_any, data_mes: ingres.data_mes - 1).last
                   end
                   puts "Tresoreria mes anterior: #{tresoreria_anterior.import}, data_any: #{tresoreria_anterior.data_any}, data_mes: #{tresoreria_anterior.data_mes}"
-                  # Comprovem si en el mes i any que estem hi ha derrama
-                  if derrama.data_any == ingres.data_any && derrama.data_mes == ingres.data_mes
-                    import_tresoreria = tresoreria_anterior.import + ingres.import - derrama.import
+                  # Comprovem si en el mes i any que estem hi ha despesa
+                  if despesa.data_any == ingres.data_any && despesa.data_mes == ingres.data_mes
+                    import_tresoreria = tresoreria_anterior.import + ingres.import - despesa.import
                   else
                     import_tresoreria = tresoreria_anterior.import + ingres.import
                   end
@@ -165,21 +165,21 @@ class PlanificacionsController < ApplicationController
           end
         end
       end
-      data_inici_mes = derrama.data_mes + 1
-      data_inici_any = derrama.data_any
+      data_inici_mes = despesa.data_mes + 1
+      data_inici_any = despesa.data_any
       # Comprovem si la data canvia d'any, el mes és 13, això vol dir que el mes ha de ser 1 i l'any +1
       if data_inici_mes > 12
-        data_inici_any = derrama.data_any + 1
+        data_inici_any = despesa.data_any + 1
         data_inici_mes = 1
       end
       puts "Any #{data_inici_any}, mes #{data_inici_mes}"
       ultima_tresoreria = Tresoreria.where(edifici_id: @edifici.id, data_any: data_inici_any, data_mes: data_inici_mes).last
-      # En el cas que sigui l'última derrama no hi haurà tresoreria creada per al mes següent
+      # En el cas que sigui l'última despesa no hi haurà tresoreria creada per al mes següent
       if ultima_tresoreria != nil
         puts "Import ultima tresoreria: #{ultima_tresoreria.import}"
         import_ultima_tresoreria = ultima_tresoreria.import
       end
-      puts "Derrama finalitzada"
+      puts "Despesa finalitzada"
     end
   end
 

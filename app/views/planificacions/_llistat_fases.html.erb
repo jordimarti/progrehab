@@ -9,21 +9,21 @@
 	%>
 	<h3 class="titol-fase">FASE <%= fase.posicio %></h3>
 	<p class="opcions-fase"><%= t('.import') %>: <%= import_fase %> €</p>
-	<div class="light-container container-derrames-fase">
-		<div id="derrames">
-      <%= render :partial => '/planificacions/llistat_derrames', locals: {fase_id: fase.id} %>
-      <% import_derrames = 0 %>
-      <% @derrames.where(fase_id: fase.id).each do |derrama| %>
-      	<% import_derrames += derrama.import %>
+	<div class="light-container container-despeses-fase">
+		<div id="despeses">
+      <%= render :partial => '/planificacions/llistat_despeses', locals: {fase_id: fase.id} %>
+      <% import_despeses = 0 %>
+      <% @despeses.where(fase_id: fase.id).each do |despesa| %>
+      	<% import_despeses += despesa.import %>
       <% end %>
       <p>
-      	Total: <%= import_derrames %> €.
+      	Total: <%= import_despeses %> €.
       	<% 
-      	diferencia_derrama_fase = import_fase - import_derrames
-      	if diferencia_derrama_fase > 0 %>
-      		Falten <%= diferencia_derrama_fase %> € per cobrir el cost de la fase. 
-      	<% elsif diferencia_derrama_fase < 0
-      		diners_sobrants = diferencia_derrama_fase * (-1) %>
+      	diferencia_despesa_fase = import_fase - import_despeses
+      	if diferencia_despesa_fase > 0 %>
+      		Falten <%= diferencia_despesa_fase %> € per cobrir el cost de la fase. 
+      	<% elsif diferencia_despesa_fase < 0
+      		diners_sobrants = diferencia_despesa_fase * (-1) %>
       		Sobren <%= diners_sobrants %> €.
       	<% end %>
       </p>
@@ -31,8 +31,8 @@
     <div class="spacer"></div>
 
 
-    <%= link_to (new_derrama_path(edifici_id: fase.edifici_id, fase_id: fase.id)), remote: true do %>
-      <span class="suma">+</span> <%= t('.afegir_derrama') %>
+    <%= link_to (new_despesa_path(edifici_id: fase.edifici_id, fase_id: fase.id)), remote: true do %>
+      <span class="suma">+</span> <%= t('.afegir_despesa') %>
     <% end %>
 	</div>
 
