@@ -32,7 +32,7 @@ es:
       account_configuration: "Configuración de la cuenta"
       sign_out: "Cerrar sesión"
       tutorials: "Tutoriales"
-      projectes: "Proyectos"
+      projectes: "Programas"
     subnavigation:
       identificacio: "Identificación"
       deficiencies: "Deficiencias"
@@ -46,16 +46,16 @@ es:
       text_permisos: "No tenéis los permisos necesarios para acceder a esta página."
   edificis:
     index:
-      titol: "Proyectos"
-      nou_edifici: "Crear un nuevo edificio"
-      no_projectes: "Aún no has creado ningún proyecto."
-      eliminar: "Seguro que quieres eliminar el proyecto?"
+      titol: "Programas"
+      nou_edifici: "Crear un nuevo programa"
+      no_projectes: "Aún no has creado ningún programa."
+      eliminar: "Seguro que quieres eliminar el programa?"
     new:
-      titol: "Crear un nuevo proyecto"
-      tornar_projectes: "Volver al listado de proyectos"
+      titol: "Crear un nuevo programa"
+      tornar_projectes: "Volver al listado de programas"
     edit:
-      titol: "Cambiar el nombre del proyecto"
-      tornar_projectes: "Volver al listado de proyectos"
+      titol: "Cambiar el nombre del programa"
+      tornar_projectes: "Volver al listado de programas"
     form:
       guardar: "Guardar"
     create:
@@ -205,6 +205,9 @@ es:
       titol_document: "Documentos"
   simple_form:
     labels:
+      edifici:
+        nom_edifici: "Nombre del edificio"
+        ref_cadastral: "Referencia catastral"
       identificacio:
         tipus_via: "Tipo de via"
         nom_via: "Nombre de la via"

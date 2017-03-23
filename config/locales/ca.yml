@@ -32,7 +32,7 @@ ca:
       account_configuration: "Configuració del compte"
       sign_out: "Tancar sessió"
       tutorials: "Tutorials"
-      projectes: "Projectes"
+      projectes: "Programes"
     subnavigation:
       identificacio: "Identificació"
       deficiencies: "Deficiències"
@@ -46,16 +46,16 @@ ca:
       text_permisos: "No teniu els permisos necessaris per accedir a aquesta pàgina."
   edificis:
     index:
-      titol: "Projectes"
-      nou_edifici: "Crear un nou edifici"
-      no_projectes: "Encara no has creat cap projecte."
-      eliminar: "Segur que vols eliminar el projecte?"
+      titol: "Programes"
+      nou_edifici: "Crear un nou programa"
+      no_projectes: "Encara no has creat cap programa."
+      eliminar: "Segur que vols eliminar el programa?"
     new:
-      titol: "Crear un nou projecte"
-      tornar_projectes: "Tornar al llistat de projectes"
+      titol: "Crear un nou programa"
+      tornar_projectes: "Tornar al llistat de programes"
     edit:
-      titol: "Canviar el nom del projecte"
-      tornar_projectes: "Tornar al llistat de projectes"
+      titol: "Canviar el nom del programa"
+      tornar_projectes: "Tornar al llistat de programes"
     form:
       guardar: "Guardar"
     create:
@@ -207,6 +207,9 @@ ca:
       text_generar_xml: "Exporteu les propostes d'intervenció en format XML."
   simple_form:
     labels:
+      edifici:
+        nom_edifici: "Nom de l'edifici"
+        ref_cadastral: "Referència cadastral"
       identificacio:
         tipus_via: "Tipus de via"
         nom_via: "Nom de la via"
