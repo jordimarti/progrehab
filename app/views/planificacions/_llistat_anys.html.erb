@@ -23,8 +23,8 @@
 	  <tbody>
 	    <tr>
 	      <th><%= t('.ingressos') %></th>
-		    <% for j in 0..11 %>
-		    	<% ingres = @ingressos.where(data_mes: j+1, data_any: i) %>
+		    <% for j in 1..12 %>
+		    	<% ingres = @ingressos.where(data_mes: j, data_any: i) %>
 		    	<% if ingres.exists? %>
 		    		<td><%= ingres.last.import %></td>
 		    	<% else %>
@@ -34,11 +34,11 @@
     	</tr>
     	<tr>
     		<th><%= t('.despeses') %></th>
-    		<% for j in 0..11 %>
+    		<% for j in 1..12 %>
 		      <% if i == @primer_any && j < mes_actual - 1 %>
 		    		<td></td>
 		    	<% elsif 
-			      mes_despesa = @despeses.where(data_mes: j+1, data_any: i)
+			      mes_despesa = @despeses.where(data_mes: j, data_any: i)
 			      if mes_despesa.exists? %>
 			        <td><%= mes_despesa.last.import %></td>
 			      <% else %>
@@ -49,8 +49,8 @@
     	</tr>
     	<tr>
     		<th><%= t('.tresoreria') %></th>
-    		<% for j in 0..11 %>
-	    		<% tresoreria = @tresoreries.where(data_mes: j+1, data_any: i).last
+    		<% for j in 1..12 %>
+	    		<% tresoreria = @tresoreries.where(data_mes: j, data_any: i).last
 	    		if tresoreria != nil %>
 	    			<td><%= tresoreria.import %></td>
 	    		<% else %>

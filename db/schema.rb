@@ -98,8 +98,9 @@ ActiveRecord::Schema.define(version: 20170313212018) do
     t.integer  "import"
     t.integer  "data_mes"
     t.integer  "data_any"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "creat_usuari", default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "intervencions", force: :cascade do |t|

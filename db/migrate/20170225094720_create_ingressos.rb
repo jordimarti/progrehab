@@ -5,6 +5,7 @@ class CreateIngressos < ActiveRecord::Migration[5.0]
       t.integer :import
       t.integer :data_mes
       t.integer :data_any
+      t.boolean :creat_usuari, default: false
 
       t.timestamps
     end

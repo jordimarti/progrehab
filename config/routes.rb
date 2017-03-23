@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :despeses
   get 'planificacions/fases', to: 'planificacions#fases', :as => :fases_planificacio
   get 'planificacions/calendari', to: 'planificacions#calendari', :as => :calendari
+  get 'planificacions/crea_valors_inicials', to: 'planificacions#crea_valors_inicials', :as => :crea_valors_inicials
   resources :planificacions
   resources :fases
   #get 'intervencions/assignacions', to: 'intervencions#assignacions', :as => :assignacions

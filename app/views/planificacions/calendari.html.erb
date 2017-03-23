@@ -18,6 +18,7 @@
           <%= render  :partial => '/planificacions/llistat_anys' %>
         </div>
       </div>
+      <%= link_to(t('.reinicialitzar'), crea_valors_inicials_path(id: @edifici.planificacio.id, edifici_id: @edifici.id), class: 'seccio-submenu-link') %>
     </div>
   </div>
 
