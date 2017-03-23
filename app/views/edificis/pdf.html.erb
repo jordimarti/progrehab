@@ -1,19 +1,3 @@
-<% def comprova_qualificacions(sistema, qualificacio)
-    deficiencies = Deficiencia.where(edifici_id: params[:edifici_id], sistema: sistema)
-    if deficiencies.exists?
-      deficiencies.each do |deficiencia|
-        if deficiencia.qualificacio == qualificacio
-          return 'X'
-        else
-          return nil
-        end
-      end
-    else
-      return nil
-    end
-  end
-%>
-
 <div class="row">
 	<div class="medium-12 columns">
 		<h1 class="titol-document">PROGRAMA DE REHABILITACIÓ</h1>
@@ -93,153 +77,302 @@
 	</div>
 </div>
 
-<table class="taula-dades">
-  <tr>
-    <th class="tg-yw4l" colspan="2" rowspan="2">Localització</th>
-    <th class="tg-yw4l" colspan="4">Qualificació deficiències</th>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Molt greus</td>
-    <td class="tg-yw4l">Greus</td>
-    <td class="tg-yw4l">Importants</td>
-    <td class="tg-yw4l">Lleus</td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l" rowspan="5">Estructura</td>
-		<td class="tg-yw4l">Fonamentació</td>
-    
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'fonamentacio', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'fonamentacio', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Estructura vertical</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_vertical', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_vertical', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Estructura horitzontal</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_horitzontal', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_horitzontal', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Estructura de coberta</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_coberta', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_coberta', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Estructura d'escales</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_escales', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_escales', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l" rowspan="7">Envolupant</td>
-    <td class="tg-yw4l">Tancaments verticals: façanes, mitgeres i forats</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'tancaments_verticals', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'tancaments_verticals', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Acabats de façana</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'acabats_facana', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'acabats_facana', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Fusteria exterior i envidrament</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'fusteria_exterior', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'fusteria_exterior', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Elements adossats a façana</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'elements_adossats', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'elements_adossats', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Altres elements de façana</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'altres_facana', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'altres_facana', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Terrats i cobertes planes</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'terrats', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'terrats', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Cobertes inclinades</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'coberta_inclinada', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'coberta_inclinada', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l" rowspan="6">Instal·lacions</td>
-    <td class="tg-yw4l">Instal·lació d'aigua</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'aigua', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'aigua', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Instal·lació d'electricitat</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'electricitat', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'electricitat', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Instal·lació de sanejament</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'sanejament', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'sanejament', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Instal·lació de gas</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'gas', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'gas', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Instal·lació d'ascensor</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'ascensor', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'ascensor', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Altres instal·lacions</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'altres_instalacions', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'altres_instalacions', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-  <tr>
-    <td class="tg-yw4l">Altres</td>
-    <td class="tg-yw4l">Altres subsistemes constructius</td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'altres_subsistemes', qualificacio: 'I').exists? %>X<% end %></td>
-    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'altres_subsistemes', qualificacio: 'LL').exists? %>X<% end %></td>
-  </tr>
-</table>
+<div class="row">
+	<div class="medium-12 columns">
+		<ul><li>INFORME D'INSPECCIÓ TÈCNICA DE L'EDIFICI, IITE: Dades resum</li></ul>
+	</div>
+</div>
+<div class="dades-identificacio">
+	<div class="row">
+		<div class="medium-8 columns">
+			Codi informe ITE: <%= edifici.identificacio.codi_ite %>
+		</div>
+		<div class="medium-4 columns">
+			Data d'emissió de l'IITE: <%= edifici.identificacio.data_emissio_ite %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="medium-8 columns">
+			Tècnic redactor: <%= edifici.identificacio.nom_redactor_ite %>
+		</div>
+		<div class="medium-4 columns">
+			NIF: <%= edifici.identificacio.nif_redactor_ite %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="medium-4 columns">
+			Titulació: <%= edifici.identificacio.titulacio_redactor_ite %>
+		</div>
+		<div class="medium-4 columns">
+			Col·legi Professional: <%= edifici.identificacio.colegi_redactor_ite %>
+		</div>
+		<div class="medium-4 columns">
+			núm. col·legiat: <%= edifici.identificacio.num_colegiat_redactor_ite %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<ul><li>CERTIFICAT D'APTITUD: Dades resum</li></ul>
+	</div>
+</div>
+<div class="dades-identificacio">
+	<div class="row">
+		<div class="medium-12 columns">
+			Nº d'expedient: <%= edifici.identificacio.num_expedient %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="medium-8 columns">
+			Qualificació Certificat d'Aptitud: <%= edifici.identificacio.qualificacio_certificat %>
+		</div>
+		<div class="medium-4 columns">
+			Vigència límit del certificat d'aptitud: <%= edifici.identificacio.vigencia_limit_certificat %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<table class="taula-dades">
+		  <tr>
+		    <th class="tg-yw4l" colspan="2" rowspan="2">Localització</th>
+		    <th class="tg-yw4l" colspan="4">Qualificació deficiències</th>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Molt greus</td>
+		    <td class="tg-yw4l">Greus</td>
+		    <td class="tg-yw4l">Importants</td>
+		    <td class="tg-yw4l">Lleus</td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l" rowspan="5">Estructura</td>
+				<td class="tg-yw4l">Fonamentació</td>
+		    
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'fonamentacio', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'fonamentacio', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Estructura vertical</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_vertical', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_vertical', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Estructura horitzontal</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_horitzontal', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_horitzontal', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Estructura de coberta</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_coberta', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_coberta', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Estructura d'escales</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_escales', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'estructura_escales', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l" rowspan="7">Envolupant</td>
+		    <td class="tg-yw4l">Tancaments verticals: façanes, mitgeres i forats</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'tancaments_verticals', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'tancaments_verticals', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Acabats de façana</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'acabats_facana', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'acabats_facana', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Fusteria exterior i envidrament</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'fusteria_exterior', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'fusteria_exterior', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Elements adossats a façana</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'elements_adossats', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'elements_adossats', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Altres elements de façana</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'altres_facana', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'altres_facana', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Terrats i cobertes planes</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'terrats', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'terrats', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Cobertes inclinades</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'coberta_inclinada', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'coberta_inclinada', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l" rowspan="6">Instal·lacions</td>
+		    <td class="tg-yw4l">Instal·lació d'aigua</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'aigua', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'aigua', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Instal·lació d'electricitat</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'electricitat', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'electricitat', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Instal·lació de sanejament</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'sanejament', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'sanejament', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Instal·lació de gas</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'gas', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'gas', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Instal·lació d'ascensor</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'ascensor', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'ascensor', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Altres instal·lacions</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'altres_instalacions', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'altres_instalacions', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		  <tr>
+		    <td class="tg-yw4l">Altres</td>
+		    <td class="tg-yw4l">Altres subsistemes constructius</td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'altres_subsistemes', qualificacio: 'I').exists? %>X<% end %></td>
+		    <td class="tg-yw4l"><% if edifici.deficiencies.where(sistema: 'altres_subsistemes', qualificacio: 'LL').exists? %>X<% end %></td>
+		  </tr>
+		</table>
+	</div>
+</div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		Data de la primera verificació tècnica obligatòria que cal realitzar: <%= edifici.identificacio.data_primera_verificacio %>
+		<br/>
+		Data de recepció de l'informe ITE per part de la Propietat: <%= edifici.identificacio.data_recepcio_informe %>
+		<br/>
+		Termini màxim per aprovar el Programa de Rehabilitació: <%= edifici.identificacio.termini_aprovacio_programa %>
+	</div>
+</div>
+
+<div class="salt-pagina"></div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<h2 class="subtitol-document">2. PROPOSTES I FASES D'INTERVENCIÓ</h2>
+		<p>Proposta de fases d’intervenció segons possibilitats econòmiques de la propietat i criteris de prioritat 
+</p>
+		<p>Intervencions previstes per corregir les deficiències</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<table>
+			<tr>
+				<th>Núm.</th>
+				<th>Localització</th>
+				<th>Descripció de la proposta d'intervenció</th>
+				<th>Prioritat</th>
+				<th>Cost estimat</th>
+			</tr>
+			<% import_total = 0 %>
+			<% edifici.intervencions.each do |intervencio| %>
+				<tr>
+					<td></td>
+					<td><%= intervencio.sistema %></td>
+					<td><%= intervencio.descripcio %></td>
+					<td></td>
+					<% import_intervencio = intervencio.import_obres + intervencio.import_honoraris + intervencio.import_taxes + intervencio.import_altres %>
+					<% import_total += import_intervencio %>
+					<td><%= import_intervencio %> €</td>
+				</tr>
+			<% end %>
+			
+			<tr>
+				<td colspan="4">Cost estimat total de les obres</td>
+				<td><%= import_total %> €</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<p>Fases d'intervenció segons prioritat</p>
+		<div class="indivisible">
+			<% edifici.fases.each do |fase| %>
+				<% import_fase = 0 %>
+				<%= fase.nom %>
+				<% intervencions_fase = edifici.intervencions.where(fase_id: fase) %>
+				<% import_obres = 0 %>
+				<% import_honoraris = 0 %>
+				<% import_taxes = 0 %>
+				<% import_altres = 0 %>
+				<% intervencions_fase.each do |intervencio| %>
+					<% import_intervencio = intervencio.import_obres + intervencio.import_honoraris + intervencio.import_taxes + intervencio.import_altres %>
+					<p><%= intervencio.descripcio %>: <%= import_intervencio %> €</p>
+					<% import_obres += intervencio.import_obres %>
+					<% import_honoraris += intervencio.import_honoraris %>
+					<% import_taxes += intervencio.import_taxes %>
+					<% import_altres += intervencio.import_altres %>
+					<% import_fase += import_intervencio %>
+				<% end %>
+				<p>Cost aproximat i estimatiu de les OBRES: <%= import_obres %></p>
+				<p>Cost aproximat i estimatiu dels HONORARIS PROFESSIONALS: <%= import_honoraris %></p>
+				<p>Cost aproximat i estimatiu de les TAXES I AUTORITZACIONS ADMINISTRATIVES: <%= import_taxes %></p>
+				<p>Cost aproximat i estimatiu d'ALTRES: <%= import_altres %></p>
+				<p>Cost total FASE: <%= import_fase %></p>
+				<p>Observacions: <%= fase.observacions %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+
