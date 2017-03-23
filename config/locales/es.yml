@@ -174,7 +174,7 @@ es:
       titol_planificacio: "Planificación financiera"
       info_previa: "Información previa"
       planificacio_fases: "Gastos"
-      calendari: "Calendario"
+      calendari: "Flujo de tesorería"
     llistat_fases:
       import: "Import total"
       afegir_despesa: "Añadir gasto"

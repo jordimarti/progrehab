@@ -54,8 +54,8 @@ class PlanificacionsController < ApplicationController
     primer_any = Date.today.year
     ultim_any = despesa.last.data_any
     for i in primer_any..ultim_any
-      for j in 0..11
-        mes_despesa = despesa.where(edifici_id: @edifici.id, data_mes: j+1, data_any: i)
+      for j in 1..12
+        mes_despesa = despesa.where(edifici_id: @edifici.id, data_mes: j, data_any: i)
         if mes_despesa.exists?
           despeses[i][j] = mes_despesa.import
         else
@@ -72,29 +72,29 @@ class PlanificacionsController < ApplicationController
     primer_mes = Date.today.month
     ultim_mes = despesa.last.data_mes
     for i in primer_any..ultim_any
-      for j in 0..11
-        if i == primer_any && j <= primer_mes - 1
+      for j in 1..12
+        if i == primer_any && j <= primer_mes
           # Aquí es crea el primer registre de tresoreria. Els mesos següents hi ha tresoreria i ingressos
-          if i == primer_any && j == primer_mes - 1
+          if i == primer_any && j == primer_mes
             tresoreria = Tresoreria.new
             tresoreria.edifici_id = @edifici.id
-            tresoreria.data_mes = j+1
+            tresoreria.data_mes = j
             tresoreria.data_any = i
             tresoreria.import = @planificacio.fons_propis
             tresoreria.save
           end
         else
-          if i == ultim_any && j > ultim_mes - 1
+          if i == ultim_any && j > ultim_mes
           else
             ingres = Ingres.new
             ingres.edifici_id = @edifici.id
-            ingres.data_mes = j+1
+            ingres.data_mes = j
             ingres.data_any = i
             ingres.import = 0
             ingres.save
             tresoreria = Tresoreria.new
             tresoreria.edifici_id = @edifici.id
-            tresoreria.data_mes = j+1
+            tresoreria.data_mes = j
             tresoreria.data_any = i
             tresoreria.import = 0
             tresoreria.save
