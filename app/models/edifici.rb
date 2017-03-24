@@ -7,6 +7,8 @@ class Edifici < ApplicationRecord
 	has_many :fases
 	has_one :planificacio
 	has_many :ingressos
+	has_many :despeses
+	has_many :tresoreries
 	belongs_to :user
 
 end

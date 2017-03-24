@@ -37,11 +37,11 @@ class PlanificacionsController < ApplicationController
     @submenu_actiu = 'planificacio'
     @planificacio_menu_actiu = 'calendari'
     check_user_edifici(@edifici.id)
-    @despeses = Despesa.where(edifici_id: @edifici.id).order(:data_any)
-    @ingressos = Ingres.where(edifici_id: @edifici.id).order(:data_any)
-    @tresoreries = Tresoreria.where(edifici_id: @edifici.id).order(:data_any)
-    @primer_any = Date.today.year
-    @ultim_any = @despeses.last.data_any
+    #@despeses = Despesa.where(edifici_id: @edifici.id).order(:data_any)
+    #@ingressos = Ingres.where(edifici_id: @edifici.id).order(:data_any)
+    #@tresoreries = Tresoreria.where(edifici_id: @edifici.id).order(:data_any)
+    #@primer_any = Date.today.year
+    #@ultim_any = @despeses.last.data_any
     # Cada vegada que accedim al calendari s'actualitzen els valors de tresoreria, perquè poden haver canviat les despeses
     helpers.actualitza_flux_tresoreria
   end

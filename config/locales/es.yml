@@ -182,6 +182,8 @@ es:
       concepte: "Concepto"
       import: "Importe"
       data: "Fecha"
+    calendari:
+      ingres: "Editar ingreso"
     form:
       guardar: "Guardar"
     update:

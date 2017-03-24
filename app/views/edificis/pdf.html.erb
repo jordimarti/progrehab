@@ -375,4 +375,85 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="medium-12 columns">
+		<% mes_actual = Date.today.month %>
+		<% tresoreria = edifici.planificacio.fons_propis %>
+		<% primer_any = Date.today.year %>
+		<% ultim_any = edifici.despeses.order(:data_any).last.data_any %>
+		<% 
+			for i in primer_any..ultim_any %>
+			<table class="calendari">
+			  <thead>
+			    <tr>
+			      <th><%= i %></th>
+			      <th><%= t('.gener') %></th>
+			      <th><%= t('.febrer') %></th>
+			      <th><%= t('.març') %></th>
+			      <th><%= t('.abril') %></th>
+			      <th><%= t('.maig') %></th>
+			      <th><%= t('.juny') %></th>
+			      <th><%= t('.juliol') %></th>
+			      <th><%= t('.agost') %></th>
+			      <th><%= t('.setembre') %></th>
+			      <th><%= t('.octubre') %></th>
+			      <th><%= t('.novembre') %></th>
+			      <th><%= t('.desembre') %></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th><%= t('.ingressos') %></th>
+				    <% for j in 1..12 %>
+				    	<% ingres = edifici.ingressos.where(data_mes: j, data_any: i) %>
+				    	<% if ingres.exists? %>
+				    		<td>
+					    		<%= link_to edit_ingres_path(ingres.last, edifici_id: ingres.last.edifici_id), remote: true do %>
+						    		<%= ingres.last.import %>
+						  		<% end %>
+					  		</td>
+				    	<% else %>
+				    		<td></td>
+				    	<% end %>
+				    <% end %>
+		    	</tr>
+		    	<tr>
+		    		<th><%= t('.despeses') %></th>
+		    		<% for j in 1..12 %>
+				      <% if i == primer_any && j < mes_actual - 1 %>
+				    		<td></td>
+				    	<% elsif 
+					      mes_despesa = edifici.despeses.where(data_mes: j, data_any: i)
+					      if mes_despesa.exists? %>
+					        <td><%= mes_despesa.last.import %></td>
+					      <% else %>
+					        <td></td>
+					      <% end %>
+					    <% end %>
+				    <% end %>
+		    	</tr>
+		    	<tr>
+		    		<th><%= t('.tresoreria') %></th>
+		    		<% for j in 1..12 %>
+			    		<% tresoreria = edifici.tresoreries.where(data_mes: j, data_any: i).last
+			    		if tresoreria != nil %>
+			    			<td>
+			    				<% if tresoreria.import < 0 %>
+			    					<span class="valor-negatiu"><%= tresoreria.import %></span>
+			    				<% else %>
+			    					<span class="valor-positiu"><%= tresoreria.import %></span>
+			    				<% end %>
+			    			</td>
+			    		<% else %>
+			    			<td></td>
+			    		<% end %>
+				    <% end %>
+		    	</tr>
+		    </tbody>
+		  </table>
+		<% end %>
+
+	</div>
+</div>
+
 

@@ -182,6 +182,8 @@ ca:
       concepte: "Concepte"
       import: "Import"
       data: "Data"
+    calendari:
+      ingres: "Editar ingrés"
     form:
       guardar: "Guardar"
     update:

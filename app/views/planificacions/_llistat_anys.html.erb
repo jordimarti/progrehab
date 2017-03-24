@@ -1,7 +1,9 @@
 <% mes_actual = Date.today.month %>
-<% tresoreria = @planificacio.fons_propis %>
+<% tresoreria = @edifici.planificacio.fons_propis %>
+<% primer_any = Date.today.year %>
+<% ultim_any = @edifici.despeses.order(:data_any).last.data_any %>
 <% 
-	for i in @primer_any..@ultim_any %>
+	for i in primer_any..ultim_any %>
 	<table class="calendari">
 	  <thead>
 	    <tr>
@@ -24,7 +26,7 @@
 	    <tr>
 	      <th><%= t('.ingressos') %></th>
 		    <% for j in 1..12 %>
-		    	<% ingres = @ingressos.where(data_mes: j, data_any: i) %>
+		    	<% ingres = @edifici.ingressos.where(data_mes: j, data_any: i) %>
 		    	<% if ingres.exists? %>
 		    		<td>
 			    		<%= link_to edit_ingres_path(ingres.last, edifici_id: ingres.last.edifici_id), remote: true do %>
@@ -39,10 +41,10 @@
     	<tr>
     		<th><%= t('.despeses') %></th>
     		<% for j in 1..12 %>
-		      <% if i == @primer_any && j < mes_actual - 1 %>
+		      <% if i == primer_any && j < mes_actual - 1 %>
 		    		<td></td>
 		    	<% elsif 
-			      mes_despesa = @despeses.where(data_mes: j, data_any: i)
+			      mes_despesa = @edifici.despeses.where(data_mes: j, data_any: i)
 			      if mes_despesa.exists? %>
 			        <td><%= mes_despesa.last.import %></td>
 			      <% else %>
@@ -54,7 +56,7 @@
     	<tr>
     		<th><%= t('.tresoreria') %></th>
     		<% for j in 1..12 %>
-	    		<% tresoreria = @tresoreries.where(data_mes: j, data_any: i).last
+	    		<% tresoreria = @edifici.tresoreries.where(data_mes: j, data_any: i).last
 	    		if tresoreria != nil %>
 	    			<td>
 	    				<% if tresoreria.import < 0 %>
