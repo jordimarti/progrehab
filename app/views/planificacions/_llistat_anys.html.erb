@@ -26,7 +26,11 @@
 		    <% for j in 1..12 %>
 		    	<% ingres = @ingressos.where(data_mes: j, data_any: i) %>
 		    	<% if ingres.exists? %>
-		    		<td><%= ingres.last.import %></td>
+		    		<td>
+			    		<%= link_to edit_ingres_path(ingres.last, edifici_id: ingres.last.edifici_id), remote: true do %>
+				    		<%= ingres.last.import %>
+				  		<% end %>
+			  		</td>
 		    	<% else %>
 		    		<td></td>
 		    	<% end %>
@@ -52,7 +56,13 @@
     		<% for j in 1..12 %>
 	    		<% tresoreria = @tresoreries.where(data_mes: j, data_any: i).last
 	    		if tresoreria != nil %>
-	    			<td><%= tresoreria.import %></td>
+	    			<td>
+	    				<% if tresoreria.import < 0 %>
+	    					<span class="valor-negatiu"><%= tresoreria.import %></span>
+	    				<% else %>
+	    					<span class="valor-positiu"><%= tresoreria.import %></span>
+	    				<% end %>
+	    			</td>
 	    		<% else %>
 	    			<td></td>
 	    		<% end %>

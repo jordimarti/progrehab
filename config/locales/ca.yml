@@ -200,6 +200,10 @@ ca:
       octubre: "Octubre"
       novembre: "Novembre"
       desembre: "Desembre"
+  ingressos:
+    form:
+      guardar: "Guardar"
+      data: "Data"
   documents:
     index:
       titol_document: "Documents"
