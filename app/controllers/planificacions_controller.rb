@@ -42,11 +42,17 @@ class PlanificacionsController < ApplicationController
     #@tresoreries = Tresoreria.where(edifici_id: @edifici.id).order(:data_any)
     #@primer_any = Date.today.year
     #@ultim_any = @despeses.last.data_any
+    # Comprovem si existeixen valors inicials i sinó és així els creem
+    tresoreries = Tresoreria.where(edifici_id: @edifici.id).order(:data_any)
+    if tresoreries == nil
+      crea_valors_inicials
+    end
     # Cada vegada que accedim al calendari s'actualitzen els valors de tresoreria, perquè poden haver canviat les despeses
     helpers.actualitza_flux_tresoreria
   end
 
   def crea_valors_inicials
+    puts "Ha entrat a creació de valors inicials"
     Ingres.where(edifici_id: @edifici.id).destroy_all
     Tresoreria.where(edifici_id: @edifici.id).destroy_all
     crea_ingressos
@@ -89,7 +95,7 @@ class PlanificacionsController < ApplicationController
             tresoreria.edifici_id = @edifici.id
             tresoreria.data_mes = j
             tresoreria.data_any = i
-            tresoreria.import = @planificacio.fons_propis
+            tresoreria.import = @edifici.planificacio.fons_propis
             tresoreria.save
           end
         else
@@ -119,7 +125,7 @@ class PlanificacionsController < ApplicationController
     ingressos = Ingres.where(edifici_id: @edifici.id).order(:data_any, :data_mes)
     data_inici_any = Date.today.year
     data_inici_mes = Date.today.month
-    import_ultima_tresoreria = @planificacio.fons_propis
+    import_ultima_tresoreria = @edifici.planificacio.fons_propis
     despeses.each do |despesa|
       mesos_repartir = 0
       tresoreria = tresoreries.where(data_any: data_inici_any, data_mes: data_inici_mes).last
