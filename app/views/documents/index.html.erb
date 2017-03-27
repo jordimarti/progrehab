@@ -17,12 +17,12 @@
 					<%= link_to t('.exportar_intervencions'), exporta_xml_path(:edifici_id => @edifici.id, :format => :xml), :class => 'button'  %>
 					<p><%= t('.text_generar_xml') %></p>	
 
-					<p><%= link_to "Download PDF",
+					<p><%= link_to "Descarrega PDF",
 					  edifici_download_path(@edifici, format: "pdf"),
 					  target: "_blank",
 					  class: "download" %></p>
 
-					<p><%= link_to "View HTML",
+					<p><%= link_to "Visualitza en HTML",
 					  edifici_download_path(@edifici, format: "html"),
 					  target: "_blank",
 					  class: "download" %></p>
