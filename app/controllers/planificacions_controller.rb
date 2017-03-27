@@ -44,7 +44,7 @@ class PlanificacionsController < ApplicationController
     #@ultim_any = @despeses.last.data_any
     # Comprovem si existeixen valors inicials i sinó és així els creem
     tresoreries = Tresoreria.where(edifici_id: @edifici.id).order(:data_any)
-    if tresoreries == nil
+    if tresoreries.count == 0
       crea_valors_inicials
     end
     # Cada vegada que accedim al calendari s'actualitzen els valors de tresoreria, perquè poden haver canviat les despeses
