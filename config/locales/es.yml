@@ -209,6 +209,9 @@ es:
   documents:
     index:
       titol_document: "Documentos"
+      exportar_intervencions: "Exportar intervenciones"
+      genera_programa: "Genera el Programa"
+      text_generar_xml: "Exportar las propuestas de intervención en formato XML."
   simple_form:
     labels:
       edifici:

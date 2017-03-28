@@ -12,15 +12,22 @@
 	<div class="row">
 		<div class="medium-12 columns">
 			<div class="light-container">
-				
-					<%= image_tag('document_xml.png', :alt => t('.exportar_intervencions'), :class => 'imatge-document') %>
-					<%= link_to t('.exportar_intervencions'), exporta_xml_path(:edifici_id => @edifici.id, :format => :xml), :class => 'button'  %>
-					<p><%= t('.text_generar_xml') %></p>	
+				<div class="row">
+					<div class="medium-4 columns">
+						<%= image_tag('document_xml.png', :alt => t('.exportar_intervencions'), :class => 'imatge-document') %>
+						<%= link_to t('.exportar_intervencions'), exporta_xml_path(:edifici_id => @edifici.id, :format => :xml), :class => 'button'  %>
+						<p><%= t('.text_generar_xml') %></p>
+					</div>
+					<div class="medium-4 columns end">
+						<%= image_tag('document_programa.png', :alt => t('.genera_programa'), :class => 'imatge-document') %>
+						<%= link_to t('.genera_programa'),
+						  edifici_download_path(@edifici, format: "pdf"),
+						  target: "_blank",
+						  class: "button download" %></p>
+					</div>
+				</div>
 
-					<p><%= link_to "Descarrega PDF",
-					  edifici_download_path(@edifici, format: "pdf"),
-					  target: "_blank",
-					  class: "download" %></p>
+					
 
 					<p><%= link_to "Visualitza en HTML",
 					  edifici_download_path(@edifici, format: "html"),
