@@ -64,11 +64,11 @@ class EdificisController < ApplicationController
   end
 
   def pdf_header
-    render :layout => 'pdf'
+    render :layout => false
   end
 
   def pdf_footer
-    render :layout => 'pdf'
+    render :layout => false
   end
 
   def create_complements(edifici_id)
