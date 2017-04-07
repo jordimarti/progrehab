@@ -188,6 +188,8 @@ es:
       guardar: "Guardar"
     update:
       guardat_ok: "Los datos se han guardado correctamente"
+    calendari:
+      reinicialitzar: "Reinicializar"
   despeses:
     form:
       guardar: "Guardar"

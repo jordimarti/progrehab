@@ -188,6 +188,8 @@ ca:
       guardar: "Guardar"
     update:
       guardat_ok: "Les dades s'han guardat correctament"
+    calendari:
+      reinicialitzar: "Reinicialitzar"
   despeses:
     form:
       guardar: "Guardar"
