@@ -2,13 +2,13 @@
 	<div class="medium-12 columns">
 		<h1 class="titol-document">PROGRAMA DE REHABILITACIÓ</h1>
 		<h2 class="subtitol-document">1. IDENTIFICACIÓ I DADES PRÈVIES</h2>
-		<p>Identificació de l'edifici, del tècnic competent que supervisa el Programa, dades resum de l'IITE i del Certificat d'Aptitud</p>
+		<p class="text-ressaltat">Identificació de l'edifici, del tècnic competent que supervisa el Programa, dades resum de l'IITE i del Certificat d'Aptitud</p>
 	</div>
 </div>
 
 <div class="row">
 	<div class="medium-12 columns">
-		<ul><li>EDIFICI</li></ul>
+		<h3 class="titol-apartat">EDIFICI</h3>
 	</div>
 </div>
 
@@ -22,117 +22,114 @@
 		  end
 		%>
 
-		Situació: <%= adreca %>
+		<span class="negreta">Situació:</span> <%= adreca %>, <%= edifici.identificacio.codi_postal %> <%= edifici.identificacio.poblacio %>
 
 		<br/>
-		Règim jurídic de la propietat: <%= edifici.identificacio.regim_juridic %>
+		<span class="negreta">Règim jurídic de la propietat:</span> <%= edifici.identificacio.regim_juridic %>
 
 
-		<div class="row">
-			<div class="medium-8 columns">
-				Titular: <%= edifici.identificacio.nom_titular %>
-			</div>
-			<div class="medium-4 columns">
-				NIF: <%= edifici.identificacio.nif_titular %>
-			</div>
+		<div class="columnes">
+			<div class="columna-esquerra"><span class="negreta">Titular:</span> <%= edifici.identificacio.nom_titular %></div>
+			<div class="columna-dreta"><span class="negreta">NIF:</span> <%= edifici.identificacio.nif_titular %></div>
+		</div>
+		
+		<div class="columnes">
+			<div class="columna-esquerra"><span class="negreta">Representant:</span> <%= edifici.identificacio.nom_representant %></div>
+			<div class="columna-dreta"><span class="negreta">NIF:</span> <%= edifici.identificacio.nif_representant %></div>
 		</div>
 
-		<div class="row">
-			<div class="medium-8 columns">
-				Representant: <%= edifici.identificacio.nom_representant %>
-			</div>
-			<div class="medium-4 columns">
-				NIF: <%= edifici.identificacio.nif_representant %>
-			</div>
-		</div>
+		
 	</div>
 </div>
+
+<div class="separador"></div>
 
 
 <div class="row">
 	<div class="medium-12 columns">
-		<ul><li>PROGRAMA DE REHABILITACIÓ: Tècnic que supervisa el Programa</li></ul>
+		<h3 class="titol-apartat">PROGRAMA DE REHABILITACIÓ: Tècnic que supervisa el Programa</h3>
 	</div>
 </div>
-<div class="dades-identificacio">
-	<div class="row">
-		<div class="medium-8 columns">
-			Nom: <%= edifici.identificacio.nom_tecnic %>
-		</div>
-		<div class="medium-4 columns">
-			NIF: <%= edifici.identificacio.nif_tecnic %>
-		</div>
-	</div>
+<div class="row">
+	<div class="medium-12 columns">
+		<div class="dades-identificacio">
+			<div class="columnes">
+				<div class="columna-esquerra"><span class="negreta">Nom:</span> <%= edifici.identificacio.nom_tecnic %></div>
+				<div class="columna-dreta"><span class="negreta">NIF:</span> <%= edifici.identificacio.nif_tecnic %></div>
+			</div>
 
-	<div class="row">
-		<div class="medium-4 columns">
-			Titulació: <%= edifici.identificacio.titulacio_tecnic %>
-		</div>
-		<div class="medium-4 columns">
-			Col·legi Professional: <%= edifici.identificacio.colegi_tecnic %>
-		</div>
-		<div class="medium-4 columns">
-			núm. col·legiat: <%= edifici.identificacio.num_colegiat_tecnic %>
+			<div class="columnes">
+				<div class="columna-esquerra"><span class="negreta">Titulació:</span> <%= edifici.identificacio.titulacio_tecnic %></div>
+				<div class="columna-mig"><span class="negreta">Col·legi Professional:</span> <%= edifici.identificacio.colegi_tecnic %></div>
+				<div class="columna-dreta"><span class="negreta">núm. col·legiat:</span> <%= edifici.identificacio.num_colegiat_tecnic %></div>
+			</div>
 		</div>
 	</div>
 </div>
+
+<div class="separador"></div>
 
 <div class="row">
 	<div class="medium-12 columns">
-		<ul><li>INFORME D'INSPECCIÓ TÈCNICA DE L'EDIFICI, IITE: Dades resum</li></ul>
+		<h3 class="titol-apartat">INFORME D'INSPECCIÓ TÈCNICA DE L'EDIFICI, IITE: Dades resum</h3>
 	</div>
 </div>
-<div class="dades-identificacio">
-	<div class="row">
-		<div class="medium-8 columns">
-			Codi informe ITE: <%= edifici.identificacio.codi_ite %>
-		</div>
-		<div class="medium-4 columns">
-			Data d'emissió de l'IITE: <%= edifici.identificacio.data_emissio_ite %>
-		</div>
-	</div>
+<div class="row">
+	<div class="medium-12 columns">
+		<div class="dades-identificacio">
+			<div class="columnes">
+				<div class="columna-esquerra"><span class="negreta">Codi informe ITE:</span> <%= edifici.identificacio.codi_ite %></div>
+				<div class="columna-dreta"><span class="negreta">Data d'emissió de l'IITE:</span> <%= edifici.identificacio.data_emissio_ite %></div>
+			</div>
 
-	<div class="row">
-		<div class="medium-8 columns">
-			Tècnic redactor: <%= edifici.identificacio.nom_redactor_ite %>
-		</div>
-		<div class="medium-4 columns">
-			NIF: <%= edifici.identificacio.nif_redactor_ite %>
-		</div>
-	</div>
+			<div class="columnes">
+				<div class="columna-esquerra"><span class="negreta">Tècnic redactor:</span> <%= edifici.identificacio.nom_redactor_ite %></div>
+				<div class="columna-dreta"><span class="negreta">NIF:</span> <%= edifici.identificacio.nif_redactor_ite %></div>
+			</div>
 
-	<div class="row">
-		<div class="medium-4 columns">
-			Titulació: <%= edifici.identificacio.titulacio_redactor_ite %>
-		</div>
-		<div class="medium-4 columns">
-			Col·legi Professional: <%= edifici.identificacio.colegi_redactor_ite %>
-		</div>
-		<div class="medium-4 columns">
-			núm. col·legiat: <%= edifici.identificacio.num_colegiat_redactor_ite %>
+			<div class="columnes">
+				<div class="columna-esquerra"><span class="negreta">Titulació:</span> <%= edifici.identificacio.titulacio_redactor_ite %></div>
+				<div class="columna-mig"><span class="negreta">Col·legi Professional:</span> <%= edifici.identificacio.colegi_redactor_ite %></div>
+				<div class="columna-dreta"><span class="negreta">núm. col·legiat:</span> <%= edifici.identificacio.num_colegiat_redactor_ite %></div>
+			</div>
+
 		</div>
 	</div>
 </div>
+
+<div class="separador"></div>
 
 <div class="row">
 	<div class="medium-12 columns">
-		<ul><li>CERTIFICAT D'APTITUD: Dades resum</li></ul>
+		<h3 class="titol-apartat">CERTIFICAT D'APTITUD: Dades resum</h3>
 	</div>
 </div>
-<div class="dades-identificacio">
-	<div class="row">
-		<div class="medium-12 columns">
-			Nº d'expedient: <%= edifici.identificacio.num_expedient %>
+<div class="row">
+	<div class="medium-12 columns">
+		<div class="dades-identificacio">
+			<div class="row">
+				<div class="small-12 columns">
+					<span class="negreta">Nº d'expedient:</span> <%= edifici.identificacio.num_expedient %>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-6 columns">
+					<span class="negreta">Qualificació Certificat d'Aptitud:</span> <%= edifici.identificacio.qualificacio_certificat %>
+				</div>
+				<div class="small-6 columns">
+					<span class="negreta">Vigència límit del certificat d'aptitud:</span> <%= edifici.identificacio.vigencia_limit_certificat %>
+				</div>
+			</div>
 		</div>
 	</div>
+</div>
 
-	<div class="row">
-		<div class="medium-8 columns">
-			Qualificació Certificat d'Aptitud: <%= edifici.identificacio.qualificacio_certificat %>
-		</div>
-		<div class="medium-4 columns">
-			Vigència límit del certificat d'aptitud: <%= edifici.identificacio.vigencia_limit_certificat %>
-		</div>
+<div class="separador"></div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<h3 class="titol-apartat">QUALIFICACIÓ DE LES DEFICIÈNCIES: Dades obtingudes del Certificat d'Aptitud de l'edifici</h3>
 	</div>
 </div>
 
@@ -290,6 +287,8 @@
 		</table>
 	</div>
 </div>
+
+<div class="separador"></div>
 
 <div class="row">
 	<div class="medium-12 columns">

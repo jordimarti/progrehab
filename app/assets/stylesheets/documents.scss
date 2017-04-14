@@ -11,7 +11,7 @@
 
 .pdf-container {
 	font-family: "Calibri", Helvetica, Roboto, Arial, sans-serif;
-	font-size: 11px;
+	font-size: 14px;
 }
 
 .salt-pagina {
@@ -37,6 +37,16 @@ h2.subtitol-document {
 	color: #760A09;
 }
 
+.text-ressaltat {
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+h3.titol-apartat {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
 .separacio-gran {
 	height: 300px;
 }
@@ -60,7 +70,29 @@ h2.subtitol-document {
 }
 
 .separador {
-	margin-bottom: 40px;
+	clear: both;
+	height: 30px;
+}
+
+.columnes {
+	clear: both;
+}
+
+.columna-esquerra {
+	float: left;
+}
+
+.columna-dreta {
+	margin-left: 500px;
+}
+
+.columna-mig {
+	margin-left: 150px;
+	float: left;
+}
+
+span.negreta {
+	font-weight: bold;
 }
 
 .taula-container {
