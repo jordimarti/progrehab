@@ -252,6 +252,11 @@ ca:
         termini_aprovacio_programa: "Termini màxim per aprovar el Programa de Rehabilitació"
       qualificacio:
         xml_file: "Fitxer XML"
+      deficiencia:
+        descripcio: "Descripció"
+        observacions: "Observacions"
+        sistema: "Sistema"
+        qualificacio: "Qualificació"
       intervencio:
         descripcio: "Descripció"
         import_obres: "Import de les obres"
