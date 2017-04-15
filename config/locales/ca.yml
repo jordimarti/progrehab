@@ -165,9 +165,13 @@ ca:
       titol_fases: "Fases d'intervenció"
       fase: "Fase"
       crear_fases: "Has de crear com a mínim una fase en la qual assignar les intervencions a realitzar."
+    llistat_fases:
+      assignar_intervencions: "Assignar intervencions"
+      editar_fase: "Editar fase"
     llistat_intervencions:
       descripcio: "Descripció"
       import_total: "Import"
+      assigna_intervencions: "Assigna intervencions a aquesta fase."
     form:
       guardar: "Guardar"
   planificacions:  

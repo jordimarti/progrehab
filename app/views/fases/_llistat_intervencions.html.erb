@@ -1,3 +1,4 @@
+<% if @intervencions.where(fase_id: fase_id).count > 0 %>
 <table>
   <thead>
     <tr>
@@ -15,3 +16,6 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+  <p><%= t('.assigna_intervencions') %></p>
+<% end %>
