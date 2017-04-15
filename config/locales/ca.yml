@@ -92,6 +92,7 @@ ca:
       explicacio_manual: "Si no disposeu de l'arxiu XML podeu introduïr deficiències manualment."
       titol_llistat_deficiencies: "Llistat de deficiències"
       afegir_deficiencia: "Afegir deficiència"
+      deficiencia: "Nova deficiència"
     form:
       guardar: "Guardar"
   deficiencies:
