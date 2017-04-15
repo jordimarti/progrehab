@@ -108,12 +108,12 @@ ActiveRecord::Schema.define(version: 20170313212018) do
     t.integer  "fase_id"
     t.text     "descripcio"
     t.string   "sistema"
-    t.integer  "import_obres"
-    t.integer  "import_honoraris"
-    t.integer  "import_taxes"
-    t.integer  "import_altres"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "import_obres",     default: 0
+    t.integer  "import_honoraris", default: 0
+    t.integer  "import_taxes",     default: 0
+    t.integer  "import_altres",    default: 0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "planificacions", force: :cascade do |t|
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20170313212018) do
     t.integer  "subvencions_atorgades"
     t.integer  "import_financar"
     t.string   "forma_financar"
+    t.string   "data_financament"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

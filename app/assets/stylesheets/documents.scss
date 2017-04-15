@@ -11,7 +11,7 @@
 
 .pdf-container {
 	font-family: "Calibri", Helvetica, Roboto, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 10px;
 }
 
 .salt-pagina {
@@ -26,13 +26,13 @@
 
 h1.titol-document {
 	font-family: "Calibri", Helvetica, Roboto, Arial, sans-serif;
-	font-size: 20px;
+	font-size: 2em;
 	font-weight: bold;
 }
 
 h2.subtitol-document {
 	font-family: "Calibri", Helvetica, Roboto, Arial, sans-serif;
-	font-size: 19px;
+	font-size: 1.4em;
 	font-weight: bold;
 	color: #760A09;
 }
@@ -42,9 +42,14 @@ h2.subtitol-document {
 	font-size: 1.1em;
 }
 
+.cell-ressaltat {
+	background-color: #eaeaea;
+}
+
 h3.titol-apartat {
 	font-weight: bold;
-	font-size: 1.2em;
+	font-size: 1.1em;
+	margin-bottom: 5px;
 }
 
 .separacio-gran {
@@ -83,7 +88,7 @@ h3.titol-apartat {
 }
 
 .columna-dreta {
-	margin-left: 500px;
+	margin-left: 400px;
 }
 
 .columna-mig {
@@ -107,12 +112,69 @@ span.negreta {
 }
 
 .header-cell {
-	padding: 0px;
+	padding: 0px 5px;
 	border: 1px solid #ccc;
-	padding-left: 5px;
+}
+
+.header-cell-columna {
+	padding: 0px 5px;
+	border: 1px solid #ccc;
+	text-align: left;
 }
 
 .body-cell {
+	padding: 0px 5px;
+	border: 1px solid #ccc;
+}
+
+.intervencio-header-cell {
+	text-align: left;
 	padding: 0px 0px 0px 5px;
 	border: 1px solid #ccc;
+	border-bottom: 1px solid #666;
+}
+
+.text-subratllat {
+	text-decoration: underline;
+}
+
+.separacio-costos {
+	border-bottom: 1px solid #666;
+	height: 2px;
+	padding: 0px;
+}
+
+.import-monetari {
+	text-align: right;
+}
+
+.separador-observacions {
+	clear: both;
+	height: 10px;
+}
+
+.titol-notes {
+	color: #760A09;
+}
+
+.item-notes {
+	font-style: italic;
+}
+
+.numero-nota {
+	color: #760A09;
+	font-size: 0.8em;
+}
+
+table.calendari-pdf {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+}
+
+.ingressos-link {
+	color: #333333;
+}
+
+.calendari-cell {
+	text-align: right;
 }

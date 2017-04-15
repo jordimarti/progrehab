@@ -196,6 +196,6 @@ class PlanificacionsController < ApplicationController
     end
 
     def planificacio_params
-      params.require(:planificacio).permit(:edifici_id, :fons_propis, :subvencions_solicitades, :subvencions_atorgades, :import_financar, :forma_financar)
+      params.require(:planificacio).permit(:edifici_id, :fons_propis, :subvencions_solicitades, :subvencions_atorgades, :import_financar, :forma_financar, :data_financament)
     end
 end

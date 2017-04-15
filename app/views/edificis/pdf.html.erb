@@ -107,20 +107,13 @@
 <div class="row">
 	<div class="medium-12 columns">
 		<div class="dades-identificacio">
-			<div class="row">
-				<div class="small-12 columns">
-					<span class="negreta">Nº d'expedient:</span> <%= edifici.identificacio.num_expedient %>
-				</div>
+			<span class="negreta">Nº d'expedient:</span> <%= edifici.identificacio.num_expedient %>
+			
+			<div class="columnes">
+				<div class="columna-esquerra"><span class="negreta">Qualificació Certificat d'Aptitud:</span> <%= edifici.identificacio.qualificacio_certificat %></div>
+				<div class="columna-dreta"><span class="negreta">Vigència límit del certificat d'aptitud:</span> <%= edifici.identificacio.vigencia_limit_certificat %></div>
 			</div>
 
-			<div class="row">
-				<div class="small-6 columns">
-					<span class="negreta">Qualificació Certificat d'Aptitud:</span> <%= edifici.identificacio.qualificacio_certificat %>
-				</div>
-				<div class="small-6 columns">
-					<span class="negreta">Vigència límit del certificat d'aptitud:</span> <%= edifici.identificacio.vigencia_limit_certificat %>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
@@ -305,74 +298,203 @@
 <div class="row">
 	<div class="medium-12 columns">
 		<h2 class="subtitol-document">2. PROPOSTES I FASES D'INTERVENCIÓ</h2>
-		<p>Proposta de fases d’intervenció segons possibilitats econòmiques de la propietat i criteris de prioritat 
-</p>
-		<p>Intervencions previstes per corregir les deficiències</p>
+		<p class="text-ressaltat">Proposta de fases d’intervenció segons possibilitats econòmiques de la propietat i criteris de prioritat</p>
+		<p><span class="negreta">Intervencions</span> previstes per corregir les deficiències<sup><span class="numero-nota">(1)</span></sup></p>
 	</div>
 </div>
 
 <div class="row">
 	<div class="medium-12 columns">
-		<table>
+		<table class="taula-dades unstriped">
 			<tr>
-				<th>Núm.</th>
-				<th>Localització</th>
-				<th>Descripció de la proposta d'intervenció</th>
-				<th>Prioritat</th>
-				<th>Cost estimat</th>
+				<th class="body-cell cell-ressaltat">Localització</th>
+				<th class="body-cell cell-ressaltat">Descripció de la proposta d'intervenció<sup><span class="numero-nota">(2)</span></sup></th>
+				<th class="body-cell cell-ressaltat">Prioritat</th>
+				<th class="body-cell cell-ressaltat" style="width: 100px;">Cost estimat<sup><span class="numero-nota">(3)</span></sup></th>
 			</tr>
 			<% import_total = 0 %>
 			<% edifici.intervencions.each do |intervencio| %>
 				<tr>
-					<td></td>
-					<td><%= intervencio.sistema %></td>
-					<td><%= intervencio.descripcio %></td>
-					<td></td>
+					<td class="body-cell"><%= intervencio.sistema %></td>
+					<td class="body-cell"><%= intervencio.descripcio %></td>
+					<td class="body-cell"></td>
 					<% import_intervencio = intervencio.import_obres + intervencio.import_honoraris + intervencio.import_taxes + intervencio.import_altres %>
 					<% import_total += import_intervencio %>
-					<td><%= import_intervencio %> €</td>
+					<td class="body-cell import-monetari"><%= import_intervencio %> €</td>
 				</tr>
 			<% end %>
 			
 			<tr>
-				<td colspan="4">Cost estimat total de les obres</td>
-				<td><%= import_total %> €</td>
+				<td class="body-cell cell-ressaltat" colspan="3"><span class="negreta">Cost estimat total de les obres</span></td>
+				<td class="body-cell cell-ressaltat import-monetari"><span class="negreta"><%= import_total %> €</span></td>
 			</tr>
 		</table>
 	</div>
 </div>
 
+<div class="separador"></div>
+
 <div class="row">
 	<div class="medium-12 columns">
-		<p>Fases d'intervenció segons prioritat</p>
+		<p class="text-ressaltat text-subratllat">Fases d'intervenció segons prioritat</p>
 		<div class="indivisible">
 			<% edifici.fases.each do |fase| %>
-				<% import_fase = 0 %>
-				<%= fase.nom %>
+				
+						<% import_fase = 0 %>
+						<span class="negreta"><%= fase.nom %></span>
 				<% intervencions_fase = edifici.intervencions.where(fase_id: fase) %>
 				<% import_obres = 0 %>
 				<% import_honoraris = 0 %>
 				<% import_taxes = 0 %>
 				<% import_altres = 0 %>
+				<table class="taula-dades unstriped">
+						<tr>
+							<th class="intervencio-header-cell cell-ressaltat">Intervencions</th>
+							<th class="intervencio-header-cell cell-ressaltat" style="width: 100px;">Cost estimat<sup><span class="numero-nota">(3)</span></sup></th>
+						</tr>
 				<% intervencions_fase.each do |intervencio| %>
 					<% import_intervencio = intervencio.import_obres + intervencio.import_honoraris + intervencio.import_taxes + intervencio.import_altres %>
-					<p><%= intervencio.descripcio %>: <%= import_intervencio %> €</p>
+					
+						<tr>
+							<td class="body-cell"><%= intervencio.descripcio %></td> 
+							<td class="body-cell import-monetari"><%= import_intervencio %> €</td>
+						</tr>
+					
 					<% import_obres += intervencio.import_obres %>
 					<% import_honoraris += intervencio.import_honoraris %>
 					<% import_taxes += intervencio.import_taxes %>
 					<% import_altres += intervencio.import_altres %>
 					<% import_fase += import_intervencio %>
 				<% end %>
-				<p>Cost aproximat i estimatiu de les OBRES: <%= import_obres %></p>
-				<p>Cost aproximat i estimatiu dels HONORARIS PROFESSIONALS: <%= import_honoraris %></p>
-				<p>Cost aproximat i estimatiu de les TAXES I AUTORITZACIONS ADMINISTRATIVES: <%= import_taxes %></p>
-				<p>Cost aproximat i estimatiu d'ALTRES: <%= import_altres %></p>
-				<p>Cost total FASE: <%= import_fase %></p>
-				<p>Observacions: <%= fase.observacions %>
+					<tr>
+						<td class="separacio-costos"></td><td class="separacio-costos"></td>
+					</tr>
+					<tr>
+						<td class="body-cell">Cost aproximat i estimatiu de les OBRES:</td> <td class="body-cell import-monetari"><%= import_obres %> €</td>
+					</tr>
+					<tr>
+						<td class="body-cell">Cost aproximat i estimatiu dels HONORARIS PROFESSIONALS:</td> <td class="body-cell import-monetari"><%= import_honoraris %> €</td>
+					</tr>
+					<tr>
+						<td class="body-cell">Cost aproximat i estimatiu de les TAXES I AUTORITZACIONS ADMINISTRATIVES:</td> <td class="body-cell import-monetari"><%= import_taxes %> €</td>
+					</tr>
+					<tr>
+						<td class="body-cell">Cost aproximat i estimatiu d'ALTRES:</td> <td class="body-cell import-monetari"><%= import_altres %> €</td>
+					</tr>
+					<tr>
+						<td class="body-cell cell-ressaltat"><span class="negreta">Cost total FASE:</span></td> <td class="body-cell cell-ressaltat import-monetari"><span class="negreta"><%= import_fase %> €</span></td>
+					</tr>
+				</table>
+				<div class="separador-observacions"></div>
+				<p>Observacions:<br/> <%= fase.observacions %></p>
 			<% end %>
 		</div>
+
+		<div class="separador"></div>
+
+		<p class="text-ressaltat">Autor/s del Programa de Rehabilitació</p>
+		<div class="row">
+			<div class="small-3 columns">Nom:</div>
+			<div class="small-3 columns">NIF:</div>
+			<div class="small-3 columns">En qualitat de:</div>
+			<div class="small-3 columns">Signatura:</div>
+		</div>
+
+		<div class="separador"></div>
+
+		<span class="titol-notes">Notes</span>
+		<ol class="enum-notes">
+			<li class="item-notes">Intervencions previstes per corregir les deficiències així com les propostes que s’aconsellen tècnicament per a la millora de sostenibilitat, l’ecoeficiència, la funcionalitat i les condicions d’accessibilitat de l’edifici.</li>
+			<li class="item-notes">Les propostes d’intervenció que requereixen d’un tècnic hauran de ser projectades i dirigides per un tècnic competent. Correspon a aquest professional l'adopció de les solucions definitives necessàries per al desenvolupament de les obres les quals poden suposar modificacions respecte al cost econòmic previst en aquest document.</li>
+			<li class="item-notes">El cost econòmic estimat de la proposta d’intervenció és una valoració aproximada dels cost de les obres de reparació que es preveuen realitzar, segons una assimilació a partides d'obres i a preus de referència establerts en quadres de preus oficials, revistes especialitzades i pressupostos d'obres similars.</li>
+		</ol>
+
 	</div>
 </div>
+
+
+<div class="salt-pagina"></div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<h3 class="titol-apartat">SUPERVISIÓ DEL PROGRAMA DE REHABILITACIÓ</h3>
+		<div class="separador"></div>
+		<p>El present programa de rehabilitació ha estat aprovat per la propietat i supervisat pel tècnic que ho subscriu.</p>
+		<p>Per a la realització de les obres de rehabilitació és necessària la redacció d’un projecte tècnic o documentació tècnica elaborada per un tècnic competent, la sol·licitud de pressupostos i contractació d’un constructor, la contractació dels tècnics competents necessaris per dur a terme la direcció d'obra i la coordinació de seguretat i salut i l’obtenció de permís municipal d’obres.</p>
+		<p>En base a l’article 10 c) del D. 67/2015, la propietat té l’obligació de constituir un fons de reserva específic per afrontar les despeses que es derivin de l’execució de les obres descrites i aprovades en aquest Programa de Rehabilitació. </p>
+
+		<div class="separador"></div>
+
+		<p>A ................................................................................... de ........................................... de ...............................................</p>
+
+		<div class="separador"></div>
+
+		<div class="row">
+			<div class="small-7 columns">
+				Signat:<br/>La Propietat o Representant de la Comunitat de Propietaris
+			</div>
+			<div class="small-5 columns">
+			Signat:<br/>El Tècnic/a competent
+			</div>
+		</div>
+
+		<div class="separador"></div>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+
+		<span class="negreta">Relació d'annexos que acompanyen aquest Programa de Rehabilitació</span>
+		<ol>
+			<li>Planificació financera per fer front a les obres de rehabilitació derivades del Programa de Rehabilitació.</li>
+			<li>Còpia de l’acta d’aprovació de la constitució del fons de reserva específic.</li>
+			<li>Certificat d’aptitud.</li>
+		</ol>
+	</div>
+</div>
+
+
+<div class="salt-pagina"></div>
+
+<div class="row">
+	<div class="medium-12 columns">
+		<h2 class="subtitol-document">PLANIFICACIÓ FINANCERA PER FER FRONT A LES OBRES DEL PROGRAMA DE  REHABILITACIÓ</h2>
+		<p class="text-ressaltat">Informació aportada per la propietat</p>
+
+		<h3 class="titol-apartat">FONS ECONÒMIC EXISTENT PER DUR A TERME LA REHABILITACIÓ</h3>
+		<p><span class="negreta">Fons propis actuals:</span> <%= edifici.planificacio.fons_propis %> €</p>
+
+		<h3 class="titol-apartat">SUBVENCIONS</h3>
+		<div class="row">
+			<div class="small-6 columns">
+				<p><span class="negreta">Subvencions sol·licitades:</span> <%= edifici.planificacio.subvencions_solicitades %></p>
+			</div>
+			<div class="small-6 columns">
+			<p><span class="negreta">Subvencions atorgades:</span> <%= edifici.planificacio.subvencions_atorgades %></p>
+			</div>
+		</div>
+
+		<h3 class="titol-apartat">PLANIFICACIÓ FINANCERA</h3>
+		<div class="row">
+			<div class="small-6 columns">
+				<p><span class="negreta">Import a finançar:</span> <%= edifici.planificacio.import_financar %></p>
+			</div>
+			<div class="small-6 columns">
+			<p><span class="negreta">Forma de finançament:</span> <%= edifici.planificacio.forma_financar %></p>
+			</div>
+		</div>
+
+		<p>Data d'aprovació del sistema de finançament: <%= edifici.planificacio.data_financament %></p>
+	</div>
+</div>
+
+<div class="separador"></div>
 
 <div class="row">
 	<div class="medium-12 columns">
@@ -382,61 +504,61 @@
 		<% ultim_any = edifici.despeses.order(:data_any).last.data_any %>
 		<% 
 			for i in primer_any..ultim_any %>
-			<table class="calendari">
+			<table class="calendari calendari-pdf unstriped">
 			  <thead>
 			    <tr>
-			      <th><%= i %></th>
-			      <th><%= t('.gener') %></th>
-			      <th><%= t('.febrer') %></th>
-			      <th><%= t('.març') %></th>
-			      <th><%= t('.abril') %></th>
-			      <th><%= t('.maig') %></th>
-			      <th><%= t('.juny') %></th>
-			      <th><%= t('.juliol') %></th>
-			      <th><%= t('.agost') %></th>
-			      <th><%= t('.setembre') %></th>
-			      <th><%= t('.octubre') %></th>
-			      <th><%= t('.novembre') %></th>
-			      <th><%= t('.desembre') %></th>
+			      <th class="header-cell"><%= i %></th>
+			      <th class="header-cell"><%= t('.gener') %></th>
+			      <th class="header-cell"><%= t('.febrer') %></th>
+			      <th class="header-cell"><%= t('.març') %></th>
+			      <th class="header-cell"><%= t('.abril') %></th>
+			      <th class="header-cell"><%= t('.maig') %></th>
+			      <th class="header-cell"><%= t('.juny') %></th>
+			      <th class="header-cell"><%= t('.juliol') %></th>
+			      <th class="header-cell"><%= t('.agost') %></th>
+			      <th class="header-cell"><%= t('.setembre') %></th>
+			      <th class="header-cell"><%= t('.octubre') %></th>
+			      <th class="header-cell"><%= t('.novembre') %></th>
+			      <th class="header-cell"><%= t('.desembre') %></th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			    <tr>
-			      <th><%= t('.ingressos') %></th>
+			      <th class="header-cell-columna"><%= t('.ingressos') %></th>
 				    <% for j in 1..12 %>
 				    	<% ingres = edifici.ingressos.where(data_mes: j, data_any: i) %>
 				    	<% if ingres.exists? %>
-				    		<td>
-					    		<%= link_to edit_ingres_path(ingres.last, edifici_id: ingres.last.edifici_id), remote: true do %>
+				    		<td class="body-cell calendari-cell">
+					    		<%= link_to edit_ingres_path(ingres.last, edifici_id: ingres.last.edifici_id), remote: true, class: 'ingressos-link' do %>
 						    		<%= ingres.last.import %>
 						  		<% end %>
 					  		</td>
 				    	<% else %>
-				    		<td></td>
+				    		<td class="body-cell"></td>
 				    	<% end %>
 				    <% end %>
 		    	</tr>
 		    	<tr>
-		    		<th><%= t('.despeses') %></th>
+		    		<th class="header-cell-columna"><%= t('.despeses') %></th>
 		    		<% for j in 1..12 %>
 				      <% if i == primer_any && j < mes_actual - 1 %>
-				    		<td></td>
+				    		<td class="body-cell"></td>
 				    	<% elsif 
 					      mes_despesa = edifici.despeses.where(data_mes: j, data_any: i)
 					      if mes_despesa.exists? %>
-					        <td><%= mes_despesa.last.import %></td>
+					        <td class="body-cell calendari-cell"><%= mes_despesa.last.import %></td>
 					      <% else %>
-					        <td></td>
+					        <td class="body-cell"></td>
 					      <% end %>
 					    <% end %>
 				    <% end %>
 		    	</tr>
 		    	<tr>
-		    		<th><%= t('.tresoreria') %></th>
+		    		<th class="header-cell-columna"><%= t('.tresoreria') %></th>
 		    		<% for j in 1..12 %>
 			    		<% tresoreria = edifici.tresoreries.where(data_mes: j, data_any: i).last
 			    		if tresoreria != nil %>
-			    			<td>
+			    			<td class="body-cell calendari-cell">
 			    				<% if tresoreria.import < 0 %>
 			    					<span class="valor-negatiu"><%= tresoreria.import %></span>
 			    				<% else %>
@@ -444,7 +566,7 @@
 			    				<% end %>
 			    			</td>
 			    		<% else %>
-			    			<td></td>
+			    			<td class="body-cell"></td>
 			    		<% end %>
 				    <% end %>
 		    	</tr>

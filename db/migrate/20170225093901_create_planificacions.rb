@@ -7,6 +7,7 @@ class CreatePlanificacions < ActiveRecord::Migration[5.0]
       t.integer :subvencions_atorgades
       t.integer :import_financar
       t.string :forma_financar
+      t.string :data_financament
 
       t.timestamps
     end
