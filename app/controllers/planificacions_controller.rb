@@ -29,6 +29,7 @@ class PlanificacionsController < ApplicationController
     @planificacio_menu_actiu = 'planificacio_fases'
     check_user_edifici(@edifici.id)
     @fases = Fase.where(edifici_id: @edifici.id)
+    crea_despeses
     @despeses = Despesa.where(edifici_id: @edifici.id)
   end
 
@@ -49,6 +50,38 @@ class PlanificacionsController < ApplicationController
     end
     # Cada vegada que accedim al calendari s'actualitzen els valors de tresoreria, perquè poden haver canviat les despeses
     helpers.actualitza_flux_tresoreria
+  end
+
+  def crea_despeses
+    despeses = Despesa.where(edifici_id: @edifici.id)
+    if despeses.count == 0
+      @edifici.intervencions.each do |intervencio|
+        # Determinem el número de despeses en funció del número de mesos de durada de la intervenció
+        count_mes_despesa = 0
+        count_any_despesa = 0
+        intervencio.durada_mesos.times do
+          despesa = Despesa.new
+          despesa.edifici_id = @edifici.id
+          despesa.fase_id = intervencio.fase_id
+          despesa.concepte = intervencio.descripcio
+          import_total = intervencio.import_obres.to_i + intervencio.import_honoraris.to_i + intervencio.import_taxes.to_i + intervencio.import_altres.to_i
+          despesa.import = import_total / intervencio.durada_mesos
+          # Comprovem si salta d'any
+          calcul_mes = intervencio.data_inici_mes + count_mes_despesa - 12
+          if calcul_mes > 0
+            any_despesa = intervencio.data_inici_any + 1
+            mes_despesa = calcul_mes
+          else
+            mes_despesa = intervencio.data_inici_mes + count_mes_despesa
+            any_despesa = intervencio.data_inici_any + count_any_despesa
+          end
+          despesa.data_mes = mes_despesa
+          count_mes_despesa += 1
+          despesa.data_any = any_despesa
+          despesa.save
+        end
+      end
+    end
   end
 
   def crea_valors_inicials
