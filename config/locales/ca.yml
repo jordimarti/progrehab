@@ -135,6 +135,8 @@ ca:
       import_taxes: "Taxes (€)"
       import_altres: "Altres (€)"
       import_total: "Total (€)"
+      data_inici: "Data d'inici"
+      durada: "Durada (mesos)"
     assignacions:
       titol_fases: "Assigna intervencions a la fase"
       descripcio: "Descripció"
@@ -270,6 +272,9 @@ ca:
         import_honoraris: "Import dels honoraris professionals"
         import_taxes: "Import de les taxes"
         import_altres: "Altres"
+        data_inici_mes: "Data d'inici (mes)"
+        data_inici_any: "Data d'inici (any)"
+        durada_mesos: "Durada (en mesos)"
       fase:
         nom: "Nom"
         posicio: "Posició"

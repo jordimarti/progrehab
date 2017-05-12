@@ -7,6 +7,8 @@
       <th><%= t('.import_taxes') %></th>
       <th><%= t('.import_altres') %></th>
       <th><%= t('.import_total') %></th>
+      <th><%= t('.data_inici') %></th>
+      <th><%= t('.durada') %></th>
       <th width="30"></th>
     </tr>
   </thead>
@@ -26,6 +28,8 @@
       <td><%= intervencio.import_altres %></td>
       <% import_total = intervencio.import_obres.to_i + intervencio.import_honoraris.to_i + intervencio.import_taxes.to_i + intervencio.import_altres.to_i %> 
       <td><%= import_total %></td>
+      <td><%= intervencio.data_inici_mes %>/<%= intervencio.data_inici_any %></td>
+      <td><%= intervencio.durada_mesos %></td>
       <td>
       	<%= link_to intervencio_path(intervencio), remote: true, method: :delete,  data: { confirm: 'Segur que vols eliminar?' } do %>
 				  <div class="deficiencia-eliminar button-right">

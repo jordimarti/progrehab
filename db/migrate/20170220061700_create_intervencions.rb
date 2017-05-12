@@ -9,6 +9,9 @@ class CreateIntervencions < ActiveRecord::Migration[5.0]
       t.integer :import_honoraris, default: 0
       t.integer :import_taxes, default: 0
       t.integer :import_altres, default: 0
+      t.integer :data_inici_any
+      t.integer :data_inici_mes
+      t.integer :durada_mesos
 
       t.timestamps
     end

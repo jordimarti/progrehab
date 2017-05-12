@@ -84,6 +84,6 @@ class IntervencionsController < ApplicationController
     end
 
     def intervencio_params
-      params.require(:intervencio).permit(:edifici_id, :fase_id, :descripcio, :sistema, :import_obres, :import_honoraris, :import_taxes, :import_altres, :intervencio_ids)
+      params.require(:intervencio).permit(:edifici_id, :fase_id, :descripcio, :sistema, :import_obres, :import_honoraris, :import_taxes, :import_altres, :intervencio_ids, :data_inici_any, :data_inici_mes, :durada_mesos)
     end
 end

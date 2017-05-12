@@ -112,6 +112,9 @@ ActiveRecord::Schema.define(version: 20170313212018) do
     t.integer  "import_honoraris", default: 0
     t.integer  "import_taxes",     default: 0
     t.integer  "import_altres",    default: 0
+    t.integer  "data_inici_any"
+    t.integer  "data_inici_mes"
+    t.integer  "durada_mesos"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
