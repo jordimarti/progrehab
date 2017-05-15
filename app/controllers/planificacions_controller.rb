@@ -30,7 +30,7 @@ class PlanificacionsController < ApplicationController
     check_user_edifici(@edifici.id)
     @fases = Fase.where(edifici_id: @edifici.id)
     crea_despeses
-    @despeses = Despesa.where(edifici_id: @edifici.id)
+    @despeses = Despesa.where(edifici_id: @edifici.id).order(:data_any, :data_mes)
   end
 
   def calendari
@@ -114,7 +114,7 @@ class PlanificacionsController < ApplicationController
 =end
 
   def crea_ingressos
-    despeses = Despesa.where(edifici_id: @edifici.id).order(:data_any)
+    despeses = Despesa.where(edifici_id: @edifici.id).order(:data_any, :data_mes)
     primer_any = Date.today.year
     ultim_any = despeses.last.data_any
     primer_mes = Date.today.month
@@ -154,70 +154,82 @@ class PlanificacionsController < ApplicationController
 
   def actualitza_ingressos
     tresoreries = Tresoreria.where(edifici_id: @edifici.id).order(:data_any, :data_mes)
-    despeses = Despesa.where(edifici_id: @edifici.id).order(:data_any, :data_mes)
+    #despeses = Despesa.where(edifici_id: @edifici.id).order(:data_any, :data_mes)
     ingressos = Ingres.where(edifici_id: @edifici.id).order(:data_any, :data_mes)
+    import_ultima_tresoreria = @edifici.planificacio.fons_propis
     data_inici_any = Date.today.year
     data_inici_mes = Date.today.month
-    import_ultima_tresoreria = @edifici.planificacio.fons_propis
-    despeses.each do |despesa|
-      mesos_repartir = 0
-      tresoreria = tresoreries.where(data_any: data_inici_any, data_mes: data_inici_mes).last
-      import_repartir = import_ultima_tresoreria - despesa.import
-      # Si no hi ha prous diners a tresoreria cal fer ingressos
-      if import_repartir < 0
-        # Calculem els mesos a repartir
-        ingressos.each do |ingres|
-          if ingres.data_any >= data_inici_any 
-            if ingres.data_any == data_inici_any && ingres.data_mes < data_inici_mes
-            else
-              if ingres.data_any <= despesa.data_any
-                if ingres.data_any == despesa.data_any && ingres.data_mes > despesa.data_mes
-                else
-                  mesos_repartir += 1
+    # Com que ja hem creat les tresoreries per a cada mes el que fem és utilitzar-les per establir la data de consulta
+    tresoreries.each do |t|
+      despeses = Despesa.where(edifici_id: @edifici.id, data_mes: t.data_mes, data_any: t.data_any)
+      if despeses.count > 0
+        if despeses.count > 1
+          suma_despeses = 0
+          despeses.each do |despesa|
+            suma_despeses += despesa.import
+          end
+          despesa_calculada = suma_despeses
+        else
+          despesa_calculada = despeses.first.import
+        end
+
+        mesos_repartir = 0
+        import_repartir = import_ultima_tresoreria - despesa_calculada
+        # Si no hi ha prous diners a tresoreria cal fer ingressos
+        if import_repartir < 0
+          # Calculem els mesos a repartir
+          ingressos.each do |ingres|
+            if ingres.data_any >= data_inici_any 
+              if ingres.data_any == data_inici_any && ingres.data_mes < data_inici_mes
+              else
+                if ingres.data_any <= t.data_any
+                  if ingres.data_any == t.data_any && ingres.data_mes > t.data_mes
+                  else
+                    mesos_repartir += 1
+                  end
+                end
+              end
+            end
+          end
+          puts "Mesos a repartir: #{mesos_repartir}"
+          puts "Import a repartir: #{import_repartir}"
+          import_mensual = -(import_repartir/mesos_repartir)
+          ingressos.each do |ingres|
+            # Comprovem que estem en el rang temporal que correspon
+            if ingres.data_any >= data_inici_any 
+              if ingres.data_any == data_inici_any && ingres.data_mes < data_inici_mes
+              else
+                if ingres.data_any <= t.data_any
+                  if ingres.data_any == t.data_any && ingres.data_mes > t.data_mes
+                  else
+                    ingres.import = import_mensual
+                    puts "Ingres import mensual: #{ingres.import}"
+                    ingres.save
+                    helpers.calcula_tresoreria(ingres.data_mes, ingres.data_any)
+                  end
                 end
               end
             end
           end
         end
-        puts "Mesos a repartir: #{mesos_repartir}"
-        puts "Import a repartir: #{import_repartir}"
-        import_mensual = -(import_repartir/mesos_repartir)
-        ingressos.each do |ingres|
-          # Comprovem que estem en el rang temporal que correspon
-          if ingres.data_any >= data_inici_any 
-            if ingres.data_any == data_inici_any && ingres.data_mes < data_inici_mes
-            else
-              if ingres.data_any <= despesa.data_any
-                if ingres.data_any == despesa.data_any && ingres.data_mes > despesa.data_mes
-                else
-                  ingres.import = import_mensual
-                  puts "Ingres import mensual: #{ingres.import}"
-                  ingres.save
-                  helpers.calcula_tresoreria(ingres.data_mes, ingres.data_any)
-                end
-              end
-            end
-          end
+        data_inici_mes = t.data_mes + 1
+        data_inici_any = t.data_any
+        # Comprovem si la data canvia d'any, el mes és 13, això vol dir que el mes ha de ser 1 i l'any +1
+        if data_inici_mes > 12
+          data_inici_any = t.data_any + 1
+          data_inici_mes = 1
         end
+        puts "Any #{data_inici_any}, mes #{data_inici_mes}"
+        ultima_tresoreria = Tresoreria.where(edifici_id: @edifici.id, data_any: data_inici_any, data_mes: data_inici_mes).last
+        # En el cas que sigui l'última despesa no hi haurà tresoreria creada per al mes següent
+        if ultima_tresoreria != nil
+          puts "Import ultima tresoreria: #{ultima_tresoreria.import}"
+          import_ultima_tresoreria = ultima_tresoreria.import
+        end
+        puts "Despesa finalitzada"
       end
-      data_inici_mes = despesa.data_mes + 1
-      data_inici_any = despesa.data_any
-      # Comprovem si la data canvia d'any, el mes és 13, això vol dir que el mes ha de ser 1 i l'any +1
-      if data_inici_mes > 12
-        data_inici_any = despesa.data_any + 1
-        data_inici_mes = 1
-      end
-      puts "Any #{data_inici_any}, mes #{data_inici_mes}"
-      ultima_tresoreria = Tresoreria.where(edifici_id: @edifici.id, data_any: data_inici_any, data_mes: data_inici_mes).last
-      # En el cas que sigui l'última despesa no hi haurà tresoreria creada per al mes següent
-      if ultima_tresoreria != nil
-        puts "Import ultima tresoreria: #{ultima_tresoreria.import}"
-        import_ultima_tresoreria = ultima_tresoreria.import
-      end
-      puts "Despesa finalitzada"
     end
   end
-
   
   private
     def set_planificacio

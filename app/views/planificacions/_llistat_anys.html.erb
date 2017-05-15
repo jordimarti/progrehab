@@ -45,10 +45,20 @@
 		    		<td></td>
 		    	<% elsif 
 			      mes_despesa = @edifici.despeses.where(data_mes: j, data_any: i)
-			      if mes_despesa.exists? %>
-			        <td><%= mes_despesa.last.import %></td>
-			      <% else %>
-			        <td></td>
+			      if mes_despesa.count > 1 
+			      	total_despesa = 0
+			      	mes_despesa.each do |despesa|
+			      		total_despesa += despesa.import
+			      	end %>
+			      	<td><%= total_despesa %></td>
+			      	<%
+			      elsif mes_despesa.count == 1
+			      	total_despesa = mes_despesa.last.import %>
+			      	<td><%= total_despesa %></td>
+			      	<%
+			      else
+			      	%>
+			      	<td></td>
 			      <% end %>
 			    <% end %>
 		    <% end %>

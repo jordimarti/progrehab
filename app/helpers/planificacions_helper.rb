@@ -1,5 +1,5 @@
 module PlanificacionsHelper
-
+=begin
 	def calcula_tresoreria(mes, any)
     if mes == 1
       tresoreria_anterior = Tresoreria.where(edifici_id: @edifici.id, data_any: any - 1, data_mes: 12).last
@@ -13,6 +13,37 @@ module PlanificacionsHelper
     ingres = Ingres.where(edifici_id: @edifici.id, data_mes: mes, data_any: any).last
     if despesa != nil
       import_tresoreria = tresoreria_anterior.import + ingres.import - despesa.import
+    else
+      import_tresoreria = tresoreria_anterior.import + ingres.import
+    end
+    tresoreria = Tresoreria.where(edifici_id: @edifici.id, data_mes: mes, data_any: any).last
+    tresoreria.import = import_tresoreria
+    puts "Import tresoreria: #{tresoreria.import}"
+    tresoreria.save
+  end
+=end
+
+  def calcula_tresoreria(mes, any)
+    if mes == 1
+      tresoreria_anterior = Tresoreria.where(edifici_id: @edifici.id, data_any: any - 1, data_mes: 12).last
+    else
+      tresoreria_anterior = Tresoreria.where(edifici_id: @edifici.id, data_any: any, data_mes: mes - 1).last
+    end
+    puts "Tresoreria mes anterior: #{tresoreria_anterior.import}, data_any: #{tresoreria_anterior.data_any}, data_mes: #{tresoreria_anterior.data_mes}"
+    
+    # Comprovem si en el mes i any que estem hi ha despesa
+    despeses = Despesa.where(edifici_id: @edifici.id, data_mes: mes, data_any: any)
+    ingres = Ingres.where(edifici_id: @edifici.id, data_mes: mes, data_any: any).last
+    if despeses.count > 1
+      suma_despeses = 0
+      despeses.each do |despesa|
+        suma_despeses += despesa.import
+      end
+      despesa_calculada = suma_despeses
+      import_tresoreria = tresoreria_anterior.import + ingres.import - despesa_calculada
+    elsif despeses.count == 1
+      despesa_calculada = despeses.first.import
+      import_tresoreria = tresoreria_anterior.import + ingres.import - despesa_calculada
     else
       import_tresoreria = tresoreria_anterior.import + ingres.import
     end
