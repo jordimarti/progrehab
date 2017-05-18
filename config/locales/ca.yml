@@ -223,6 +223,7 @@ ca:
       exportar_intervencions: "Exportar intervencions"
       genera_programa: "Genera el Programa"
       text_generar_xml: "Exporteu les propostes d'intervenció en format XML."
+      text_generar_pdf: "Exporteu el programa de rehabilitació en format PDF."
   simple_form:
     labels:
       edifici:
