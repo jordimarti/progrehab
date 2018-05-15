@@ -44,6 +44,9 @@ es:
     permisos:
       titol: "Acceso denegado"
       text_permisos: "No tenéis los permisos necesarios para acceder a esta página."
+    index:
+      titol_programa_rehabilitacio: "Programa de rehabilitación"
+      subtitol_programa_rehabilitacio: "Herramienta para la redacción del programa de rehabilitación a partir del informe ITE."
   edificis:
     index:
       titol: "Programas"
