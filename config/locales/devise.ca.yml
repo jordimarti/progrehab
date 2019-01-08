@@ -16,6 +16,7 @@ ca:
         if_registered: "Si ja t'has registrat pots"
         login_here: "iniciar sessió aquí"
       edit:
+        first_name: "Nom"
         account_configuration: "Configuració del compte"
         personal_data: "Dades personals"
         change_password: "Canviar la contrasenya"
