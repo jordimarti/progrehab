@@ -22,6 +22,8 @@ es:
               blank: "Es necesario escribir los apellidos"
             reset_password_token:
               invalid: "No coincide con la confirmación"
+            nif:
+              blank: "Es necesario escribir el NIF"
   layouts:
     application:
       titol_pagina: "Programa de rehabilitación"

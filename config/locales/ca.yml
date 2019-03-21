@@ -22,6 +22,8 @@ ca:
               blank: "Cal escriure els cognoms"
             reset_password_token:
               invalid: "No coincideix amb la confirmació"
+            nif:
+              blank: "Cal escriure el NIF"
   layouts:
     application:
       titol_pagina: "Programa de rehabilitació"
