@@ -1,0 +1,21 @@
+<%= simple_form_for(@usuari_factura) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :user_id %>
+    <%= f.input :edifici_id %>
+    <%= f.input :nom %>
+    <%= f.input :adreca %>
+    <%= f.input :poblacio %>
+    <%= f.input :provincia %>
+    <%= f.input :pais %>
+    <%= f.input :codi_postal %>
+    <%= f.input :email %>
+    <%= f.input :num_client %>
+    <%= f.input :colegiat %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

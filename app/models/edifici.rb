@@ -9,6 +9,7 @@ class Edifici < ApplicationRecord
 	has_many :ingressos
 	has_many :despeses
 	has_many :tresoreries
+	has_many :pagaments
 	belongs_to :user
 
 end

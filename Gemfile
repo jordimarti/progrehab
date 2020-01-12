@@ -44,6 +44,7 @@ gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
 gem 'wkhtmltopdf-binary'
 gem 'pdfkit', '~> 0.8.2'
 gem 'render_anywhere', '~> 0.0.12'
+gem 'httparty'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

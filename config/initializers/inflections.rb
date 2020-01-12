@@ -23,4 +23,5 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'despesa', 'despeses'
   inflect.irregular 'ingres', 'ingressos'
   inflect.irregular 'tresoreria', 'tresoreries'
+  inflect.irregular 'factura', 'factures'
 end

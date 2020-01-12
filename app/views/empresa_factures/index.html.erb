@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Empresa Factures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Edifici</th>
+      <th>Nom juridic</th>
+      <th>Adreca</th>
+      <th>Poblacio</th>
+      <th>Provincia</th>
+      <th>Pais</th>
+      <th>Codi postal</th>
+      <th>Email</th>
+      <th>Tipus client</th>
+      <th>Nif</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empresa_factures.each do |empresa_factura| %>
+      <tr>
+        <td><%= empresa_factura.user_id %></td>
+        <td><%= empresa_factura.edifici_id %></td>
+        <td><%= empresa_factura.nom_juridic %></td>
+        <td><%= empresa_factura.adreca %></td>
+        <td><%= empresa_factura.poblacio %></td>
+        <td><%= empresa_factura.provincia %></td>
+        <td><%= empresa_factura.pais %></td>
+        <td><%= empresa_factura.codi_postal %></td>
+        <td><%= empresa_factura.email %></td>
+        <td><%= empresa_factura.tipus_client %></td>
+        <td><%= empresa_factura.nif %></td>
+        <td><%= link_to 'Show', empresa_factura %></td>
+        <td><%= link_to 'Edit', edit_empresa_factura_path(empresa_factura) %></td>
+        <td><%= link_to 'Destroy', empresa_factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Empresa Factura', new_empresa_factura_path %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @pagament.user_id %>
+</p>
+
+<p>
+  <strong>Edifici:</strong>
+  <%= @pagament.edifici_id %>
+</p>
+
+<p>
+  <strong>Numorder:</strong>
+  <%= @pagament.numorder %>
+</p>
+
+<p>
+  <strong>Import:</strong>
+  <%= @pagament.import %>
+</p>
+
+<p>
+  <strong>Codi retorn:</strong>
+  <%= @pagament.codi_retorn %>
+</p>
+
+<p>
+  <strong>Codi autoritzacio:</strong>
+  <%= @pagament.codi_autoritzacio %>
+</p>
+
+<%= link_to 'Edit', edit_pagament_path(@pagament) %> |
+<%= link_to 'Back', pagaments_path %>

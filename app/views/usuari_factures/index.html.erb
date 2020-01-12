@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Usuari Factures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Edifici</th>
+      <th>Nom</th>
+      <th>Adreca</th>
+      <th>Poblacio</th>
+      <th>Provincia</th>
+      <th>Pais</th>
+      <th>Codi postal</th>
+      <th>Email</th>
+      <th>Num client</th>
+      <th>Colegiat</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usuari_factures.each do |usuari_factura| %>
+      <tr>
+        <td><%= usuari_factura.user_id %></td>
+        <td><%= usuari_factura.edifici_id %></td>
+        <td><%= usuari_factura.nom %></td>
+        <td><%= usuari_factura.adreca %></td>
+        <td><%= usuari_factura.poblacio %></td>
+        <td><%= usuari_factura.provincia %></td>
+        <td><%= usuari_factura.pais %></td>
+        <td><%= usuari_factura.codi_postal %></td>
+        <td><%= usuari_factura.email %></td>
+        <td><%= usuari_factura.num_client %></td>
+        <td><%= usuari_factura.colegiat %></td>
+        <td><%= link_to 'Show', usuari_factura %></td>
+        <td><%= link_to 'Edit', edit_usuari_factura_path(usuari_factura) %></td>
+        <td><%= link_to 'Destroy', usuari_factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Usuari Factura', new_usuari_factura_path %>

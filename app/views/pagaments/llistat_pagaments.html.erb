@@ -1,0 +1,39 @@
+<div class="background-seccio">
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="titol-seccio">
+				Llistat dels últims pagaments
+			</div>
+
+			<div class="llistat-pagaments">
+				<table>
+				  <thead>
+				    <tr>
+				      <th>ID</th>
+				      <th>Nom</th>
+				      <th>NIF</th>
+				      <th>Edifici</th>
+				      <th>Numorder</th>
+				      <th>Pagat</th>
+				      <th>Data</th>
+				    </tr>
+				  </thead>
+
+				  <tbody>
+				    <% @pagaments.each do |pagament| %>
+				      <tr>
+				      	<td><%= link_to pagament.id, pagaments_detall_pagament_path(id: pagament.id) %></td>
+				        <td><%= pagament.user.name %></td>
+				        <td><%= pagament.user.nif %></td>
+				        <td><%= pagament.edifici_id %></td>
+				        <td><%= pagament.numorder %></td>
+				        <td><%= pagament.pagat %></td>
+				        <td><%= pagament.created_at %></td>
+				      </tr>
+				    <% end %>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

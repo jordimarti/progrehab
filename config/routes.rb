@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :empresa_factures
+  resources :usuari_factures
+  resources :empresa_facturas
+  resources :usuari_facturas
   get 'documents/index'
   get 'edificis/pdf_header'
 
@@ -21,6 +25,10 @@ Rails.application.routes.draw do
 
   resources :deficiencies
   resources :qualificacions
+
+  get 'pagaments/crear_pagament', to: 'pagaments#crear_pagament', :as => :crear_pagament
+  get 'pagaments/validar_dades', to: 'pagaments#validar_dades', :as => :validar_dades 
+
   resources :edificis do
     resource :download, only: [:show]
   end

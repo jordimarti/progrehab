@@ -37,26 +37,61 @@
                   <% else %>
                     <div class="llistat-edificis">
                       <% @edificis.each do |edifici| %>
+                        <% dades_pagament = Pagament.where(edifici_id: edifici.id).last %>
+                        <% if dades_pagament != nil 
+                            if dades_pagament.pagat == true
+                              pagat = true
+                            else
+                              pagat = false
+                            end
+                          else
+                            pagat = false
+                          end
+                        %>
                         <div class="item-llistat-edificis">
-                          <div class="imatge-item-llistat-edificis">
-                            <%= link_to image_tag(edifici.identificacio.foto_facana.url(:thumb)), edit_identificacio_path(edifici.identificacio.id) %> 
-                          </div>
-                          <div class="text-item-llistat-edificis">
-                            <%= link_to(edifici.nom_edifici, edit_identificacio_path(edifici.identificacio.id), :class => 'link-item-edifici') %>
-                            <br>
-                            <span class="data-llistat-edificis">(<%= edifici.created_at.day.to_s %>-<%= edifici.created_at.month.to_s %>-<%= edifici.created_at.year.to_s %>)</span>
-                            <div class="boto-item-llistat-edificis button-right">
-                              <%= link_to edifici, method: :delete, data: { confirm: t('.eliminar') } do %>
-                                <i class="fa fa-trash" aria-hidden="true"></i>                 
-                              <% end %>
+                          
+                          <% if pagat == true %>
+                            <div class="imatge-item-llistat-edificis">
+                              <%= link_to image_tag(edifici.identificacio.foto_facana.url(:thumb)), edit_identificacio_path(edifici.identificacio.id) %> 
                             </div>
+                            <div class="text-item-llistat-edificis">
+                              <%= link_to(edifici.nom_edifici, edit_identificacio_path(edifici.identificacio.id), :class => 'link-item-edifici') %>
+                              <br>
+                              <span class="data-llistat-edificis">(<%= edifici.created_at.day.to_s %>-<%= edifici.created_at.month.to_s %>-<%= edifici.created_at.year.to_s %>)</span>
+                              <div class="boto-item-llistat-edificis button-right">
+                                <%= link_to edifici, method: :delete, data: { confirm: t('.eliminar') } do %>
+                                  <i class="fa fa-trash" aria-hidden="true"></i>                 
+                                <% end %>
+                              </div>
 
-                            <div class="boto-item-llistat-edificis button-right">
-                              <%= link_to edit_edifici_path(edifici) do %>
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                              <% end %>
+                              <div class="boto-item-llistat-edificis button-right">
+                                <%= link_to edit_edifici_path(edifici) do %>
+                                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                                <% end %>
+                              </div>
                             </div>
-                          </div>
+                          <% else %>
+                            <div class="imatge-item-llistat-edificis">
+                              <%= image_tag(edifici.identificacio.foto_facana.url(:thumb)) %>
+                                
+                            </div>
+                            <div class="text-item-llistat-edificis">
+                              <%= link_to(edifici.nom_edifici, validar_dades_path(edifici_id: edifici.id), :class => 'link-item-edifici') %> (<%= t('.no_pagat') %>)
+                              <br>
+                              <span class="data-llistat-edificis">(<%= edifici.created_at.day.to_s %>-<%= edifici.created_at.month.to_s %>-<%= edifici.created_at.year.to_s %>)</span>
+                              <div class="boto-item-llistat-edificis button-right">
+                                <%= link_to edifici, method: :delete, data: { confirm: t('.eliminar') } do %>
+                                  <i class="fa fa-trash" aria-hidden="true"></i>                 
+                                <% end %>
+                              </div>
+
+                              <div class="boto-item-llistat-edificis button-right">
+                                <%= link_to edit_edifici_path(edifici) do %>
+                                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                                <% end %>
+                              </div>
+                            </div>
+                          <% end %>
                           
                         </div>
                       <% end %>

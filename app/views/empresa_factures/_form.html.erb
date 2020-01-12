@@ -1,0 +1,32 @@
+<%= simple_form_for(@empresa_factura) do |f| %>
+  <div class="row">
+    <div class="medium-12 columns">
+      
+        <div class="form-inputs">
+          <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+          <%= f.input :edifici_id, :as => :hidden, :input_html => { :value => @edifici.id } %>
+          <div class="row">
+            <div class="medium-6 columns">
+              <%= f.input :nom_juridic %>
+              <%= f.input :adreca %>
+              <%= f.input :provincia %>
+              <%= f.input :email %>
+            </div>
+            <div class="medium-6 columns">
+              <%= f.input :nif %>
+              <%= f.input :poblacio %>
+              <%= f.input :codi_postal %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="medium-12 columns">
+            <div class="form-actions">
+              <%= f.button :submit, t('.guardar'), :class => 'button small radius right botodreta' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>

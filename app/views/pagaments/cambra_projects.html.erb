@@ -1,0 +1,40 @@
+<div class="background-seccio">
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="titol-seccio">
+				Llibres Cambra
+			</div>
+
+			<div class="llistat-llibres-cambra">
+				<% for i in 0..11 %>
+					<h3 class="llistat-llibres-cambra-mes"><%= @mesos[i][0] %></h3>
+					<h4 class="llistat-llibres-cambra-nombre">Llibres: <%= @edificis[i].count %></h4>
+					<% if @edificis[i].count > 0 %>
+						<table class="llistat-llibres-cambra-taula">
+						  <thead>
+						    <tr>
+						      <th>ID</th>
+						      <th>Nom</th>
+						      <th>NIF editor</th>
+						      <th>Data</th>
+						    </tr>
+						  </thead>
+
+						  <tbody>
+						    <% @edificis[i].each do |edifici| %>
+						      <tr>
+						      	<td><%= edifici.id %></td>
+						        <td><%= edifici.nom_edifici %></td>
+						        <td><%= edifici.editor_nif %></td>
+						        <td><%= edifici.created_at %></td>
+						      </tr>
+						    <% end %>
+						  </tbody>
+						</table>
+					<% end %>
+					<hr/>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

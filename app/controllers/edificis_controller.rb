@@ -26,18 +26,26 @@ class EdificisController < ApplicationController
   # POST /edificis.json
   def create
     @edifici = Edifici.new(edifici_params)
-
+    if current_user.role == 'cambra'
+      @edifici.creador = 'cambra'
+    end
     respond_to do |format|
       if @edifici.save
+        #Aquí creem els objectes complementaris a l'edifici (dades_edifici, checklist...)
         create_complements(@edifici.id)
-        format.html { redirect_to edificis_path, notice: t('.edifici_creat') }
-        format.json { render :show, status: :created, location: @edifici }
+
+        if current_user.role == 'cambra'
+          format.html { redirect_to edificis_path }
+        else
+          format.html { redirect_to validar_dades_path(edifici_id: @edifici.id) }
+          format.json { render :show, status: :created, location: @edifici }
+        end
       else
         format.html { render :new }
         format.json { render json: @edifici.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end 
 
   # PATCH/PUT /edificis/1
   # PATCH/PUT /edificis/1.json

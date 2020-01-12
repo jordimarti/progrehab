@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190319083253) do
+ActiveRecord::Schema.define(version: 20200109172340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,22 @@ ActiveRecord::Schema.define(version: 20190319083253) do
     t.string   "ref_cadastral"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "empresa_factures", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "edifici_id"
+    t.string   "nom_juridic"
+    t.string   "adreca"
+    t.string   "poblacio"
+    t.string   "provincia"
+    t.string   "pais"
+    t.string   "codi_postal"
+    t.string   "email"
+    t.string   "tipus_client"
+    t.string   "nif"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "fases", force: :cascade do |t|
@@ -119,6 +135,22 @@ ActiveRecord::Schema.define(version: 20190319083253) do
     t.datetime "updated_at",                   null: false
   end
 
+  create_table "pagaments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "edifici_id"
+    t.string   "numorder"
+    t.string   "import"
+    t.string   "resultado"
+    t.string   "autorizacion"
+    t.boolean  "pagat"
+    t.boolean  "factura_enviada"
+    t.text     "resposta_factura"
+    t.string   "numorden"
+    t.string   "num_factura_sap"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "planificacions", force: :cascade do |t|
     t.integer  "edifici_id"
     t.integer  "fons_propis"
@@ -169,6 +201,23 @@ ActiveRecord::Schema.define(version: 20190319083253) do
     t.string   "nif"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "usuari_factures", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "edifici_id"
+    t.string   "nom"
+    t.string   "adreca"
+    t.string   "poblacio"
+    t.string   "provincia"
+    t.string   "pais"
+    t.string   "codi_postal"
+    t.string   "email"
+    t.string   "num_client"
+    t.boolean  "colegiat"
+    t.string   "nif"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

@@ -24,6 +24,42 @@ ca:
               invalid: "No coincideix amb la confirmació"
             nif:
               blank: "Cal escriure el NIF"
+        usuari_factura:
+          attributes:
+            nif:
+              invalid: "El format del NIF ha de ser 00000000X, sense espais ni guions"
+              blank: "Cal posar el NIF"
+            email:
+              invalid: "Cal posar una adreça de correu electrònic vàlida"
+              blank: "Cal posar una adreça de correu electrònic vàlida"
+            nom:
+              blank: "Cal posar el nom"
+            adreca:
+              blank: "Cal posar l'adreça"
+            provincia:
+              blank: "Cal posar la província"
+            poblacio:
+              blank: "Cal posar la població"
+            codi_postal:
+              blank: "Cal posar el codi postal"
+        empresa_factura:
+          attributes:
+            nif:
+              invalid: "El format del NIF ha de ser 00000000X, sense espais ni guions"
+              blank: "Cal posar el NIF d'empresa"
+            email:
+              invalid: "Cal posar una adreça de correu electrònic vàlida"
+              blank: "Cal posar una adreça de correu electrònic vàlida"
+            nom_juridic:
+              blank: "Cal posar el nom"
+            adreca:
+              blank: "Cal posar l'adreça"
+            provincia:
+              blank: "Cal posar la província"
+            poblacio:
+              blank: "Cal posar la població"
+            codi_postal:
+              blank: "Cal posar el codi postal"
   layouts:
     application:
       titol_pagina: "Programa de rehabilitació"
@@ -55,6 +91,7 @@ ca:
       nou_edifici: "Crear un nou programa"
       no_projectes: "Encara no has creat cap programa."
       eliminar: "Segur que vols eliminar el programa?"
+      no_pagat: "Pendent de pagament"
     new:
       titol: "Crear un nou programa"
       tornar_projectes: "Tornar al llistat de programes"
@@ -229,6 +266,51 @@ ca:
       genera_programa: "Genera el Programa"
       text_generar_xml: "Exporteu les propostes d'intervenció en format XML."
       text_generar_pdf: "Exporteu el programa de rehabilitació en format PDF."
+  pagaments:
+    validar_dades:
+      titol: "Pagament del Programa de rehabilitació"
+      explicacio: "Per crear un Programa de rehabilitació cal realitzar un pagament de 18,15€ (15€ + IVA)."
+      preu_no_colegiats: "El preu per a no col·legiats és 24,20€ (20€ + IVA)."
+      explicacio2: "Selecciona si voldràs una factura al teu nom o a nom d'empresa."
+      explicacio3: "Escriu el NIF sense espais o guions (-)."
+      factura_personal: "Factura personal"
+      factura_empresa: "Factura empresa"
+      imatge_llibre: "Preu Programa de rehabilitació"
+      tornar_projectes: "Tornar a Programes de rehabilitació"
+  usuari_factures:
+    show:
+      titol: "Dades de facturació"
+      nom: "Nom"
+      adreca: "Adreça"
+      provincia: "Província"
+      email: "Correu electrònic"
+      nif: "NIF"
+      poblacio: "Població"
+      codi_postal: "Codi postal"
+      explicacio: "Si voleu modificar les dades de facturació haureu d'accedir a l'"
+      procedir_pagament: "Procedir al pagament"
+      tornar_projectes: "Tornar a Programes de rehabilitació"
+    edit:
+      titol: "Dades de facturació"
+    form:
+      guardar: "Guardar"
+  empresa_factures:
+    show:
+      titol: "Dades de facturació"
+      nom_juridic: "Nom"
+      adreca: "Adreça"
+      provincia: "Província"
+      email: "Correu electrònic"
+      nif: "NIF"
+      poblacio: "Població"
+      codi_postal: "Codi postal"
+      explicacio: "Si voleu modificar les dades de facturació haureu d'accedir a l'"
+      procedir_pagament: "Procedir al pagament"
+      tornar_projectes: "Tornar a Programes de rehabilitació"
+    edit:
+      titol: "Dades de facturació"
+    form:
+      guardar: "Guardar"
   simple_form:
     labels:
       edifici:
@@ -297,3 +379,7 @@ ca:
         import: "Import"
         data_mes: "Mes"
         data_any: "Any"
+      usuari_factura:
+        nif: "NIF persona"
+      empresa_factura:
+        nif: "NIF empresa"

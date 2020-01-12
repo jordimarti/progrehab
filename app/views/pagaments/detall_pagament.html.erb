@@ -1,0 +1,57 @@
+<div class="background-seccio">
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="titol-seccio">
+				<h3>Dades del pagament</h3>
+			</div>
+
+			<div class="detall-pagament">
+				<strong>Nom:</strong> <%= @pagament.user.name %> <br/>
+				<strong>NIF:</strong> <%= @pagament.user.nif %> <br/>
+				<strong>Edifici:</strong> <%= @pagament.edifici_id %> <br/>
+				<strong>Numorder:</strong> <%= @pagament.numorder %> <br/>
+				<strong>Pagat:</strong> <%= @pagament.pagat %> <br/>
+				<strong>Data:</strong> <%= @pagament.created_at %> <br/>
+
+				<br/>
+				<hr/>
+
+				<h4>Dades de la factura</h4>
+				<% if @usuari_factura.present? %>
+					<h5>Factura a nom propi</h5>
+					<strong>Nom:</strong> <%= @usuari_factura.nom %> <br/>
+    			<strong>NIF:</strong> <%= @usuari_factura.nif %> <br/>
+    			<strong>Població:</strong> <%= @usuari_factura.poblacio %> <br/>
+			    <strong>Provincia:</strong> <%= @usuari_factura.provincia %> <br/>
+			    <strong>Codi postal:</strong> <%= @usuari_factura.codi_postal %> <br/>
+			    <strong>Adreça:</strong> <%= @usuari_factura.adreca %> <br/>
+			    <strong>Correu:</strong> <%= @usuari_factura.email %> <br/>
+			    <strong>Número client:</strong> <%= @usuari_factura.num_client %> <br/>
+			    <strong>Col·legiat:</strong> <%= @usuari_factura.colegiat %> <br/>
+				<% end %>
+
+				<% if @empresa_factura.present? %>
+					<h5>Factura a nom d'empresa</h5>
+					<% if @pagament.factura_enviada == false %>
+						Atenció: la factura no es va enviar
+					<% end %>
+					<strong>Nom jurídic:</strong> <%= @empresa_factura.nom_juridic %> <br/>
+    			<strong>CIF:</strong> <%= @empresa_factura.nif %> <br/>
+    			<strong>Població:</strong> <%= @empresa_factura.poblacio %> <br/>
+    			<strong>Provincia:</strong> <%= @empresa_factura.provincia %> <br/>
+    			<strong>Codi postal:</strong> <%= @empresa_factura.codi_postal %> <br/>
+    			<strong>Adreça:</strong> <%= @empresa_factura.adreca %> <br/>
+    			<strong>Pais:</strong> <%= @empresa_factura.pais %> <br/>
+    			<strong>Correu:</strong> <%= @empresa_factura.email %> <br/>
+    			<strong>Tipus client:</strong> <%= @empresa_factura.tipus_client %> <br/>
+				<% end %>
+
+			</div>
+
+			<br/>
+			<hr/>
+
+			<%= link_to "Tornar al llistat dels últims pagaments", pagaments_llistat_pagaments_path %>
+		</div>
+	</div>
+</div>
