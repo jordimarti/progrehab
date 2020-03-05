@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'foundation-rails', '~> 6.3'
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.7'
 gem 'devise-i18n', '~> 1.1'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'gibbon', '~> 2.2', '>= 2.2.4'
