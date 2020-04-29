@@ -83,6 +83,6 @@ class UsuariFacturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuari_factura_params
-      params.require(:usuari_factura).permit(:user_id, :edifici_id, :nom, :adreca, :poblacio, :provincia, :pais, :codi_postal, :email, :num_client, :colegiat, :nif)
+      params.require(:usuari_factura).permit(:user_id, :edifici_id, :nom, :adreca, :poblacio, :provincia, :pais, :codi_postal, :email, :num_client, :colegiat, :nif, :num_visat_ite)
     end
 end

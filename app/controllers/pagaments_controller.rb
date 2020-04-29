@@ -58,17 +58,7 @@ class PagamentsController < ApplicationController
     @pagament.user_id = current_user.id
     @pagament.edifici_id = params[:edifici_id]
     @pagament.numorder = numorder(params[:edifici_id])
-    #Comprovem si és col·legiat per decidir preu
-    factura = UsuariFactura.where(edifici_id: params[:edifici_id]).last
-    if factura != nil
-      if factura.colegiat == true
-        @pagament.import = "18.15"
-      else
-        @pagament.import = "24.2"
-      end
-    else
-      @pagament.import = "24.2"
-    end
+    @pagament.import = preu(params[:edifici_id])
     @pagament.pagat = false
     titular = current_user.name
     #endpoint = 'https://partial-caateebcn-partial.cs82.force.com/bookpurchase/apex/creditcardservice?importe=' + @pagament.import + '&titular=' + URI.escape(titular) + '&descripcion=llibreedifici&idProducto=' + params[:edifici_id] + '&urlresponse=http%3A%2F%2Flocalhost:3000%2Fpagaments%2Fupdate_pagament%3FpagoVisaResult%3Dvalue1%26numorder%3Dvalue2&urlresponseko=http%3A%2F%2Flocalhost:3000%2Fpagaments%2Ferror_factura'
@@ -113,6 +103,57 @@ class PagamentsController < ApplicationController
       htmlstring = 3.times do htmlstring.chop! end
       render html: dades['pagoVisaResult'].html_safe
 
+    end
+  end
+
+  def preu(edifici_id)
+    #Comprovem si hi ha factura d'usuari i empresa i seleccionem quin tipus de factura fem
+    factura_usuari = UsuariFactura.where(edifici_id: edifici_id).last
+    factura_empresa = EmpresaFactura.where(edifici_id: edifici_id).last
+    if factura_usuari == nil
+      if factura_empresa == nil
+        return "no_factura"
+      else
+        tipus_factura = "empresa"
+      end
+    elsif factura_usuari != nil && factura_empresa != nil
+      #Comprovem si l'última factura és per usuari o empresa en el cas que n'hi hagi dues
+      if factura_usuari.created_at < factura_empresa.created_at
+        tipus_factura = "empresa"
+      else
+        tipus_factura = "usuari"
+      end
+    else
+      tipus_factura = "usuari"
+    end
+    
+    if tipus_factura == "usuari"
+      if factura_usuari.colegiat == true
+        if factura_usuari.num_visat_ite != nil && factura_usuari.num_visat_ite != ''
+          return "9.08"
+        else
+          return "18.15"
+        end
+      else
+        return "24.2"
+      end
+      puts "Numero de visat:"
+      puts factura_usuari.num_visat_ite
+    else
+      #Comprovem si té número de client, que podria ser nil
+      if factura_empresa.numclient != nil
+        if factura_empresa.numclient > "19999" && factura_empresa.numclient < "30000"
+          if factura_empresa.num_visat_ite != nil && factura_empresa.num_visat_ite != ''
+            return "9.08"
+          else
+            return "18.15"
+          end
+        else
+          return "24.2"
+        end
+      else
+        return "24.2"
+      end
     end
   end
 
@@ -296,6 +337,6 @@ class PagamentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pagament_params
-      params.require(:pagament).permit(:user_id, :edifici_id, :numorder, :numorden, :import, :resultado, :autorizacion, :pagat, :factura_enviada, :resposta_factura, :num_factura_sap)
+      params.require(:pagament).permit(:user_id, :edifici_id, :numorder, :numorden, :import, :resultado, :autorizacion, :pagat, :factura_enviada, :resposta_factura, :num_factura_sap, :num_visat_ite)
     end
 end

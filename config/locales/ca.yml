@@ -271,6 +271,8 @@ ca:
       titol: "Pagament del Programa de rehabilitació"
       explicacio: "Per crear un Programa de rehabilitació cal realitzar un pagament de 18,15€ (15€ + IVA)."
       preu_no_colegiats: "El preu per a no col·legiats és 24,20€ (20€ + IVA)."
+      preu_ite: "Si sou col·legiats i heu visat la ITE el preu és 9,08€ (7,5€ + IVA)."
+      label_preu_ite: "Número de visat de la ITE"
       explicacio2: "Selecciona si voldràs una factura al teu nom o a nom d'empresa."
       explicacio3: "Escriu el NIF sense espais o guions (-)."
       factura_personal: "Factura personal"

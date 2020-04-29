@@ -40,6 +40,9 @@
 		      	<div class="medium-12 columns">
 		      		<br>
 		      		<p><%= t('.preu_no_colegiats') %></p>
+		      		<p><%= t('.preu_ite') %></p>
+		      		<label class="string"><%= t('.label_preu_ite') %></label>
+		      		<input id="ite" type="text">
 		      	</div>
 		      </div>
       	</div>
@@ -57,6 +60,7 @@
 								<div class="form-inputs">
 				          <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
 				          <%= f.input :edifici_id, :as => :hidden, :input_html => { :value => @edifici.id } %>
+				          <%= f.input :num_visat_ite, :as => :hidden, :input_html => { :class => 'numero-ite' } %>
 				          <%= f.input :nif, :input_html => { :value => @nif_usuari } %>
 			          </div>
 
@@ -74,6 +78,7 @@
 								<div class="form-inputs">
 				          <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
 				          <%= f.input :edifici_id, :as => :hidden, :input_html => { :value => @edifici.id } %>
+				          <%= f.input :num_visat_ite, :as => :hidden, :input_html => { :class => 'numero-ite' } %>
 				          <%= f.input :nif %>
 			          </div>
 
@@ -91,3 +96,9 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	$('#ite').focusout(function() {
+		$('.numero-ite').val($('#ite').val());
+	});
+</script>

@@ -261,6 +261,8 @@ es:
       titol: "Pago del Programa de rehabilitación"
       explicacio: "Para crear un Programa de rehabilitación debes realizar un pago de 18,15€ (15€ + IVA)."
       preu_no_colegiats: "El precio para no colegiados es 24,20€ (20€ + IVA)."
+      preu_ite: "Si sois colegiados y habéis visado la ITE el precio es 9,08€ (7,5€ + IVA)."
+      label_preu_ite: "Número de visado de la ITE"
       explicacio2: "Selecciona si quieres una factura a tu nombre o a nombre de empresa."
       explicacio3: "Escribe el NIF sin espacios ni guiones (-)"
       factura_personal: "Factura personal"

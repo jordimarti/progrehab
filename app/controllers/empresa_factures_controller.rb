@@ -96,6 +96,6 @@ class EmpresaFacturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def empresa_factura_params
-      params.require(:empresa_factura).permit(:user_id, :edifici_id, :nom_juridic, :adreca, :poblacio, :provincia, :pais, :codi_postal, :email, :tipus_client, :nif)
+      params.require(:empresa_factura).permit(:user_id, :edifici_id, :nom_juridic, :adreca, :poblacio, :provincia, :pais, :codi_postal, :email, :tipus_client, :nif, :num_visat_ite)
     end
 end
