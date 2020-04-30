@@ -130,7 +130,8 @@ class PagamentsController < ApplicationController
     if tipus_factura == "usuari"
       if factura_usuari.colegiat == true
         if factura_usuari.num_visat_ite != nil && factura_usuari.num_visat_ite != ''
-          return "9.08"
+          #Aquí hauríem de cobrar 9.08 però de moment cobrem igual fins que quedi controlat el tema de visats
+          return "18.15"
         else
           return "18.15"
         end
