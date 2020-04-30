@@ -59,6 +59,13 @@ class PagamentsController < ApplicationController
     @pagament.edifici_id = params[:edifici_id]
     @pagament.numorder = numorder(params[:edifici_id])
     @pagament.import = preu(params[:edifici_id])
+    tipus_factura = comprova_factura(params[:edifici_id])
+    if tipus_factura == 'usuari'
+      factura = UsuariFactura.where(edifici_id: params[:edifici_id]).last
+    else
+      factura = EmpresaFactura.where(edifici_id: params[:edifici_id]).last
+    end
+    @pagament.num_visat_ite = factura.num_visat_ite
     @pagament.pagat = false
     titular = current_user.name
     #endpoint = 'https://partial-caateebcn-partial.cs82.force.com/bookpurchase/apex/creditcardservice?importe=' + @pagament.import + '&titular=' + URI.escape(titular) + '&descripcion=llibreedifici&idProducto=' + params[:edifici_id] + '&urlresponse=http%3A%2F%2Flocalhost:3000%2Fpagaments%2Fupdate_pagament%3FpagoVisaResult%3Dvalue1%26numorder%3Dvalue2&urlresponseko=http%3A%2F%2Flocalhost:3000%2Fpagaments%2Ferror_factura'
@@ -110,23 +117,7 @@ class PagamentsController < ApplicationController
     #Comprovem si hi ha factura d'usuari i empresa i seleccionem quin tipus de factura fem
     factura_usuari = UsuariFactura.where(edifici_id: edifici_id).last
     factura_empresa = EmpresaFactura.where(edifici_id: edifici_id).last
-    if factura_usuari == nil
-      if factura_empresa == nil
-        return "no_factura"
-      else
-        tipus_factura = "empresa"
-      end
-    elsif factura_usuari != nil && factura_empresa != nil
-      #Comprovem si l'última factura és per usuari o empresa en el cas que n'hi hagi dues
-      if factura_usuari.created_at < factura_empresa.created_at
-        tipus_factura = "empresa"
-      else
-        tipus_factura = "usuari"
-      end
-    else
-      tipus_factura = "usuari"
-    end
-    
+    tipus_factura = comprova_factura(edifici_id)
     if tipus_factura == "usuari"
       if factura_usuari.colegiat == true
         if factura_usuari.num_visat_ite != nil && factura_usuari.num_visat_ite != ''
@@ -145,7 +136,7 @@ class PagamentsController < ApplicationController
       if factura_empresa.numclient != nil
         if factura_empresa.numclient > "19999" && factura_empresa.numclient < "30000"
           if factura_empresa.num_visat_ite != nil && factura_empresa.num_visat_ite != ''
-            return "9.08"
+            return "18.15"
           else
             return "18.15"
           end
@@ -156,6 +147,29 @@ class PagamentsController < ApplicationController
         return "24.2"
       end
     end
+  end
+
+  def comprova_factura(edifici_id)
+    #Comprovem si hi ha factura d'usuari i empresa i seleccionem quin tipus de factura fem
+    factura_usuari = UsuariFactura.where(edifici_id: edifici_id).last
+    factura_empresa = EmpresaFactura.where(edifici_id: edifici_id).last
+    if factura_usuari == nil
+      if factura_empresa == nil
+        return "no_factura"
+      else
+        tipus_factura = "empresa"
+      end
+    elsif factura_usuari != nil && factura_empresa != nil
+      #Comprovem si l'última factura és per usuari o empresa en el cas que n'hi hagi dues
+      if factura_usuari.created_at < factura_empresa.created_at
+        tipus_factura = "empresa"
+      else
+        tipus_factura = "usuari"
+      end
+    else
+      tipus_factura = "usuari"
+    end
+    return tipus_factura
   end
 
 
